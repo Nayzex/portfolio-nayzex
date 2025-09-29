@@ -11,6 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from 'sonner';
+import { plausible } from '@/lib/analytics/plausible';
 import { Loader2, Send, CheckCircle } from 'lucide-react';
 
 // Form validation schema
@@ -70,6 +71,10 @@ export default function ContactForm() {
       // Success
       setIsSubmitted(true);
       reset();
+      
+      // Track successful form submission
+      plausible.trackContactFormSubmit('contact_page');
+      
       toast.success('Message envoyé avec succès !', {
         description: 'Je vous répondrai sous 24-48 heures.',
         duration: 5000,

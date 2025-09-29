@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { Toaster } from 'sonner';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import PlausibleAnalytics from '@/components/common/PlausibleAnalytics';
 
 const locales = ['fr', 'en'];
 
@@ -41,6 +42,7 @@ export default async function LocaleLayout({
             },
           }}
         />
+        <PlausibleAnalytics />
       </div>
     </NextIntlClientProvider>
   );

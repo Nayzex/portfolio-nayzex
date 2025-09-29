@@ -1,0 +1,111 @@
+{
+  "navigation": {
+    "home": "Home",
+    "projects": "Projects",
+    "services": "Services",
+    "process": "Process",
+    "about": "About",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "whatsapp": "WhatsApp",
+    "quote": "Request a Quote"
+  },
+  "home": {
+    "hero": {
+      "title": "Crafting Digital Experiences That Drive Results",
+      "subtitle": "I'm a freelance Web & Mobile developer specializing in creating high-performance, user-centric applications. UX exceptional. Outstanding performance.",
+      "cta_primary": "Work with me",
+      "cta_secondary": "Request a quote"
+    },
+    "featured_projects": {
+      "title": "Signature Projects",
+      "subtitle": "Explore a selection of my best work"
+    },
+    "services": {
+      "title": "My Services",
+      "subtitle": "I offer a range of services to bring your digital products to life.",
+      "web_development": {
+        "title": "Web Development",
+        "description": "Crafting responsive and performant websites tailored to your business needs. From e-commerce platforms to corporate sites, I deliver solutions that drive results.",
+        "price": "From $2,500"
+      },
+      "mobile_development": {
+        "title": "Mobile App Development", 
+        "description": "Building native and cross-platform mobile applications that engage users and provide seamless experiences on iOS and Android devices.",
+        "price": "From $3,000"
+      },
+      "ux_design": {
+        "title": "UX/UI Design",
+        "description": "Creating intuitive and visually appealing user interfaces and experiences that enhance user satisfaction and achieve business objectives.",
+        "price": "From $1,500"
+      },
+      "seo": {
+        "title": "SEO Optimization",
+        "description": "Improving your business's online visibility through proven SEO strategies that increase organic traffic and improve search rankings.",
+        "price": "From $800"
+      }
+    },
+    "process": {
+      "title": "My Process",
+      "subtitle": "A proven methodology for success.",
+      "discovery": {
+        "title": "Discovery & Planning", 
+        "description": "Understanding your goals and requirements."
+      },
+      "design": {
+        "title": "Design & Prototyping",
+        "description": "Creating wireframes and prototypes to visualize the solution."
+      },
+      "development": {
+        "title": "Development & Testing",
+        "description": "Building and rigorously testing the application."
+      },
+      "deployment": {
+        "title": "Deployment & Launch",
+        "description": "Ensuring smooth launch with secure networks."
+      },
+      "maintenance": {
+        "title": "Maintenance & Support",
+        "description": "Providing ongoing support and updates."
+      }
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "subtitle": "Here's what my clients are saying."
+    },
+    "cta": {
+      "title": "Ready to Bring Your Vision to Life?",
+      "button": "Let's Discuss Your Project"
+    }
+  },
+  "footer": {
+    "contact": {
+      "title": "Contact",
+      "email": "hello@nayzex.com",
+      "phone": "+33 6 12 34 56 78",
+      "location": "Paris, France"
+    },
+    "services": {
+      "title": "Services",
+      "web": "Web Development",
+      "mobile": "Mobile Development",
+      "ux": "UX/UI Design", 
+      "seo": "SEO Optimization"
+    },
+    "stack": {
+      "title": "Tech Stack",
+      "frontend": "React, Next.js, TypeScript",
+      "backend": "Node.js, Python, PostgreSQL",
+      "mobile": "React Native, Flutter",
+      "tools": "Figma, Vercel, AWS"
+    },
+    "social": {
+      "title": "Social",
+      "linkedin": "LinkedIn",
+      "github": "GitHub", 
+      "twitter": "Twitter",
+      "dribbble": "Dribbble"
+    },
+    "copyright": "© 2024 Nayzex. All rights reserved."
+  }
+}

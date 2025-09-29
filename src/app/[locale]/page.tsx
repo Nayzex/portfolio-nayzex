@@ -31,21 +31,21 @@ export default function HomePage() {
       title: "E-commerce Platform for Fashion Retailer",
       description: "Developed a responsive e-commerce platform with advanced product filtering and secure payment gateway. Full responsive design.",
       image: "/images/project-ecommerce.jpg",
-      href: "/case-studies/ecommerce-platform",
+      href: "/fr/case-studies/ecommerce-platform",
       tags: ["React", "Next.js", "Stripe"]
     },
     {
       title: "Fitness Tracking App with Personalized Workouts",
       description: "Created a fitness app with real-time tracking, personalized workout plans and social sharing features. iOS and Android compatible.",
       image: "/images/project-fitness.jpg", 
-      href: "/case-studies/fitness-app",
+      href: "/fr/case-studies/mobile-banking",
       tags: ["React Native", "Node.js", "MongoDB"]
     },
     {
       title: "Project Management Tool for Creative Agencies",
       description: "Designed and built a comprehensive project management platform with time tracking, collaboration tools and automated reporting.",
       image: "/images/project-management.jpg",
-      href: "/case-studies/project-management",
+      href: "/fr/case-studies/ecommerce-platform",
       tags: ["Vue.js", "Laravel", "PostgreSQL"]
     }
   ];

@@ -1,12 +1,9 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { notFound } from 'next/navigation';
 import { Toaster } from 'sonner';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import PlausibleAnalytics from '@/components/common/PlausibleAnalytics';
-
-const locales = ['fr', 'en'];
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -19,11 +16,9 @@ export default async function LocaleLayout({
 }: LocaleLayoutProps) {
   const { locale } = await params;
   
-  // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale)) {
-    notFound();
-  }
-
+  // Note: Locale validation is handled by middleware
+  // We trust that only valid locales reach this layout
+  
   const messages = await getMessages();
 
   return (
@@ -51,5 +46,6 @@ export default async function LocaleLayout({
 }
 
 export function generateStaticParams() {
+  const locales = ['fr', 'en'];
   return locales.map((locale) => ({ locale }));
 }

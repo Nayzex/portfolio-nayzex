@@ -3,10 +3,11 @@ import type { Metadata } from 'next';
 import HomePageClient from './HomePageClient';
 
 interface HomePageProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata({ params: { locale } }: HomePageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: HomePageProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'home' });
   
   return {
@@ -15,6 +16,7 @@ export async function generateMetadata({ params: { locale } }: HomePageProps): P
   };
 }
 
-export default function HomePage({ params }: HomePageProps) {
-  return <HomePageClient locale={params.locale} />;
+export default async function HomePage({ params }: HomePageProps) {
+  const { locale } = await params;
+  return <HomePageClient locale={locale} />;
 }

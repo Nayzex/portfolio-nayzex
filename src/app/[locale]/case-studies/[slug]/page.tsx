@@ -12,10 +12,10 @@ import { getCaseStudyBySlug, getAdjacentCaseStudies, getAllCaseStudySlugs } from
 import { Calendar, Clock, ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
 
 interface CaseStudyPageProps {
-  params: { 
+  params: Promise<{ 
     slug: string;
     locale: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -31,7 +31,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: CaseStudyPageProps): Promise<Metadata> {
-  const caseStudy = getCaseStudyBySlug(params.slug);
+  const { slug } = await params;
+  const caseStudy = getCaseStudyBySlug(slug);
   
   if (!caseStudy) {
     return {
@@ -54,14 +55,15 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   };
 }
 
-export default function CaseStudyPage({ params }: CaseStudyPageProps) {
-  const caseStudy = getCaseStudyBySlug(params.slug);
+export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
+  const { slug, locale } = await params;
+  const caseStudy = getCaseStudyBySlug(slug);
   
   if (!caseStudy) {
     notFound();
   }
 
-  const { previous, next } = getAdjacentCaseStudies(params.slug);
+  const { previous, next } = getAdjacentCaseStudies(slug);
 
   return (
     <div>
@@ -70,11 +72,11 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href={`/${params.locale}`}>Home</BreadcrumbLink>
+              <BreadcrumbLink href={`/${locale}`}>Home</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href={`/${params.locale}/projects`}>Projects</BreadcrumbLink>
+              <BreadcrumbLink href={`/${locale}/projects`}>Projects</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
@@ -238,7 +240,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
                 className="bg-white text-[var(--color-accent-a-base)] hover:bg-gray-50"
                 asChild
               >
-                <Link href={`/${params.locale}/contact`}>
+                <Link href={`/${locale}/contact`}>
                   Work with me
                 </Link>
               </Button>
@@ -248,7 +250,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
                 className="border-white text-white hover:bg-white hover:text-[var(--color-accent-a-base)]"
                 asChild
               >
-                <Link href={`/${params.locale}/projects`}>
+                <Link href={`/${locale}/projects`}>
                   Back to Projects
                 </Link>
               </Button>
@@ -263,7 +265,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
           <div className="flex justify-between items-center">
             {previous ? (
               <Link 
-                href={`/${params.locale}/case-studies/${previous.meta.slug}`}
+                href={`/${locale}/case-studies/${previous.meta.slug}`}
                 className="flex items-center gap-3 group hover:text-[var(--color-accent-a-base)] transition-colors"
               >
                 <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
@@ -278,7 +280,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
 
             {next ? (
               <Link 
-                href={`/${params.locale}/case-studies/${next.meta.slug}`}
+                href={`/${locale}/case-studies/${next.meta.slug}`}
                 className="flex items-center gap-3 group hover:text-[var(--color-accent-a-base)] transition-colors text-right"
               >
                 <div>

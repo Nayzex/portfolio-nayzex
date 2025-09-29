@@ -1,10 +1,6 @@
 import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Checkbox } from '@/components/ui/checkbox';
+import ContactForm from '@/components/common/ContactForm';
 import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -32,71 +28,7 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div>
             <h2 className="text-2xl font-semibold mb-6">Envoyez-moi un message</h2>
-            
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="firstName">Prénom *</Label>
-                  <Input id="firstName" required />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="lastName">Nom *</Label>
-                  <Input id="lastName" required />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="email">Email *</Label>
-                <Input id="email" type="email" required />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="company">Entreprise</Label>
-                <Input id="company" />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="budget">Budget du projet</Label>
-                <Select>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Sélectionnez votre budget" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="under-5k">Moins de 5 000€</SelectItem>
-                    <SelectItem value="5k-10k">5 000€ - 10 000€</SelectItem>
-                    <SelectItem value="10k-25k">10 000€ - 25 000€</SelectItem>
-                    <SelectItem value="25k-50k">25 000€ - 50 000€</SelectItem>
-                    <SelectItem value="50k-plus">Plus de 50 000€</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="message">Message *</Label>
-                <Textarea 
-                  id="message" 
-                  rows={6}
-                  placeholder="Décrivez votre projet, vos objectifs et vos contraintes..."
-                  required 
-                />
-              </div>
-
-              <div className="flex items-center space-x-2">
-                <Checkbox id="consent" required />
-                <Label htmlFor="consent" className="text-sm">
-                  J'accepte que mes données soient utilisées pour répondre à ma demande *
-                </Label>
-              </div>
-
-              <Button 
-                type="submit" 
-                size="lg" 
-                className="w-full md:w-auto"
-                style={{ backgroundColor: 'var(--color-accent-a-base)', color: 'white' }}
-              >
-                Envoyer le message
-              </Button>
-            </form>
+            <ContactForm />
           </div>
 
           {/* Contact Info & Quick Contact */}

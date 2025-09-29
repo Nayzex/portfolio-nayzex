@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { Toaster } from 'sonner';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
@@ -30,6 +31,16 @@ export default async function LocaleLayout({
           {children}
         </main>
         <Footer />
+        <Toaster 
+          position="top-right"
+          toastOptions={{
+            style: {
+              background: 'var(--color-surface)',
+              color: 'var(--color-ink)',
+              border: '1px solid var(--color-stroke)',
+            },
+          }}
+        />
       </div>
     </NextIntlClientProvider>
   );

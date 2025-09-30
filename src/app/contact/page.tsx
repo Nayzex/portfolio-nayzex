@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import ContactPageClient from './ContactPageClient';
 
 export const metadata: Metadata = {
-  title: 'Contact - Portfolio Nayzex',
-  description: 'Contactez-moi pour discuter de votre projet de développement web ou mobile',
+  title: "Contact | Portfolio Nathan Siwek - Nayzex",
+  description: "Discutons de votre projet digital. Formulaire de contact, WhatsApp, email - plusieurs moyens de me joindre pour échanger.",
 };
 
 export default function ContactPage() {

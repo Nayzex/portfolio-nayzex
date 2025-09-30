@@ -14,20 +14,27 @@ import { toast } from 'sonner';
 import { plausible } from '@/lib/analytics/plausible';
 import { Loader2, Send, CheckCircle } from 'lucide-react';
 
-// Form validation schema
-const contactFormSchema = z.object({
-  firstName: z.string().min(2, 'Le prénom doit contenir au moins 2 caractères'),
-  lastName: z.string().min(2, 'Le nom doit contenir au moins 2 caractères'),
+// Schema de validation
+const contactSchema = z.object({
+  name: z.string().min(2, 'Le nom doit contenir au moins 2 caractères'),
   email: z.string().email('Adresse email invalide'),
   company: z.string().optional(),
-  budget: z.string().optional(),
+  phone: z.string().optional(),
+  projectType: z.enum(['web', 'mobile', 'both', 'other'], {
+    required_error: 'Veuillez sélectionner un type de projet'
+  }),
+  budget: z.enum(['<5k', '5k-15k', '15k-50k', '>50k', 'not-sure'], {
+    required_error: 'Veuillez sélectionner une fourchette de budget'
+  }),
+  timeline: z.enum(['asap', '1-3months', '3-6months', '6months+', 'not-sure'], {
+    required_error: 'Veuillez sélectionner un délai'
+  }),
   message: z.string().min(10, 'Le message doit contenir au moins 10 caractères'),
-  consent: z.boolean().refine(val => val === true, 'Vous devez accepter le traitement de vos données'),
-  // Honeypot field (hidden)
-  website: z.string().optional()
+  newsletter: z.boolean().default(false),
+  privacy: z.boolean().refine(val => val === true, 'Vous devez accepter la politique de confidentialité')
 });
 
-type ContactFormData = z.infer<typeof contactFormSchema>;
+type ContactForm = z.infer<typeof contactSchema>;
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,21 +45,21 @@ export default function ContactForm() {
     handleSubmit,
     setValue,
     watch,
-    reset,
-    formState: { errors }
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      consent: false,
-      website: '' // Honeypot field
-    }
+    formState: { errors },
+    reset
+  } = useForm<ContactForm>({
+    resolver: zodResolver(contactSchema)
   });
 
-  const watchConsent = watch('consent');
+  const projectType = watch('projectType');
+  const budget = watch('budget');
+  const timeline = watch('timeline');
+  const newsletter = watch('newsletter');
+  const privacy = watch('privacy');
 
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = async (data: ContactForm) => {
     setIsSubmitting(true);
-
+    
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -62,29 +69,21 @@ export default function ContactForm() {
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || 'Erreur lors de l\'envoi du message');
+      if (response.ok) {
+        toast.success('Message envoyé avec succès !', {
+          description: 'Je vous répondrai dans les plus brefs délais.'
+        });
+        plausible('Form Submission', { props: { form: 'contact', type: data.projectType } });
+        setIsSubmitted(true);
+        reset();
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erreur lors de l\'envoi');
       }
-
-      // Success
-      setIsSubmitted(true);
-      reset();
-      
-      // Track successful form submission
-      plausible.trackContactFormSubmit('contact_page');
-      
-      toast.success('Message envoyé avec succès !', {
-        description: 'Je vous répondrai sous 24-48 heures.',
-        duration: 5000,
-      });
-
     } catch (error) {
-      console.error('Contact form error:', error);
+      console.error('Erreur lors de l\'envoi du formulaire:', error);
       toast.error('Erreur lors de l\'envoi', {
-        description: error instanceof Error ? error.message : 'Une erreur inattendue s\'est produite',
-        duration: 5000,
+        description: 'Veuillez réessayer ou me contacter directement.'
       });
     } finally {
       setIsSubmitting(false);
@@ -93,16 +92,13 @@ export default function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="text-center p-8 rounded-xl" style={{ backgroundColor: 'var(--color-surface)' }}>
-        <CheckCircle className="w-16 h-16 mx-auto mb-4" style={{ color: 'var(--color-accent-a-base)' }} />
+      <div className="text-center py-8">
+        <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
         <h3 className="text-xl font-semibold mb-2">Message envoyé !</h3>
-        <p className="text-body mb-4" style={{ color: 'var(--color-ink-subtle)' }}>
-          Merci pour votre message. Je vous répondrai sous 24-48 heures.
+        <p className="text-ink-subtle mb-4">
+          Merci pour votre message. Je vous répondrai dans les plus brefs délais.
         </p>
-        <Button 
-          variant="outline" 
-          onClick={() => setIsSubmitted(false)}
-        >
+        <Button onClick={() => setIsSubmitted(false)}>
           Envoyer un autre message
         </Button>
       </div>
@@ -111,151 +107,185 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      {/* Honeypot field - hidden from users */}
-      <input
-        type="text"
-        {...register('website')}
-        style={{ display: 'none' }}
-        tabIndex={-1}
-        autoComplete="off"
-      />
-
-      {/* Name fields */}
+      {/* Informations personnelles */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="firstName">Prénom *</Label>
+          <Label htmlFor="name">Nom complet *</Label>
           <Input
-            id="firstName"
-            {...register('firstName')}
-            placeholder="Votre prénom"
-            disabled={isSubmitting}
+            id="name"
+            {...register('name')}
+            placeholder="Votre nom"
+            className={errors.name ? 'border-red-500' : ''}
           />
-          {errors.firstName && (
-            <p className="text-sm text-red-600">{errors.firstName.message}</p>
+          {errors.name && (
+            <p className="text-sm text-red-500">{errors.name.message}</p>
           )}
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="lastName">Nom *</Label>
+          <Label htmlFor="email">Email *</Label>
           <Input
-            id="lastName"
-            {...register('lastName')}
-            placeholder="Votre nom"
-            disabled={isSubmitting}
+            id="email"
+            type="email"
+            {...register('email')}
+            placeholder="votre@email.com"
+            className={errors.email ? 'border-red-500' : ''}
           />
-          {errors.lastName && (
-            <p className="text-sm text-red-600">{errors.lastName.message}</p>
+          {errors.email && (
+            <p className="text-sm text-red-500">{errors.email.message}</p>
           )}
         </div>
       </div>
 
-      {/* Email */}
-      <div className="space-y-2">
-        <Label htmlFor="email">Email *</Label>
-        <Input
-          id="email"
-          type="email"
-          {...register('email')}
-          placeholder="votre.email@example.com"
-          disabled={isSubmitting}
-        />
-        {errors.email && (
-          <p className="text-sm text-red-600">{errors.email.message}</p>
-        )}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <Label htmlFor="company">Entreprise (optionnel)</Label>
+          <Input
+            id="company"
+            {...register('company')}
+            placeholder="Nom de votre entreprise"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="phone">Téléphone (optionnel)</Label>
+          <Input
+            id="phone"
+            type="tel"
+            {...register('phone')}
+            placeholder="+33 1 23 45 67 89"
+          />
+        </div>
       </div>
 
-      {/* Company */}
-      <div className="space-y-2">
-        <Label htmlFor="company">Entreprise</Label>
-        <Input
-          id="company"
-          {...register('company')}
-          placeholder="Nom de votre entreprise (optionnel)"
-          disabled={isSubmitting}
-        />
+      {/* Détails du projet */}
+      <div className="space-y-4">
+        <h3 className="text-lg font-medium">Détails du projet</h3>
+        
+        <div className="space-y-2">
+          <Label htmlFor="projectType">Type de projet *</Label>
+          <Select onValueChange={(value) => setValue('projectType', value as any)}>
+            <SelectTrigger className={errors.projectType ? 'border-red-500' : ''}>
+              <SelectValue placeholder="Sélectionnez le type de projet" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="web">Site web / Application web</SelectItem>
+              <SelectItem value="mobile">Application mobile</SelectItem>
+              <SelectItem value="both">Web + Mobile</SelectItem>
+              <SelectItem value="other">Autre</SelectItem>
+            </SelectContent>
+          </Select>
+          {errors.projectType && (
+            <p className="text-sm text-red-500">{errors.projectType.message}</p>
+          )}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <Label htmlFor="budget">Budget approximatif *</Label>
+            <Select onValueChange={(value) => setValue('budget', value as any)}>
+              <SelectTrigger className={errors.budget ? 'border-red-500' : ''}>
+                <SelectValue placeholder="Fourchette de budget" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="<5k">Moins de 5k €</SelectItem>
+                <SelectItem value="5k-15k">5k - 15k €</SelectItem>
+                <SelectItem value="15k-50k">15k - 50k €</SelectItem>
+                <SelectItem value=">50k">Plus de 50k €</SelectItem>
+                <SelectItem value="not-sure">Je ne sais pas encore</SelectItem>
+              </SelectContent>
+            </Select>
+            {errors.budget && (
+              <p className="text-sm text-red-500">{errors.budget.message}</p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="timeline">Délai souhaité *</Label>
+            <Select onValueChange={(value) => setValue('timeline', value as any)}>
+              <SelectTrigger className={errors.timeline ? 'border-red-500' : ''}>
+                <SelectValue placeholder="Quand lancer le projet ?" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="asap">Dès que possible</SelectItem>
+                <SelectItem value="1-3months">Dans 1-3 mois</SelectItem>
+                <SelectItem value="3-6months">Dans 3-6 mois</SelectItem>
+                <SelectItem value="6months+">Dans plus de 6 mois</SelectItem>
+                <SelectItem value="not-sure">Pas encore défini</SelectItem>
+              </SelectContent>
+            </Select>
+            {errors.timeline && (
+              <p className="text-sm text-red-500">{errors.timeline.message}</p>
+            )}
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="message">Décrivez votre projet *</Label>
+          <Textarea
+            id="message"
+            {...register('message')}
+            placeholder="Décrivez votre projet, vos objectifs, vos besoins spécifiques..."
+            rows={5}
+            className={errors.message ? 'border-red-500' : ''}
+          />
+          {errors.message && (
+            <p className="text-sm text-red-500">{errors.message.message}</p>
+          )}
+        </div>
       </div>
 
-      {/* Budget */}
-      <div className="space-y-2">
-        <Label htmlFor="budget">Budget du projet</Label>
-        <Select onValueChange={(value) => setValue('budget', value)} disabled={isSubmitting}>
-          <SelectTrigger>
-            <SelectValue placeholder="Sélectionnez votre budget (optionnel)" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="under-5k">Moins de 5 000€</SelectItem>
-            <SelectItem value="5k-10k">5 000€ - 10 000€</SelectItem>
-            <SelectItem value="10k-25k">10 000€ - 25 000€</SelectItem>
-            <SelectItem value="25k-50k">25 000€ - 50 000€</SelectItem>
-            <SelectItem value="50k-plus">Plus de 50 000€</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-
-      {/* Message */}
-      <div className="space-y-2">
-        <Label htmlFor="message">Message *</Label>
-        <Textarea
-          id="message"
-          {...register('message')}
-          rows={6}
-          placeholder="Décrivez votre projet, vos objectifs et vos contraintes..."
-          disabled={isSubmitting}
-        />
-        {errors.message && (
-          <p className="text-sm text-red-600">{errors.message.message}</p>
-        )}
-      </div>
-
-      {/* Consent */}
-      <div className="flex items-start space-x-2">
-        <Checkbox
-          id="consent"
-          checked={watchConsent}
-          onCheckedChange={(checked) => setValue('consent', !!checked)}
-          disabled={isSubmitting}
-        />
-        <div className="space-y-1">
-          <Label htmlFor="consent" className="text-sm font-normal cursor-pointer">
-            J'accepte que mes données soient utilisées pour répondre à ma demande *
+      {/* Options et consentements */}
+      <div className="space-y-4">
+        <div className="flex items-center space-x-2">
+          <Checkbox
+            id="newsletter"
+            checked={newsletter}
+            onCheckedChange={(checked) => setValue('newsletter', !!checked)}
+          />
+          <Label htmlFor="newsletter" className="text-sm">
+            Je souhaite recevoir des conseils et actualités sur le développement web/mobile
           </Label>
-          {errors.consent && (
-            <p className="text-sm text-red-600">{errors.consent.message}</p>
-          )}
         </div>
+
+        <div className="flex items-center space-x-2">
+          <Checkbox
+            id="privacy"
+            checked={privacy}
+            onCheckedChange={(checked) => setValue('privacy', !!checked)}
+            className={errors.privacy ? 'border-red-500' : ''}
+          />
+          <Label htmlFor="privacy" className="text-sm">
+            J'accepte la politique de confidentialité et le traitement de mes données *
+          </Label>
+        </div>
+        {errors.privacy && (
+          <p className="text-sm text-red-500">{errors.privacy.message}</p>
+        )}
       </div>
 
-      {/* Privacy notice */}
-      <div 
-        className="p-4 rounded-lg text-sm"
-        style={{ backgroundColor: 'var(--color-surface)' }}
-      >
-        <p style={{ color: 'var(--color-ink-subtle)' }}>
-          🔒 Vos données sont traitées de manière confidentielle et ne seront jamais partagées avec des tiers. 
-          Elles sont utilisées uniquement pour répondre à votre demande.
-        </p>
-      </div>
-
-      {/* Submit button */}
       <Button
         type="submit"
         size="lg"
-        disabled={isSubmitting || !watchConsent}
-        className="w-full md:w-auto"
-        style={{ backgroundColor: 'var(--color-accent-a-base)', color: 'white' }}
+        disabled={isSubmitting}
+        className="w-full"
       >
         {isSubmitting ? (
           <>
-            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             Envoi en cours...
           </>
         ) : (
           <>
-            <Send className="w-4 h-4 mr-2" />
+            <Send className="mr-2 h-4 w-4" />
             Envoyer le message
           </>
         )}
       </Button>
+
+      <p className="text-xs text-ink-subtle text-center">
+        Vos données sont protégées et ne seront jamais partagées avec des tiers.
+      </p>
     </form>
   );
 }

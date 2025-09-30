@@ -1,48 +1,51 @@
-import type { Metadata } from "next";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { Toaster } from 'sonner';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import PlausibleAnalytics from '@/components/common/PlausibleAnalytics';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Portfolio Nayzex | Développeur Web & Mobile",
-  description: "Portfolio professionnel de Nathan Siwek - Développeur Web & Mobile spécialisé dans React, Next.js et React Native",
-  keywords: ["développeur web", "développeur mobile", "React", "Next.js", "TypeScript", "portfolio"],
-  authors: [{ name: "Nathan Siwek" }],
-  openGraph: {
-    title: "Portfolio Nayzex | Développeur Web & Mobile",
-    description: "Développeur Web & Mobile spécialisé dans React, Next.js et React Native",
-    type: "website",
-    locale: "fr_FR",
-  },
-};
-
-export default async function RootLayout({
-  children,
-}: Readonly<{
+interface LocaleLayoutProps {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function LocaleLayout({
+  children,
+  params
+}: LocaleLayoutProps) {
+  const { locale } = await params;
+  
+  // Note: Locale validation is handled by middleware
+  // We trust that only valid locales reach this layout
+  
   const messages = await getMessages();
 
   return (
-    <html lang="fr">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <NextIntlClientProvider messages={messages}>
+    <NextIntlClientProvider messages={messages}>
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1">
           {children}
-        </NextIntlClientProvider>
-      </body>
-    </html>
+        </main>
+        <Footer />
+        <Toaster 
+          position="top-right"
+          toastOptions={{
+            style: {
+              background: 'var(--color-surface)',
+              color: 'var(--color-ink)',
+              border: '1px solid var(--color-stroke)',
+            },
+          }}
+        />
+        <PlausibleAnalytics />
+      </div>
+    </NextIntlClientProvider>
   );
+}
+
+export function generateStaticParams() {
+  const locales = ['fr', 'en'];
+  return locales.map((locale) => ({ locale }));
 }

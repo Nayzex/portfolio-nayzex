@@ -1,150 +1,163 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 
 export default function Footer() {
-  const t = useTranslations('footer');
+  const navigation = {
+    contact: [
+      { name: 'Email', href: 'mailto:contact@nayzex.dev' },
+      { name: 'WhatsApp', href: 'https://wa.me/33123456789' },
+      { name: 'Formulaire', href: '/contact' },
+    ],
+    services: [
+      { name: 'Développement Web', href: '/services-and-stack#web' },
+      { name: 'Applications Mobile', href: '/services-and-stack#mobile' },
+      { name: 'Design UI/UX', href: '/services-and-stack#design' },
+      { name: 'Consulting', href: '/services-and-stack#consulting' },
+    ],
+    tech: [
+      { name: 'React & Next.js', href: '/services-and-stack#react' },
+      { name: 'React Native', href: '/services-and-stack#mobile' },
+      { name: 'TypeScript', href: '/services-and-stack#typescript' },
+      { name: 'Node.js', href: '/services-and-stack#backend' },
+    ],
+    company: [
+      { name: 'À propos', href: '/about' },
+      { name: 'Projets', href: '/projects' },
+      { name: 'Processus', href: '/process' },
+      { name: 'Témoignages', href: '/testimonials' },
+    ],
+  };
 
-  const currentYear = new Date().getFullYear();
+  const social = [
+    { name: 'GitHub', href: 'https://github.com', icon: Github },
+    { name: 'LinkedIn', href: 'https://linkedin.com', icon: Linkedin },
+    { name: 'Twitter', href: 'https://twitter.com', icon: Twitter },
+    { name: 'Email', href: 'mailto:contact@nayzex.dev', icon: Mail },
+  ];
 
   return (
-    <footer 
-      className="border-t"
-      style={{ 
-        backgroundColor: 'var(--color-surface)',
-        borderColor: 'var(--color-stroke)'
-      }}
-    >
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Contact */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4" style={{ color: 'var(--color-ink)' }}>
-              {t('contact.title')}
-            </h3>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-center space-x-3">
-                <Mail className="h-4 w-4" style={{ color: 'var(--color-ink-subtle)' }} />
-                <a 
-                  href="mailto:hello@nayzex.com"
-                  className="hover:text-[var(--color-accent-a-base)] transition-colors"
-                  style={{ color: 'var(--color-ink-subtle)' }}
-                >
-                  {t('contact.email')}
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="h-4 w-4" style={{ color: 'var(--color-ink-subtle)' }} />
-                <a 
-                  href="tel:+33612345678"
-                  className="hover:text-[var(--color-accent-a-base)] transition-colors"
-                  style={{ color: 'var(--color-ink-subtle)' }}
-                >
-                  {t('contact.phone')}
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <MapPin className="h-4 w-4" style={{ color: 'var(--color-ink-subtle)' }} />
-                <span style={{ color: 'var(--color-ink-subtle)' }}>
-                  {t('contact.location')}
-                </span>
+    <footer className="bg-surface border-t">
+      <div className="container mx-auto px-4">
+        <div className="py-12 lg:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            {/* Brand */}
+            <div className="lg:col-span-1">
+              <Link href="/" className="flex items-center space-x-2 mb-4">
+                <div className="w-8 h-8 bg-accent-a-base rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">N</span>
+                </div>
+                <span className="font-bold text-lg">Nayzex</span>
+              </Link>
+              <p className="text-ink-subtle mb-4 max-w-sm">
+                Développeur Web & Mobile spécialisé en React, Next.js et React Native. 
+                Créons ensemble votre prochain projet digital.
+              </p>
+              <div className="flex space-x-4">
+                {social.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-ink-subtle hover:text-accent-a-base transition-colors"
+                    target={item.href.startsWith('http') ? '_blank' : undefined}
+                    rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  >
+                    <span className="sr-only">{item.name}</span>
+                    <item.icon className="h-5 w-5" />
+                  </a>
+                ))}
               </div>
             </div>
-          </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4" style={{ color: 'var(--color-ink)' }}>
-              {t('services.title')}
-            </h3>
-            <div className="space-y-2 text-sm">
-              <div style={{ color: 'var(--color-ink-subtle)' }}>
-                {t('services.web')}
-              </div>
-              <div style={{ color: 'var(--color-ink-subtle)' }}>
-                {t('services.mobile')}
-              </div>
-              <div style={{ color: 'var(--color-ink-subtle)' }}>
-                {t('services.ux')}
-              </div>
-              <div style={{ color: 'var(--color-ink-subtle)' }}>
-                {t('services.seo')}
-              </div>
+            {/* Contact */}
+            <div>
+              <h3 className="font-semibold text-ink mb-4">Contact</h3>
+              <ul className="space-y-2">
+                {navigation.contact.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-ink-subtle hover:text-accent-a-base transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
 
-          {/* Tech Stack */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4" style={{ color: 'var(--color-ink)' }}>
-              {t('stack.title')}
-            </h3>
-            <div className="space-y-2 text-sm">
-              <div style={{ color: 'var(--color-ink-subtle)' }}>
-                {t('stack.frontend')}
-              </div>
-              <div style={{ color: 'var(--color-ink-subtle)' }}>
-                {t('stack.backend')}
-              </div>
-              <div style={{ color: 'var(--color-ink-subtle)' }}>
-                {t('stack.mobile')}
-              </div>
-              <div style={{ color: 'var(--color-ink-subtle)' }}>
-                {t('stack.tools')}
-              </div>
+            {/* Services */}
+            <div>
+              <h3 className="font-semibold text-ink mb-4">Services</h3>
+              <ul className="space-y-2">
+                {navigation.services.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-ink-subtle hover:text-accent-a-base transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
 
-          {/* Social */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4" style={{ color: 'var(--color-ink)' }}>
-              {t('social.title')}
-            </h3>
-            <div className="flex space-x-4">
-              <a
-                href="https://linkedin.com/in/nathansiwek"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[var(--color-accent-a-base)] transition-colors"
-                style={{ color: 'var(--color-ink-subtle)' }}
-                aria-label={t('social.linkedin')}
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="https://github.com/nayzex"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[var(--color-accent-a-base)] transition-colors"
-                style={{ color: 'var(--color-ink-subtle)' }}
-                aria-label={t('social.github')}
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a
-                href="https://twitter.com/nayzex"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[var(--color-accent-a-base)] transition-colors"
-                style={{ color: 'var(--color-ink-subtle)' }}
-                aria-label={t('social.twitter')}
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
+            {/* Technologies */}
+            <div>
+              <h3 className="font-semibold text-ink mb-4">Technologies</h3>
+              <ul className="space-y-2">
+                {navigation.tech.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-ink-subtle hover:text-accent-a-base transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h3 className="font-semibold text-ink mb-4">Portfolio</h3>
+              <ul className="space-y-2">
+                {navigation.company.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-ink-subtle hover:text-accent-a-base transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div 
-          className="mt-8 pt-8 border-t text-center text-sm"
-          style={{ 
-            borderColor: 'var(--color-stroke)',
-            color: 'var(--color-ink-subtle)'
-          }}
-        >
-          {t('copyright')}
+        {/* Bottom */}
+        <div className="border-t py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-ink-subtle text-sm">
+              © {new Date().getFullYear()} Nayzex - Nathan Siwek. Tous droits réservés.
+            </p>
+            <div className="flex space-x-6 text-sm">
+              <Link href="/legal/privacy" className="text-ink-subtle hover:text-accent-a-base transition-colors">
+                Politique de confidentialité
+              </Link>
+              <Link href="/legal/terms" className="text-ink-subtle hover:text-accent-a-base transition-colors">
+                Conditions d'utilisation
+              </Link>
+              <Link href="/legal/mentions" className="text-ink-subtle hover:text-accent-a-base transition-colors">
+                Mentions légales
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

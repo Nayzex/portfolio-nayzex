@@ -22,15 +22,15 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4">
+    <header className="sticky top-0 z-50 w-screen border-b border-gray-700" style={{ backgroundColor: '#000000' }}>
+      <div className="w-full max-w-screen-2xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-accent-a-base rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">N</span>
             </div>
-            <span className="font-bold text-lg">Nayzex</span>
+            <span className="font-bold text-lg text-white">Nayzex</span>
           </Link>
 
           {/* Navigation Desktop */}
@@ -39,10 +39,10 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-accent-a-base ${
+                className={`text-sm font-medium transition-colors hover:text-violet-400 border-b-2 ${
                   pathname === item.href
-                    ? 'text-accent-a-base'
-                    : 'text-ink-subtle'
+                    ? 'text-violet-600 font-semibold border-violet-600'
+                    : 'text-white border-transparent'
                 }`}
               >
                 {item.name}
@@ -53,21 +53,22 @@ export default function Header() {
           {/* CTAs Desktop */}
           <div className="hidden md:flex items-center space-x-4">
             <Button 
-              variant="outline" 
               size="sm"
               asChild
+              className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
               onClick={() => plausible('CTA Click', { props: { location: 'Header WhatsApp' } })}
             >
-              <a href="https://wa.me/33123456789" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/33123456789" target="_blank" rel="noopener noreferrer" className="text-black hover:text-violet-600">
                 WhatsApp
               </a>
             </Button>
             <Button 
               size="sm"
               asChild
+              className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
               onClick={() => plausible('CTA Click', { props: { location: 'Header Quote' } })}
             >
-              <Link href="/contact">
+              <Link href="/contact" className="text-black hover:text-violet-600">
                 Demander un devis
               </Link>
             </Button>
@@ -80,9 +81,9 @@ export default function Header() {
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
-              <X className="h-6 w-6" />
+              <X className="h-6 w-6 text-white" />
             ) : (
-              <Menu className="h-6 w-6" />
+              <Menu className="h-6 w-6 text-white" />
             )}
           </button>
         </div>
@@ -95,10 +96,10 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`block px-3 py-2 text-base font-medium transition-colors hover:text-accent-a-base ${
+                  className={`block px-3 py-2 text-base font-medium transition-colors hover:text-violet-400 ${
                     pathname === item.href
-                      ? 'text-accent-a-base bg-accent-a-base/10'
-                      : 'text-ink-subtle'
+                      ? 'text-violet-600 bg-violet-50 font-semibold'
+                      : 'text-white'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -107,21 +108,22 @@ export default function Header() {
               ))}
               <div className="flex flex-col space-y-2 px-3 pt-4">
                 <Button 
-                  variant="outline" 
                   size="sm"
                   asChild
+                  className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
                   onClick={() => plausible('CTA Click', { props: { location: 'Mobile Header WhatsApp' } })}
                 >
-                  <a href="https://wa.me/33123456789" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/33123456789" target="_blank" rel="noopener noreferrer" className="text-black hover:text-violet-600">
                     WhatsApp
                   </a>
                 </Button>
                 <Button 
                   size="sm"
                   asChild
+                  className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
                   onClick={() => plausible('CTA Click', { props: { location: 'Mobile Header Quote' } })}
                 >
-                  <Link href="/contact">
+                  <Link href="/contact" className="text-black hover:text-violet-600">
                     Demander un devis
                   </Link>
                 </Button>

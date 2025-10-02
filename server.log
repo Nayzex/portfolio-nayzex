@@ -1,0 +1,76 @@
+
+> nayzex-portfolio@0.1.0 dev
+> next dev --turbopack
+
+   ▲ Next.js 15.5.4 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://10.4.1.78:3000
+   - Experiments (use with caution):
+     ✓ mdxRs
+
+ ✓ Starting...
+ ✓ Ready in 637ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1229ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/static/development/_buildManifest.js.tmp.m3kz141p0v'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/static/development/_buildManifest.js.tmp.m3kz141p0v'
+}
+ ✓ Compiled /_error in 472ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/static/development/_buildManifest.js.tmp.opjj2a9wygi'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/static/development/_buildManifest.js.tmp.opjj2a9wygi'
+}
+[Error: ENOENT: no such file or directory, open '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/static/development/_buildManifest.js.tmp.m3kz141p0v'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/static/development/_buildManifest.js.tmp.m3kz141p0v'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/static/development/_buildManifest.js.tmp.ezogrx7nubw'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/static/development/_buildManifest.js.tmp.ezogrx7nubw'
+}
+[Error: ENOENT: no such file or directory, open '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/static/development/_buildManifest.js.tmp.304qtl0wq0d'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/static/development/_buildManifest.js.tmp.304qtl0wq0d'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/server/app/page/app-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/server/app/page/app-build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/server/app/page/app-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/server/app/page/app-build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/server/pages/_app/build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/server/pages/_app/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/nathansiwek/Documents/dev/PersonnalProjetcs/portfolio-nayzex/nayzex-portfolio/.next/server/pages/_app/build-manifest.json'
+}
+[?25h

@@ -2,8 +2,6 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Smartphone } from 'lucide-react';
 
 interface ProjectCardProps {
   title: string;
@@ -23,35 +21,28 @@ export default function ProjectCard({
   className = "" 
 }: ProjectCardProps) {
   return (
-    <motion.div
-      whileHover={{ y: -2 }}
-      transition={{ duration: 0.2, ease: 'easeOut' }}
-      className={`group relative overflow-hidden rounded-xl ${className}`}
-      style={{ 
-        backgroundColor: 'var(--color-surface)',
-        boxShadow: 'var(--shadow-md)'
-      }}
+    <div
+      className={`group relative overflow-hidden rounded-xl hover:-translate-y-1 transition-transform duration-300 border border-gray-700 ${className}`}
+      style={{ backgroundColor: '#343a40' }}
     >
       <Link href={href} className="block">
         {/* Image */}
-        <div 
-          className="relative aspect-[4/3] overflow-hidden flex items-center justify-center"
-          style={{ backgroundColor: 'var(--color-accent-b-subtle)' }}
-        >
-          <div style={{ color: 'var(--color-accent-b-base)' }}>
-            <Smartphone className="w-16 h-16" />
-          </div>
+        <div className="relative aspect-[4/3] overflow-hidden">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
         </div>
 
         {/* Content */}
         <div className="p-6">
-          <h3 className="text-xl font-semibold mb-2 group-hover:text-[var(--color-accent-a-base)] transition-colors">
+          <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-violet-500 transition-colors">
             {title}
           </h3>
-          <p 
-            className="text-body mb-4 line-clamp-2" 
-            style={{ color: 'var(--color-ink-subtle)' }}
-          >
+          <p className="text-body mb-4 line-clamp-2 text-gray-300">
             {description}
           </p>
           
@@ -61,11 +52,7 @@ export default function ProjectCard({
               {tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 text-xs font-medium rounded-full"
-                  style={{ 
-                    backgroundColor: 'var(--color-accent-a-subtle)',
-                    color: 'var(--color-accent-a-base)'
-                  }}
+                  className="px-3 py-1 text-xs font-medium rounded-full bg-violet-100 text-violet-700"
                 >
                   {tag}
                 </span>
@@ -74,6 +61,6 @@ export default function ProjectCard({
           )}
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }

@@ -82,6 +82,225 @@
   --focus-ring: 0 0 0 2px var(--color-accent-a-base);
 }
 
+/* === Utility Classes === */
+.text-clamp-hero-title {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-tight);
+  font-weight: 800;
+}
+
+.text-lead {
+  font-size: var(--font-size-lead);
+  line-height: var(--line-height-normal);
+}
+
+.text-body {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-normal);
+}
+
+/* === Animations === */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+/* === Responsive Containers === */
+.container {
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* === Improved Typography === */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  color: var(--color-ink);
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+/* === Enhanced Buttons === */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent-a-base), var(--color-accent-b-base));
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  border: 1px solid var(--color-stroke);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--color-accent-a-base);
+  color: white;
+  border-color: var(--color-accent-a-base);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* === Card Enhancements === */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  border: 1px solid var(--color-stroke);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* === CORRECTION GLOBALE DES BOUTONS === */
+/* Force la visibilité du texte des boutons */
+button, .btn, [role="button"] {
+  color: var(--color-ink) !important;
+}
+
+/* Boutons avec fond blanc - texte toujours noir */
+button.bg-white, .btn.bg-white, [role="button"].bg-white,
+.bg-white button, .bg-white .btn, .bg-white [role="button"] {
+  color: #000000 !important;
+}
+
+/* Boutons avec fond coloré - texte toujours blanc */
+button.bg-accent-a-base, .btn.bg-accent-a-base,
+button.bg-accent-b-base, .btn.bg-accent-b-base,
+.bg-accent-a-base, .bg-accent-b-base {
+  color: #ffffff !important;
+}
+
+/* Au hover - styles clairs */
+button:hover, .btn:hover, [role="button"]:hover {
+  color: var(--color-accent-a-base) !important;
+}
+
+button.bg-white:hover, .btn.bg-white:hover {
+  background-color: var(--color-accent-a-base) !important;
+  color: #ffffff !important;
+}
+
+/* === CORRECTION SPÉCIFIQUE POUR LES BOUTONS PROBLÉMATIQUES === */
+/* Ciblage ultra-spécifique des boutons avec texte blanc invisible */
+.bg-surface button,
+.bg-surface .btn,
+.rounded-lg button,
+div[class*="bg-surface"] button,
+div[class*="rounded"] button {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+}
+
+.bg-surface button:hover,
+.bg-surface .btn:hover,
+.rounded-lg button:hover,
+div[class*="bg-surface"] button:hover,
+div[class*="rounded"] button:hover {
+  background-color: #8B5CF6 !important;
+  color: #ffffff !important;
+}
+
+/* === CORRECTION ULTRA-SPÉCIFIQUE POUR LA PAGE D'ACCUEIL === */
+/* Force TOUS les boutons et liens de la page d'accueil */
+button *,
+.btn *,
+[role="button"] *,
+a button,
+a button *,
+button a,
+button a * {
+  color: inherit !important;
+}
+
+/* Styles par défaut pour TOUS les boutons */
+button, 
+.btn, 
+[role="button"],
+button span,
+button a,
+.btn span,
+.btn a {
+  color: #000000 !important;
+}
+
+/* Au hover - couleur violette pour le texte */
+button:hover, 
+button:hover *,
+.btn:hover,
+.btn:hover *,
+[role="button"]:hover,
+[role="button"]:hover *,
+button:hover span,
+button:hover a {
+  color: #8B5CF6 !important;
+}
+
+/* Exceptions pour les boutons avec fond coloré */
+button[class*="bg-accent"],
+button[class*="bg-violet"],
+.btn[class*="bg-accent"],
+.btn[class*="bg-violet"] {
+  color: #ffffff !important;
+}
+
+button[class*="bg-accent"]:hover,
+button[class*="bg-violet"]:hover,
+.btn[class*="bg-accent"]:hover,
+.btn[class*="bg-violet"]:hover {
+  color: #ffffff !important;
+}
+
 /* === Dark Mode (optional for V1) === */
 @media (prefers-color-scheme: dark) {
   :root {

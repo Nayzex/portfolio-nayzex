@@ -1,51 +1,63 @@
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from 'sonner';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import PlausibleAnalytics from '@/components/common/PlausibleAnalytics';
+import "./globals.css";
 
-interface LocaleLayoutProps {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
 
-export default async function LocaleLayout({
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Portfolio Nayzex | Développeur Web & Mobile",
+  description: "Portfolio professionnel de Nathan Siwek - Développeur Web & Mobile spécialisé dans React, Next.js et React Native",
+  keywords: ["développeur web", "développeur mobile", "React", "Next.js", "TypeScript", "portfolio"],
+  authors: [{ name: "Nathan Siwek" }],
+  openGraph: {
+    title: "Portfolio Nayzex | Développeur Web & Mobile",
+    description: "Développeur Web & Mobile spécialisé dans React, Next.js et React Native",
+    type: "website",
+    locale: "fr_FR",
+  },
+};
+
+export default function RootLayout({
   children,
-  params
-}: LocaleLayoutProps) {
-  const { locale } = await params;
-  
-  // Note: Locale validation is handled by middleware
-  // We trust that only valid locales reach this layout
-  
-  const messages = await getMessages();
-
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <NextIntlClientProvider messages={messages}>
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <Toaster 
-          position="top-right"
-          toastOptions={{
-            style: {
-              background: 'var(--color-surface)',
-              color: 'var(--color-ink)',
-              border: '1px solid var(--color-stroke)',
-            },
-          }}
-        />
-        <PlausibleAnalytics />
-      </div>
-    </NextIntlClientProvider>
+    <html lang="fr">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              style: {
+                background: 'var(--color-surface)',
+                color: 'var(--color-ink)',
+                border: '1px solid var(--color-stroke)',
+              },
+            }}
+          />
+          <PlausibleAnalytics />
+        </div>
+      </body>
+    </html>
   );
-}
-
-export function generateStaticParams() {
-  const locales = ['fr', 'en'];
-  return locales.map((locale) => ({ locale }));
 }

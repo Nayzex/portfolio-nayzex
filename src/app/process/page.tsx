@@ -11,102 +11,102 @@ export const metadata: Metadata = {
 const processSteps = [
   {
     number: 1,
-    title: "Discovery & Planning",
-    duration: "1-2 weeks",
+    title: "Découverte & Planification",
+    duration: "1 à 2 semaines",
     icon: Lightbulb,
-    description: "Understanding your goals and requirements.",
+    description: "Comprendre vos objectifs et exigences.",
     details: [
-      "Stakeholder interviews and requirements gathering",
-      "User research and competitive analysis", 
-      "Technical architecture planning",
-      "Project timeline and milestone definition",
-      "Risk assessment and mitigation strategies"
+      "Entretiens avec les parties prenantes et collecte des exigences",
+      "Recherche utilisateur et analyse concurrentielle", 
+      "Planification de l'architecture technique",
+      "Définition du calendrier et des jalons du projet",
+      "Évaluation des risques et stratégies d'atténuation"
     ],
     deliverables: [
-      "Project brief and requirements document",
-      "Technical specification",
-      "Project timeline and milestones",
-      "Budget estimate and proposal"
+      "Brief projet et document d'exigences",
+      "Spécification technique",
+      "Calendrier et jalons du projet",
+      "Estimation budgétaire et proposition"
     ]
   },
   {
     number: 2,
-    title: "Design & Prototyping",
-    duration: "2-3 weeks",
+    title: "Design & Prototypage",
+    duration: "1 à 2 semaines",
     icon: Users,
-    description: "Creating wireframes and prototypes to visualize the solution.",
+    description: "Créer des wireframes et prototypes pour visualiser la solution.",
     details: [
-      "User experience (UX) design and user journey mapping",
-      "User interface (UI) design with modern design principles",
-      "Interactive prototypes for user testing",
-      "Design system creation with consistent components",
-      "Accessibility and usability considerations"
+      "Design d'expérience utilisateur (UX) et cartographie du parcours utilisateur",
+      "Design d'interface utilisateur (UI) avec des principes de design modernes",
+      "Prototypes interactifs pour les tests utilisateur",
+      "Création d'un système de design avec des composants cohérents",
+      "Considérations d'accessibilité et d'utilisabilité"
     ],
     deliverables: [
-      "Wireframes and user flow diagrams",
-      "High-fidelity design mockups",
-      "Interactive prototype",
-      "Design system and style guide"
+      "Wireframes et diagrammes de flux utilisateur",
+      "Maquettes de design haute fidélité",
+      "Prototype interactif",
+      "Système de design et guide de style"
     ]
   },
   {
     number: 3,
-    title: "Development & Testing",
-    duration: "4-8 weeks",
+    title: "Développement & Tests",
+    duration: "4 à 5 semaines",
     icon: Code,
-    description: "Building and rigorously testing the application.",
+    description: "Construire et tester rigoureusement l'application.",
     details: [
-      "Agile development with weekly sprints",
-      "Clean, maintainable code following best practices",
-      "Comprehensive testing (unit, integration, e2e)",
-      "Performance optimization and security implementation",
-      "Regular progress updates and demo sessions"
+      "Développement agile avec des sprints hebdomadaires",
+      "Code propre et maintenable suivant les meilleures pratiques",
+      "Tests complets (unitaire, intégration, e2e)",
+      "Optimisation des performances et implémentation de la sécurité",
+      "Mises à jour régulières du progrès et sessions de démonstration"
     ],
     deliverables: [
-      "Fully functional application",
-      "Test coverage reports",
-      "Performance optimization reports",
-      "Security audit results"
+      "Application entièrement fonctionnelle",
+      "Rapports de couverture de tests",
+      "Rapports d'optimisation des performances",
+      "Résultats d'audit de sécurité"
     ]
   },
   {
     number: 4,
-    title: "Deployment & Launch",
-    duration: "1 week",
+    title: "Déploiement & Lancement",
+    duration: "1 à 2 semaines",
     icon: Rocket,
-    description: "Ensuring smooth launch with secure networks.",
+    description: "Assurer un lancement en douceur avec des réseaux sécurisés.",
     details: [
-      "Production environment setup and configuration",
-      "CI/CD pipeline implementation",
-      "Monitoring and analytics setup",
-      "SSL certificates and security configurations",
-      "Backup and disaster recovery procedures"
+      "Configuration et mise en place de l'environnement de production",
+      "Implémentation du pipeline CI/CD si besoin",
+      "Configuration du monitoring et des analytics",
+      "Certificats SSL et configurations de sécurité",
+      "Procédures de sauvegarde et de récupération d'urgence"
     ],
     deliverables: [
-      "Live application deployment",
-      "Monitoring dashboard setup",
-      "Security certificates and configurations",
-      "Launch checklist and documentation"
+      "Déploiement de l'application en direct",
+      "Configuration du tableau de bord de monitoring",
+      "Certificats de sécurité et configurations",
+      "Liste de contrôle de lancement et documentation"
     ]
   },
   {
     number: 5,
     title: "Maintenance & Support",
-    duration: "Ongoing",
+    duration: "Continu",
     icon: Clock,
-    description: "Providing ongoing support and updates.",
+    description: "Fournir un support et des mises à jour continus.",
     details: [
-      "Regular maintenance and security updates",
-      "Performance monitoring and optimization",
-      "Feature enhancements based on user feedback",
-      "Technical support and troubleshooting",
-      "Analytics reporting and insights"
+      "Maintenance régulière et mises à jour de sécurité",
+      "Monitoring des performances et optimisation",
+      "Améliorations des fonctionnalités basées sur les retours utilisateur",
+      "Support technique et dépannage",
+      "Rapports d'analytics et insights"
     ],
     deliverables: [
-      "Monthly maintenance reports",
-      "Performance analytics",
-      "Security update notifications",
-      "Feature enhancement recommendations"
+      "Rapports de maintenance mensuels",
+      "Analytics de performance",
+      "Notifications de mises à jour de sécurité",
+      "Recommandations d'amélioration des fonctionnalités"
     ]
   }
 ];
@@ -118,9 +118,12 @@ export default function ProcessPage() {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="mb-6">My 5-Step Process</h1>
+            <h1 className="mb-6">Mon Processus en 5 Étapes</h1>
             <p className="text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
-              A proven methodology for success, refined through years of experience delivering high-quality digital solutions.
+              Une méthodologie éprouvée pour le succès, affinée grâce à des années d'expérience dans la livraison de solutions digitales de haute qualité.
+            </p>
+            <p className="text-sm mt-4" style={{ color: 'var(--color-ink-subtle)' }}>
+              * Durées moyennes pour des projets petits à moyens
             </p>
           </div>
         </div>
@@ -131,7 +134,7 @@ export default function ProcessPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             {processSteps.map((step, index) => (
-              <div key={step.number} className="mb-16 last:mb-0">
+              <div key={step.number} className="mb-16 last:mb-0 relative">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                   {/* Step Number & Icon */}
                   <div className="lg:col-span-2">
@@ -193,7 +196,7 @@ export default function ProcessPage() {
 
                       {/* Deliverables */}
                       <div>
-                        <h4 className="text-lg font-semibold mb-4">Key Deliverables</h4>
+                        <h4 className="text-lg font-semibold mb-4">Livrables Clés</h4>
                         <div 
                           className="p-4 rounded-lg"
                           style={{ backgroundColor: 'var(--color-surface)' }}
@@ -238,9 +241,9 @@ export default function ProcessPage() {
       <section className="py-16" style={{ backgroundColor: 'var(--color-surface)' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="mb-6">Why This Process Works</h2>
+            <h2 className="mb-6">Pourquoi Ce Processus Fonctionne</h2>
             <p className="text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
-              This methodology ensures project success through clear communication, iterative feedback, and proven best practices.
+              Cette méthodologie garantit le succès du projet grâce à une communication claire, des retours itératifs et des bonnes pratiques éprouvées.
             </p>
           </div>
 
@@ -288,22 +291,22 @@ export default function ProcessPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16">
+      <section className="py-16" style={{ backgroundColor: 'var(--color-accent-a-base)' }}>
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="mb-6">Ready to Start Your Project?</h2>
-            <p className="text-lead mb-8" style={{ color: 'var(--color-ink-subtle)' }}>
-              Let's discuss your goals and how this proven process can bring your vision to life.
+            <h2 className="mb-6 text-white">Prêt à Démarrer Votre Projet ?</h2>
+            <p className="text-lead mb-8 text-white/80">
+              Discutons de vos objectifs et de la façon dont ce processus éprouvé peut donner vie à votre vision.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
-                <Link href="/contact">
-                  Start Your Project
+              <Button size="lg" asChild className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300">
+                <Link href="/contact" className="text-black hover:text-violet-600">
+                  Démarrer Votre Projet
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild>
-                <Link href="/projects">
-                  View Case Studies
+              <Button size="lg" asChild className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300">
+                <Link href="/projects" className="text-black hover:text-violet-600">
+                  Voir les Études de Cas
                 </Link>
               </Button>
             </div>

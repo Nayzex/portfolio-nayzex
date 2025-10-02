@@ -51,7 +51,7 @@ export default function Footer() {
                 <span className="font-bold text-lg">Nayzex</span>
               </Link>
               <p className="text-ink-subtle mb-4 max-w-sm">
-                Développeur Web & Mobile spécialisé en React, Next.js et React Native. 
+                Développeur Web & Mobile spécialisé en React, Next.js, Kotlin et swift. 
                 Créons ensemble votre prochain projet digital.
               </p>
               <div className="flex space-x-4">

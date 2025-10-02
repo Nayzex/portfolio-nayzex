@@ -19,10 +19,10 @@ const testimonials = [
     rating: 5
   },
   {
-    quote: "Working with Nathan was exceptional. He delivered our mobile banking app on time and exceeded all security requirements. The user feedback has been outstanding, and we've seen significant improvements in customer engagement.",
+    quote: "Travailler avec Nathan a été exceptionnel. Il a livré notre application bancaire mobile dans les temps et a dépassé toutes les exigences de sécurité. Les retours utilisateurs ont été remarquables, et nous avons constaté des améliorations significatives de l'engagement client.",
     author: "James Wilson",
     role: "CTO",
-    company: "Regional Bank",
+    company: "Banque Régionale",
     avatar: "/images/avatar-james.jpg",
     rating: 5
   },
@@ -35,7 +35,7 @@ const testimonials = [
     rating: 5
   },
   {
-    quote: "Nathan's expertise in React Native helped us launch our fitness app successfully. His code quality is exceptional, and he provided valuable insights throughout the development process. Highly recommended!",
+    quote: "L'expertise de Nathan en React Native nous a aidés à lancer notre application fitness avec succès. La qualité de son code est exceptionnelle, et il a fourni des insights précieux tout au long du processus de développement. Hautement recommandé !",
     author: "Alex Rodriguez",
     role: "Product Manager",
     company: "FitTech Solutions",
@@ -51,10 +51,10 @@ const testimonials = [
     rating: 5
   },
   {
-    quote: "Outstanding work on our learning management system. Nathan understood our educational goals and created a platform that both teachers and students love. The interactive features are particularly impressive.",
+    quote: "Travail exceptionnel sur notre système de gestion de l'apprentissage. Nathan a compris nos objectifs éducatifs et a créé une plateforme que les enseignants et les étudiants adorent. Les fonctionnalités interactives sont particulièrement impressionnantes.",
     author: "Dr. Sarah Chen",
-    role: "Academic Director",
-    company: "Online Education Institute",
+    role: "Directrice Académique",
+    company: "Institut d'Éducation en Ligne",
     avatar: "/images/avatar-sarah.jpg",
     rating: 5
   },
@@ -67,10 +67,10 @@ const testimonials = [
     rating: 5
   },
   {
-    quote: "The food delivery app Nathan developed has been a game-changer for our business. The real-time tracking and seamless payment integration have significantly improved customer satisfaction and retention.",
+    quote: "L'application de livraison de nourriture développée par Nathan a été un changement de jeu pour notre business. Le suivi en temps réel et l'intégration de paiement transparente ont considérablement amélioré la satisfaction et la fidélisation des clients.",
     author: "Maria Gonzalez",
-    role: "Operations Manager",
-    company: "Local Food Network",
+    role: "Responsable des Opérations",
+    company: "Réseau Alimentaire Local",
     avatar: "/images/avatar-maria.jpg",
     rating: 5
   }
@@ -80,20 +80,20 @@ const stats = [
   {
     icon: Users,
     value: "50+",
-    label: "Happy Clients",
-    description: "Businesses that trust my expertise"
+    label: "Clients Satisfaits",
+    description: "Entreprises qui font confiance à mon expertise"
   },
   {
     icon: Star,
     value: "4.9/5",
-    label: "Average Rating",
-    description: "Based on client feedback"
+    label: "Note Moyenne",
+    description: "Basée sur les retours clients"
   },
   {
     icon: TrendingUp,
     value: "95%",
-    label: "Project Success Rate",
-    description: "Delivered on time and budget"
+    label: "Taux de Réussite",
+    description: "Livrés dans les temps et le budget"
   }
 ];
 
@@ -104,9 +104,9 @@ export default function TestimonialsPage() {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="mb-6">Client Testimonials</h1>
+            <h1 className="mb-6">Témoignages Clients</h1>
             <p className="text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
-              Here's what my clients are saying about our collaborations and the results we've achieved together.
+              Voici ce que mes clients disent de nos collaborations et des résultats que nous avons obtenus ensemble.
             </p>
           </div>
         </div>
@@ -163,9 +163,9 @@ export default function TestimonialsPage() {
       <section className="py-16" style={{ backgroundColor: 'var(--color-surface)' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="mb-6">What Clients Love About Working With Me</h2>
+            <h2 className="mb-6">Ce Que Les Clients Apprécient En Travaillant Avec Moi</h2>
             <p className="text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
-              Beyond the final product, clients appreciate the journey we take together.
+              Au-delà du produit final, les clients apprécient le parcours que nous faisons ensemble.
             </p>
           </div>
 
@@ -180,12 +180,12 @@ export default function TestimonialsPage() {
               >
                 <Users className="w-6 h-6" style={{ color: 'var(--color-accent-a-base)' }} />
               </div>
-              <h3 className="text-lg font-semibold mb-3">Clear Communication</h3>
+              <h3 className="text-lg font-semibold mb-3">Communication Claire</h3>
               <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
-                "Nathan kept us informed at every stage. His weekly updates and demos made us feel confident about the project's progress."
+                "Nathan nous a tenus informés à chaque étape. Ses mises à jour hebdomadaires et démos nous ont donné confiance dans le progrès du projet."
               </p>
               <div className="mt-4 text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
-                - Recurring client feedback
+                - Retour client récurrent
               </div>
             </div>
 
@@ -199,12 +199,12 @@ export default function TestimonialsPage() {
               >
                 <TrendingUp className="w-6 h-6" style={{ color: 'var(--color-accent-b-base)' }} />
               </div>
-              <h3 className="text-lg font-semibold mb-3">Results-Driven</h3>
+              <h3 className="text-lg font-semibold mb-3">Orienté Résultats</h3>
               <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
-                "Not only did Nathan deliver exactly what we asked for, but he also suggested improvements that significantly boosted our conversion rates."
+                "Non seulement Nathan a livré exactement ce que nous avions demandé, mais il a aussi suggéré des améliorations qui ont considérablement boosté nos taux de conversion."
               </p>
               <div className="mt-4 text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
-                - E-commerce client
+                - Client e-commerce
               </div>
             </div>
 
@@ -218,12 +218,12 @@ export default function TestimonialsPage() {
               >
                 <Star className="w-6 h-6" style={{ color: 'var(--color-accent-a-base)' }} />
               </div>
-              <h3 className="text-lg font-semibold mb-3">Quality Focus</h3>
+              <h3 className="text-lg font-semibold mb-3">Focus Qualité</h3>
               <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
-                "The attention to detail is exceptional. Every interaction feels polished, and the code quality has made maintenance a breeze."
+                "L'attention aux détails est exceptionnelle. Chaque interaction semble polie, et la qualité du code a rendu la maintenance un jeu d'enfant."
               </p>
               <div className="mt-4 text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
-                - Technical team lead
+                - Chef d'équipe technique
               </div>
             </div>
           </div>
@@ -234,9 +234,9 @@ export default function TestimonialsPage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="mb-6">Industry Recognition</h2>
+            <h2 className="mb-6">Reconnaissance de l'Industrie</h2>
             <p className="text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
-              Awards and recognition from industry peers and organizations.
+              Prix et reconnaissance de pairs de l'industrie et d'organisations.
             </p>
           </div>
 
@@ -249,12 +249,12 @@ export default function TestimonialsPage() {
               }}
             >
               <Star className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--color-accent-a-base)' }} />
-              <h3 className="font-semibold mb-2">Best Mobile App</h3>
+              <h3 className="font-semibold mb-2">Meilleure App Mobile</h3>
               <p className="text-sm mb-2" style={{ color: 'var(--color-ink-subtle)' }}>
-                Regional Banking Awards 2024
+                Prix Bancaires Régionaux 2024
               </p>
               <p className="text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
-                For outstanding mobile banking application
+                Pour une application bancaire mobile exceptionnelle
               </p>
             </div>
 
@@ -266,12 +266,12 @@ export default function TestimonialsPage() {
               }}
             >
               <TrendingUp className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--color-accent-a-base)' }} />
-              <h3 className="font-semibold mb-2">Innovation in FinTech</h3>
+              <h3 className="font-semibold mb-2">Innovation en FinTech</h3>
               <p className="text-sm mb-2" style={{ color: 'var(--color-ink-subtle)' }}>
-                FinTech Excellence Awards 2024
+                Prix d'Excellence FinTech 2024
               </p>
               <p className="text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
-                For innovative financial technology solutions
+                Pour des solutions de technologie financière innovantes
               </p>
             </div>
 
@@ -283,12 +283,12 @@ export default function TestimonialsPage() {
               }}
             >
               <Users className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--color-accent-a-base)' }} />
-              <h3 className="font-semibold mb-2">UX Excellence</h3>
+              <h3 className="font-semibold mb-2">Excellence UX</h3>
               <p className="text-sm mb-2" style={{ color: 'var(--color-ink-subtle)' }}>
-                Mobile Design Awards 2023
+                Prix de Design Mobile 2023
               </p>
               <p className="text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
-                For exceptional user experience design
+                Pour un design d'expérience utilisateur exceptionnel
               </p>
             </div>
           </div>
@@ -300,29 +300,28 @@ export default function TestimonialsPage() {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="mb-6 text-white">
-              Ready to Join These Success Stories?
+              Prêt à Rejoindre Ces Histoires de Succès ?
             </h2>
             <p className="text-lg mb-8 text-white/90">
-              Let's discuss how we can achieve similar results for your project.
+              Discutons de la façon dont nous pouvons obtenir des résultats similaires pour votre projet.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="bg-white text-[var(--color-accent-a-base)] hover:bg-gray-50"
+                className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
                 asChild
               >
-                <Link href="/contact">
-                  Start Your Project
+                <Link href="/contact" className="text-black hover:text-violet-600">
+                  Démarrer Votre Projet
                 </Link>
               </Button>
               <Button 
                 size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-[var(--color-accent-a-base)]"
+                className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
                 asChild
               >
-                <Link href="/projects">
-                  View Case Studies
+                <Link href="/projects" className="text-black hover:text-violet-600">
+                  Voir les Études de Cas
                 </Link>
               </Button>
             </div>

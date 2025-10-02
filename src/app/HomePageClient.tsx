@@ -7,229 +7,306 @@ import ServiceCard from '@/components/cards/ServiceCard';
 import TestimonialCard from '@/components/cards/TestimonialCard';
 import { plausible } from '@/lib/analytics/plausible';
 import { Code, Smartphone, Palette, Search, ArrowRight } from 'lucide-react';
-
 export default function HomePageClient() {
-  // Projets phares
-  const featuredProjects = [
-    {
-      title: "Plateforme E-commerce pour Détaillant Mode",
-      description: "Développement d'une plateforme e-commerce responsive avec filtrage avancé des produits et passerelle de paiement sécurisée.",
-      image: "/images/project-ecommerce.jpg",
-      href: `/case-studies/ecommerce-platform`,
-      tags: ["React", "Next.js", "Stripe"]
-    },
-    {
-      title: "Application Bancaire Mobile",
-      description: "Création d'une application bancaire mobile sécurisée avec authentification biométrique et transactions en temps réel.",
-      image: "/images/project-banking.jpg",
-      href: `/case-studies/mobile-banking`,
-      tags: ["React Native", "Node.js", "PostgreSQL"]
-    },
-    {
-      title: "Dashboard SaaS d'Analytics",
-      description: "Construction d'un tableau de bord analytique complet avec visualisation de données en temps réel et rapports personnalisés.",
-      image: "/images/project-saas.jpg",
-      href: `/case-studies/saas-dashboard`,
-      tags: ["Vue.js", "TypeScript", "D3.js"]
-    }
-  ];
 
-  // Services principaux
+        // Mock data for featured projects
+        const featuredProjects = [
+          {
+            title: "CTMHB - Gestion de Club de Handball",
+            description: "Application web complète pour la gestion d'un club de handball : équipes, matchs, planning, emplacements et administration du club.",
+            image: "/images/projects/ctmhb-handball-management/CTMHB logo.png",
+            href: "/case-studies/ctmhb-handball-management",
+            tags: ["Angular", "Symfony", "PostgreSQL"]
+          },
+          {
+            title: "Fitness Tracking App",
+            description: "Application mobile complète pour le suivi d'entraînements, nutrition et progression avec synchronisation des données de santé.",
+            image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&crop=center",
+            href: "/case-studies/fitness-app",
+            tags: ["React Native", "TypeScript", "HealthKit"]
+          },
+        ];
+
+  // Mock data for services
   const services = [
     {
-      icon: Code,
       title: "Développement Web",
-      description: "Applications web modernes et performantes avec React, Next.js et TypeScript",
-      features: ["Sites vitrine", "Applications web", "E-commerce", "SaaS"]
+      description: "Création de sites web et applications web performants et sur mesure.",
+      icon: <Code className="w-8 h-8" />,
+      color: "var(--color-accent-a-base)",
     },
     {
-      icon: Smartphone,
-      title: "Développement Mobile",
-      description: "Applications mobiles natives et cross-platform pour iOS et Android",
-      features: ["React Native", "Applications iOS", "Applications Android", "PWA"]
+      title: "Applications Mobile",
+      description: "Conception et développement d'applications iOS et Android natives ou hybrides.",
+      icon: <Smartphone className="w-8 h-8" />,
+      color: "var(--color-accent-b-base)",
     },
     {
-      icon: Palette,
-      title: "Design & UX/UI",
-      description: "Interfaces utilisateur intuitives et expériences utilisateur optimisées",
-      features: ["Design UI/UX", "Prototypage", "Design System", "Accessibilité"]
+      title: "Design UI/UX",
+      description: "Expériences utilisateur intuitives et interfaces esthétiques.",
+      icon: <Palette className="w-8 h-8" />,
+      color: "#8B5CF6",
     },
     {
-      icon: Search,
       title: "Optimisation & SEO",
-      description: "Performance, référencement et optimisation pour les moteurs de recherche",
-      features: ["SEO technique", "Performance", "Analytics", "Conversion"]
-    }
+      description: "Performance, référencement et optimisation pour les moteurs de recherche.",
+      icon: <Search className="w-8 h-8" />,
+      color: "#10B981",
+    },
   ];
 
-  // Témoignages clients
+  // Mock data for testimonials
   const testimonials = [
     {
-      quote: "Nathan a développé notre plateforme e-commerce en respectant parfaitement nos délais et notre budget. Son expertise technique et sa communication claire ont fait la différence.",
-      author: "Marie Dubois",
-      role: "Directrice Marketing, FashionCorp",
-      avatar: "MD"
+      quote: "Nathan a transformé notre vision en une réalité digitale impressionnante. Son professionnalisme et son expertise sont inégalés.",
+      author: "Sophie Dubois",
+      role: "CEO",
+      company: "InnovTech",
+      avatar: "SD",
     },
     {
-      quote: "L'application mobile que Nathan a créée pour notre banque a dépassé toutes nos attentes. L'interface est intuitive et la sécurité est au rendez-vous.",
-      author: "Jean-Pierre Martin",
-      role: "CTO, BankSecure",
-      avatar: "JPM"
+      quote: "Le travail de Nathan sur notre application mobile a dépassé toutes nos attentes. Une communication fluide et des résultats exceptionnels.",
+      author: "Marc Lefevre",
+      role: "CTO",
+      company: "Alpha Solutions",
+      avatar: "ML",
     },
-    {
-      quote: "Collaboration exceptionnelle ! Nathan a su transformer notre vision en réalité avec un dashboard d'analytics performant et évolutif.",
-      author: "Sarah Chen",
-      role: "Product Manager, DataFlow",
-      avatar: "SC"
-    }
   ];
 
   return (
     <div>
-      {/* Section Hero */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-a-base/5 to-accent-b-base/5"></div>
-        <div className="container mx-auto px-4 relative">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="mb-6">
-              Développeur Web & Mobile
-              <span className="block text-accent-a-base">Créons ensemble votre prochain projet digital</span>
-            </h1>
-            <p className="text-lead mb-8 text-ink-subtle max-w-2xl mx-auto">
-              Spécialisé en React, Next.js et React Native, je transforme vos idées en solutions digitales performantes et évolutives.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-              <Button size="lg" asChild onClick={() => plausible('CTA Click', { props: { location: 'Hero Primary' } })}>
-                <Link href="/contact">
-                  Discutons de votre projet
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild onClick={() => plausible('CTA Click', { props: { location: 'Hero Secondary' } })}>
-                <Link href="/projects">
-                  Voir mes réalisations
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section Projets Phares */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="mb-4">Projets Phares</h2>
-            <p className="text-lead text-ink-subtle max-w-2xl mx-auto">
-              Découvrez quelques-unes de mes réalisations récentes et les technologies utilisées.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {featuredProjects.map((project, index) => (
-              <ProjectCard key={index} {...project} />
-            ))}
-          </div>
-          <div className="text-center">
-            <Button variant="outline" size="lg" asChild>
-              <Link href="/projects">
-                Voir tous les projets
-                <ArrowRight className="ml-2 h-4 w-4" />
+      {/* Hero Section */}
+      <section className="relative h-[calc(100vh-4rem)] flex items-center justify-center text-center bg-gradient-to-br from-background to-surface">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h1 className="text-clamp-hero-title mb-4 animate-fade-in-up">
+            Développeur Web & Mobile <br className="hidden sm:inline" />
+            qui transforme vos idées en succès digital
+          </h1>
+          <p className="text-lead text-ink-subtle mb-8 animate-fade-in-up animation-delay-200">
+            Spécialisé en React, Next.js et React Native, je conçois et développe des solutions performantes et intuitives pour propulser votre présence en ligne.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up animation-delay-400">
+            <Button 
+              size="lg" 
+              asChild 
+              className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
+            >
+              <Link href="/contact" className="text-black hover:text-violet-600">
+                Discutons de votre projet
+              </Link>
+            </Button>
+            <Button 
+              size="lg" 
+              asChild 
+              className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
+            >
+              <Link href="/projects" className="text-black hover:text-violet-600">
+                Voir mes réalisations
               </Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Section Services */}
-      <section className="py-16 lg:py-24 bg-surface">
+      {/* Featured Projects Section */}
+      <section className="py-16 lg:py-24" style={{ backgroundColor: 'var(--color-surface)' }}>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="mb-4">Services & Expertise</h2>
-            <p className="text-lead text-ink-subtle max-w-2xl mx-auto">
-              Un accompagnement complet pour tous vos besoins digitaux.
-            </p>
+          <h2 className="text-center mb-12">Projets Récents</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {featuredProjects.map((project, index) => (
+              <ProjectCard key={index} {...project} />
+            ))}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="text-center mt-12">
+            <Button 
+              size="lg" 
+              asChild 
+              className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
+            >
+              <Link href="/projects" className="text-black hover:text-violet-600 flex items-center">
+                Voir tous les projets
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 lg:py-24" style={{ backgroundColor: 'var(--color-bg)' }}>
+        <div className="container mx-auto px-4">
+          <h2 className="text-center mb-12">Mes Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
             {services.map((service, index) => (
               <ServiceCard key={index} {...service} />
             ))}
           </div>
+          <div className="text-center mt-12">
+            <Button 
+              size="lg" 
+              asChild 
+              className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
+            >
+              <Link href="/services-and-stack" className="text-black hover:text-violet-600 flex items-center">
+                Découvrir tous les services
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* Section Processus */}
-      <section className="py-16 lg:py-24">
+      {/* Process Section */}
+      <section className="py-16 lg:py-24" style={{ backgroundColor: 'var(--color-surface)' }}>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="mb-4">Mon Processus</h2>
-            <p className="text-lead text-ink-subtle max-w-2xl mx-auto">
-              Une méthode éprouvée pour mener à bien vos projets digitaux.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-            {[
-              { step: "01", title: "Découverte", description: "Analyse de vos besoins et définition des objectifs" },
-              { step: "02", title: "Conception", description: "Création des maquettes et architecture technique" },
-              { step: "03", title: "Développement", description: "Codage avec les meilleures pratiques et technologies" },
-              { step: "04", title: "Tests", description: "Tests rigoureux et optimisation des performances" },
-              { step: "05", title: "Livraison", description: "Mise en ligne et formation à l'utilisation" }
-            ].map((phase, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-accent-a-base text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
-                  {phase.step}
+          <h2 className="text-center mb-12">Mon Processus de Travail</h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              {/* Timeline centrale */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-violet-600 hidden md:block z-0"></div>
+              
+              <div className="space-y-16">
+                {/* Step 1 */}
+                <div className="flex flex-col md:flex-row items-center relative">
+                  <div className="md:w-1/2 md:pr-8 text-center md:text-right mb-6 md:mb-0">
+                    <div className="p-6 rounded-xl border border-gray-700" style={{ backgroundColor: '#343a40' }}>
+                      <h3 className="mb-2 text-white">1. Découverte & Stratégie</h3>
+                      <p className="text-gray-300">Comprendre vos besoins, vos objectifs et votre marché pour définir une stratégie claire.</p>
+                    </div>
+                  </div>
+                  {/* Cercle central */}
+                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-violet-600 rounded-full items-center justify-center z-10 shadow-lg">
+                    <span className="text-white font-bold">1</span>
+                  </div>
+                  <div className="md:w-1/2 md:pl-8"></div>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{phase.title}</h3>
-                <p className="text-ink-subtle">{phase.description}</p>
+
+                {/* Step 2 */}
+                <div className="flex flex-col md:flex-row items-center relative">
+                  <div className="md:w-1/2 md:pr-8 order-2 md:order-1"></div>
+                  {/* Cercle central */}
+                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-violet-600 rounded-full items-center justify-center z-10 shadow-lg">
+                    <span className="text-white font-bold">2</span>
+                  </div>
+                  <div className="md:w-1/2 md:pl-8 text-center md:text-left mb-6 md:mb-0 order-1 md:order-2">
+                    <div className="p-6 rounded-xl border border-gray-700" style={{ backgroundColor: '#343a40' }}>
+                      <h3 className="mb-2 text-white">2. Conception UI/UX</h3>
+                      <p className="text-gray-300">Création de wireframes, maquettes et prototypes pour une expérience utilisateur optimale.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step 3 */}
+                <div className="flex flex-col md:flex-row items-center relative">
+                  <div className="md:w-1/2 md:pr-8 text-center md:text-right mb-6 md:mb-0">
+                    <div className="p-6 rounded-xl border border-gray-700" style={{ backgroundColor: '#343a40' }}>
+                      <h3 className="mb-2 text-white">3. Développement Agile</h3>
+                      <p className="text-gray-300">Développement itératif avec des sprints courts et des retours réguliers pour une flexibilité maximale.</p>
+                    </div>
+                  </div>
+                  {/* Cercle central */}
+                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-violet-600 rounded-full items-center justify-center z-10 shadow-lg">
+                    <span className="text-white font-bold">3</span>
+                  </div>
+                  <div className="md:w-1/2 md:pl-8"></div>
+                </div>
+
+                {/* Step 4 */}
+                <div className="flex flex-col md:flex-row items-center relative">
+                  <div className="md:w-1/2 md:pr-8 order-2 md:order-1"></div>
+                  {/* Cercle central */}
+                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-violet-600 rounded-full items-center justify-center z-10 shadow-lg">
+                    <span className="text-white font-bold">4</span>
+                  </div>
+                  <div className="md:w-1/2 md:pl-8 text-center md:text-left mb-6 md:mb-0 order-1 md:order-2">
+                    <div className="p-6 rounded-xl border border-gray-700" style={{ backgroundColor: '#343a40' }}>
+                      <h3 className="mb-2 text-white">4. Tests & Recettes</h3>
+                      <p className="text-gray-300">Tests rigoureux pour garantir la qualité, la performance et la compatibilité sur tous les appareils.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step 5 */}
+                <div className="flex flex-col md:flex-row items-center relative">
+                  <div className="md:w-1/2 md:pr-8 text-center md:text-right mb-6 md:mb-0">
+                    <div className="p-6 rounded-xl border border-gray-700" style={{ backgroundColor: '#343a40' }}>
+                      <h3 className="mb-2 text-white">5. Déploiement & Suivi</h3>
+                      <p className="text-gray-300">Mise en ligne sécurisée et accompagnement post-lancement pour assurer le succès à long terme.</p>
+                    </div>
+                  </div>
+                  {/* Cercle central */}
+                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-violet-600 rounded-full items-center justify-center z-10 shadow-lg">
+                    <span className="text-white font-bold">5</span>
+                  </div>
+                  <div className="md:w-1/2 md:pl-8"></div>
+                </div>
               </div>
-            ))}
+            </div>
+          </div>
+          <div className="text-center mt-12">
+            <Button 
+              size="lg" 
+              asChild 
+              className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
+            >
+              <Link href="/process" className="text-black hover:text-violet-600 flex items-center">
+                En savoir plus sur mon processus
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Section Témoignages */}
-      <section className="py-16 lg:py-24 bg-surface">
+      {/* Testimonials Section */}
+      <section className="py-16 lg:py-24" style={{ backgroundColor: 'var(--color-bg)' }}>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="mb-4">Ce que disent mes clients</h2>
-            <p className="text-lead text-ink-subtle max-w-2xl mx-auto">
-              La satisfaction client est au cœur de mon travail.
-            </p>
-          </div>
+          <h2 className="text-center mb-12">Ce que mes clients disent</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard key={index} {...testimonial} />
             ))}
           </div>
+          <div className="text-center mt-12">
+            <Button 
+              size="lg" 
+              asChild 
+              className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
+            >
+              <Link href="/testimonials" className="text-black hover:text-violet-600 flex items-center">
+                Lire tous les témoignages
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* Section CTA Final */}
-      <section className="py-16 lg:py-24 bg-accent-a-base text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-6 text-white">Prêt à démarrer votre projet ?</h2>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Discutons de vos besoins et créons ensemble une solution digitale qui fait la différence.
+      {/* CTA Section */}
+      <section className="py-16 lg:py-24" style={{ backgroundColor: 'var(--color-accent-a-base)' }}>
+        <div className="container mx-auto px-4 text-center max-w-3xl">
+          <h2 className="mb-6 text-white">Prêt à démarrer votre prochain projet ?</h2>
+          <p className="text-lg mb-8 opacity-90">
+            Contactez-moi dès aujourd'hui pour discuter de vos idées et obtenir un devis personnalisé.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button 
-              size="lg" 
-              className="bg-white text-accent-a-base hover:bg-gray-50"
+            <Button
+              size="lg"
               asChild
-              onClick={() => plausible('CTA Click', { props: { location: 'Final CTA Primary' } })}
+              className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
             >
-              <Link href="/contact">
-                Commencer maintenant
+              <Link href="/contact" className="text-black hover:text-violet-600">
+                Travailler avec moi
               </Link>
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-accent-a-base"
+            <Button
+              size="lg"
               asChild
-              onClick={() => plausible('CTA Click', { props: { location: 'Final CTA Secondary' } })}
+              className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
             >
-              <a href="https://wa.me/33123456789" target="_blank" rel="noopener noreferrer">
-                WhatsApp
-              </a>
+              <Link href="/services-and-stack" className="text-black hover:text-violet-600">
+                Mes services
+              </Link>
             </Button>
           </div>
         </div>

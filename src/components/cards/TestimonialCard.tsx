@@ -1,14 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
+import Link from 'next/link';
 
 interface TestimonialCardProps {
   quote: string;
   author: string;
   role: string;
-  company: string;
+  company?: string;
   avatar: string;
   rating?: number;
   className?: string;
@@ -18,27 +18,20 @@ export default function TestimonialCard({
   quote, 
   author, 
   role, 
-  company, 
+  company = "", 
   avatar,
   rating = 5,
   className = "" 
 }: TestimonialCardProps) {
   return (
-    <motion.div
-      whileHover={{ y: -2 }}
-      transition={{ duration: 0.2, ease: 'easeOut' }}
-      className={`p-6 rounded-xl relative ${className}`}
-      style={{ 
-        backgroundColor: 'var(--color-surface)',
-        boxShadow: 'var(--shadow-md)'
-      }}
-    >
+    <Link href="/testimonials" className="block">
+      <div
+        className={`p-6 rounded-xl relative hover:-translate-y-1 transition-transform duration-300 border border-gray-700 cursor-pointer ${className}`}
+        style={{ backgroundColor: '#343a40' }}
+      >
       {/* Quote Icon */}
       <div className="absolute top-4 right-4 opacity-20">
-        <Quote 
-          className="w-8 h-8" 
-          style={{ color: 'var(--color-accent-a-base)' }}
-        />
+        <Quote className="w-8 h-8 text-violet-500" />
       </div>
 
       {/* Rating */}
@@ -56,36 +49,25 @@ export default function TestimonialCard({
       </div>
 
       {/* Quote */}
-      <blockquote 
-        className="text-body mb-6 leading-relaxed italic"
-        style={{ color: 'var(--color-ink)' }}
-      >
+      <blockquote className="text-body mb-6 leading-relaxed italic text-white">
         "{quote}"
       </blockquote>
 
       {/* Author */}
       <div className="flex items-center">
-        <div 
-          className="relative w-12 h-12 rounded-full overflow-hidden mr-4 flex items-center justify-center text-white font-semibold"
-          style={{ backgroundColor: 'var(--color-accent-a-base)' }}
-        >
+        <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4 flex items-center justify-center text-white font-semibold bg-violet-600">
           {author.split(' ').map(n => n[0]).join('')}
         </div>
         <div>
-          <div 
-            className="font-semibold text-sm"
-            style={{ color: 'var(--color-ink)' }}
-          >
+          <div className="font-semibold text-sm text-white">
             {author}
           </div>
-          <div 
-            className="text-sm"
-            style={{ color: 'var(--color-ink-subtle)' }}
-          >
-            {role} • {company}
+          <div className="text-sm text-gray-300">
+            {role}{company ? ` • ${company}` : ''}
           </div>
         </div>
       </div>
-    </motion.div>
+      </div>
+    </Link>
   );
 }

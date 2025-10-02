@@ -1,0 +1,36 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg1)"/>
+  
+  <!-- E-commerce illustration -->
+  <!-- Shopping cart icon -->
+  <circle cx="300" cy="200" r="80" fill="white" fill-opacity="0.2"/>
+  <path d="M260 180 h80 l-10 40 h-60 z" fill="white" fill-opacity="0.8"/>
+  <circle cx="275" cy="235" r="8" fill="white"/>
+  <circle cx="315" cy="235" r="8" fill="white"/>
+  <line x1="240" y1="160" x2="260" y2="180" stroke="white" stroke-width="4"/>
+  
+  <!-- Credit card -->
+  <rect x="450" y="300" width="120" height="80" rx="8" fill="white" fill-opacity="0.2"/>
+  <rect x="460" y="310" width="100" height="60" rx="4" fill="white" fill-opacity="0.8"/>
+  <rect x="470" y="320" width="30" height="20" rx="2" fill="#8B5CF6"/>
+  <line x1="470" y1="350" x2="530" y2="350" stroke="#8B5CF6" stroke-width="2"/>
+  <line x1="470" y1="360" x2="550" y2="360" stroke="#8B5CF6" stroke-width="2"/>
+  
+  <!-- Product boxes -->
+  <rect x="150" y="380" width="60" height="60" rx="4" fill="white" fill-opacity="0.3"/>
+  <rect x="230" y="350" width="60" height="60" rx="4" fill="white" fill-opacity="0.4"/>
+  <rect x="310" y="370" width="60" height="60" rx="4" fill="white" fill-opacity="0.3"/>
+  
+  <!-- Title -->
+  <text x="400" y="500" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="32" font-weight="bold">E-commerce Platform</text>
+  <text x="400" y="530" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" opacity="0.9">Fashion Retailer</text>
+</svg>

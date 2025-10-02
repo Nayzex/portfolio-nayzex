@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
-import TableOfContents from '@/components/common/TableOfContents';
 import { mdxComponents } from '@/lib/mdx/mdx-components';
 import { getCaseStudyBySlug, getAdjacentCaseStudies, getAllCaseStudySlugs } from '@/lib/mdx/get-case-studies';
 import { Calendar, Clock, ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
@@ -56,7 +55,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
 }
 
 export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
-  const { slug, locale } = await params;
+  const { slug } = await params;
   const caseStudy = getCaseStudyBySlug(slug);
   
   if (!caseStudy) {
@@ -72,11 +71,11 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href={`/${locale}`}>Home</BreadcrumbLink>
+              <BreadcrumbLink href="/">Accueil</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href={`/${locale}/projects`}>Projects</BreadcrumbLink>
+              <BreadcrumbLink href="/projects">Projets</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
@@ -126,7 +125,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               {/* Roles & Timeline */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div>
-                  <h3 className="text-lg font-semibold mb-3">Roles</h3>
+                  <h3 className="text-lg font-semibold mb-3">Rôles</h3>
                   <ul className="space-y-2">
                     {caseStudy.meta.roles.map((role, index) => (
                       <li key={index} className="text-body" style={{ color: 'var(--color-ink-subtle)' }}>
@@ -136,7 +135,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-3">Tech Stack</h3>
+                  <h3 className="text-lg font-semibold mb-3">Technologies</h3>
                   <div className="flex flex-wrap gap-2">
                     {caseStudy.meta.stack.map((tech, index) => (
                       <Badge key={index} variant="outline">
@@ -150,17 +149,15 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
             {/* Cover Image */}
             <div className="lg:col-span-1">
-              <div className="sticky top-24">
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
-                  <Image
-                    src={caseStudy.meta.cover}
-                    alt={caseStudy.meta.title}
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                  />
-                </div>
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+                <Image
+                  src={caseStudy.meta.cover}
+                  alt={caseStudy.meta.title}
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                />
               </div>
             </div>
           </div>
@@ -171,7 +168,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       {caseStudy.meta.kpis && caseStudy.meta.kpis.length > 0 && (
         <section className="py-12" style={{ backgroundColor: 'var(--color-surface)' }}>
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-semibold mb-8 text-center">Key Metrics</h2>
+            <h2 className="text-2xl font-semibold mb-8 text-center">Métriques Clés</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
               {caseStudy.meta.kpis.map((kpi, index) => (
                 <div key={index} className="text-center">
@@ -209,13 +206,13 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       {caseStudy.meta.gallery && caseStudy.meta.gallery.length > 0 && (
         <section className="py-16" style={{ backgroundColor: 'var(--color-surface)' }}>
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-semibold mb-8 text-center">Gallery</h2>
+            <h2 className="text-2xl font-semibold mb-8 text-center">Galerie</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
               {caseStudy.meta.gallery.map((image, index) => (
                 <div key={index} className="relative aspect-video rounded-xl overflow-hidden">
                   <Image
                     src={image}
-                    alt={`${caseStudy.meta.title} - Gallery ${index + 1}`}
+                    alt={`${caseStudy.meta.title} - Galerie ${index + 1}`}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -232,26 +229,25 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="mb-6 text-white">
-              Ready to build something great?
+              Prêt à créer quelque chose d'extraordinaire ?
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="bg-white text-[var(--color-accent-a-base)] hover:bg-gray-50"
+                className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
                 asChild
               >
-                <Link href={`/${locale}/contact`}>
-                  Work with me
+                <Link href="/contact">
+                  Travaillons ensemble
                 </Link>
               </Button>
               <Button 
                 size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-[var(--color-accent-a-base)]"
+                className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
                 asChild
               >
-                <Link href={`/${locale}/projects`}>
-                  Back to Projects
+                <Link href="/projects">
+                  Retour aux projets
                 </Link>
               </Button>
             </div>
@@ -265,7 +261,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           <div className="flex justify-between items-center">
             {previous ? (
               <Link 
-                href={`/${locale}/case-studies/${previous.meta.slug}`}
+                href={`/case-studies/${previous.meta.slug}`}
                 className="flex items-center gap-3 group hover:text-[var(--color-accent-a-base)] transition-colors"
               >
                 <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
@@ -280,7 +276,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
             {next ? (
               <Link 
-                href={`/${locale}/case-studies/${next.meta.slug}`}
+                href={`/case-studies/${next.meta.slug}`}
                 className="flex items-center gap-3 group hover:text-[var(--color-accent-a-base)] transition-colors text-right"
               >
                 <div>
@@ -296,8 +292,6 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         </div>
       </section>
 
-      {/* Table of Contents (Sticky) */}
-      <TableOfContents content={caseStudy.content} />
     </div>
   );
 }

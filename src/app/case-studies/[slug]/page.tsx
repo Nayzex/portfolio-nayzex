@@ -138,7 +138,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                   <h3 className="text-lg font-semibold mb-3">Technologies</h3>
                   <div className="flex flex-wrap gap-2">
                     {caseStudy.meta.stack.map((tech, index) => (
-                      <Badge key={index} variant="outline">
+                      <Badge key={index} variant="outline" className="text-white border-gray-400">
                         {tech}
                       </Badge>
                     ))}

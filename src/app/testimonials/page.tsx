@@ -250,9 +250,6 @@ export default function TestimonialsPage() {
             >
               <Star className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--color-accent-a-base)' }} />
               <h3 className="font-semibold mb-2">Meilleure App Mobile</h3>
-              <p className="text-sm mb-2" style={{ color: 'var(--color-ink-subtle)' }}>
-                Prix Bancaires Régionaux 2024
-              </p>
               <p className="text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
                 Pour une application bancaire mobile exceptionnelle
               </p>
@@ -267,9 +264,6 @@ export default function TestimonialsPage() {
             >
               <TrendingUp className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--color-accent-a-base)' }} />
               <h3 className="font-semibold mb-2">Innovation en FinTech</h3>
-              <p className="text-sm mb-2" style={{ color: 'var(--color-ink-subtle)' }}>
-                Prix d'Excellence FinTech 2024
-              </p>
               <p className="text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
                 Pour des solutions de technologie financière innovantes
               </p>
@@ -284,9 +278,6 @@ export default function TestimonialsPage() {
             >
               <Users className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--color-accent-a-base)' }} />
               <h3 className="font-semibold mb-2">Excellence UX</h3>
-              <p className="text-sm mb-2" style={{ color: 'var(--color-ink-subtle)' }}>
-                Prix de Design Mobile 2023
-              </p>
               <p className="text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
                 Pour un design d'expérience utilisateur exceptionnel
               </p>

@@ -133,12 +133,12 @@ export default function AboutPage() {
 
             {/* Profile Image */}
             <div className="order-first lg:order-last">
-              <div className="aspect-square rounded-2xl overflow-hidden">
+              <div className="aspect-square rounded-2xl overflow-hidden max-w-sm mx-auto">
                 <Image
                   src="/images/projects/ctmhb-handball-management/MyHead3.png"
                   alt="Nathan - Développeur Full-Stack"
-                  width={400}
-                  height={400}
+                  width={300}
+                  height={300}
                   className="w-full h-full object-cover"
                   priority
                 />
@@ -272,8 +272,8 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="mb-6">Au-delà du Code</h2>
             <p className="text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
-              Quand je ne code pas, vous me trouverez en train d'explorer de nouvelles technologies, de faire de la randonnée en montagne, 
-              ou d'expérimenter avec la photographie. Je crois que des expériences diverses font de moi un meilleur développeur.
+              Quand je ne code pas, vous me trouverez en train d'explorer de nouvelles technologies, de faire du sport, 
+              ou d'expérimenter le monde automobile. Je crois que des expériences diverses font de moi un meilleur développeur.
             </p>
           </div>
 
@@ -282,7 +282,7 @@ export default function AboutPage() {
               <Mountain className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--color-accent-a-base)' }} />
               <h3 className="font-semibold mb-2">Aventures en Plein Air</h3>
               <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
-                La randonnée et l'escalade m'aident à clarifier mon esprit et à aborder les problèmes avec une perspective fraîche.
+                Le sport m'aident à clarifier mon esprit et à aborder les problèmes avec une perspective fraîche.
               </p>
             </div>
             <div className="text-center">

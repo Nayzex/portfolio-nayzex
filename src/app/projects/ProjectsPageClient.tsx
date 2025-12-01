@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 export default function ProjectsPageClient() {
   const [selectedCategory, setSelectedCategory] = useState('Tous');
@@ -98,7 +98,8 @@ export default function ProjectsPageClient() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {filteredProjects.map((project) => (
-              <div key={project.id} className="group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-700 h-full flex flex-col" style={{ backgroundColor: '#343a40' }}>
+              <Link key={project.id} href={`/case-studies/${project.id}`} className="block">
+              <div className="group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-700 h-full flex flex-col cursor-pointer" style={{ backgroundColor: '#343a40' }}>
                 {/* Image */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-white/5">
                   <Image
@@ -155,18 +156,14 @@ export default function ProjectsPageClient() {
 
                   {/* Actions */}
                   <div className="flex gap-3 mt-auto">
-                    <Button size="sm" asChild className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300 flex-1">
-                      <Link href={`/case-studies/${project.id}`} className="text-black hover:text-violet-600 flex items-center justify-center">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Voir le projet
-                      </Link>
-                    </Button>
-                    <Button size="sm" variant="outline" className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300">
-                      <Github className="w-4 h-4" />
+                    <Button size="sm" className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300 w-full" onClick={(e) => e.stopPropagation()}>
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Voir le projet
                     </Button>
                   </div>
                 </div>
               </div>
+              </Link>
             ))}
           </div>
           

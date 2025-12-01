@@ -60,18 +60,12 @@ export default function HomePageClient() {
   // Mock data for testimonials
   const testimonials = [
     {
-      quote: "Nathan a transformé notre vision en une réalité digitale impressionnante. Son professionnalisme et son expertise sont inégalés.",
-      author: "Sophie Dubois",
-      role: "CEO",
-      company: "InnovTech",
-      avatar: "SD",
-    },
-    {
-      quote: "Le travail de Nathan sur notre application mobile a dépassé toutes nos attentes. Une communication fluide et des résultats exceptionnels.",
-      author: "Marc Lefevre",
-      role: "CTO",
-      company: "Alpha Solutions",
-      avatar: "ML",
+      quote: "Nathan a réalisé un travail qui correspondait parfaitement à mes attentes. Vous pouvez le contacter les yeux fermés.",
+      author: "Romaric",
+      role: "Patron",
+      company: "Amorinfo",
+      avatar: "R",
+      rating: 5,
     },
   ];
 

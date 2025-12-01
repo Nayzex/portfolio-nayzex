@@ -149,15 +149,26 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
             {/* Cover Image */}
             <div className="lg:col-span-1">
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-white/5">
-                <Image
-                  src={caseStudy.meta.cover}
-                  alt={caseStudy.meta.title}
-                  fill
-                  className={`${caseStudy.meta.id === 'fs-auto' ? 'object-contain' : 'object-cover'}`}
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                />
+              <div className={`relative aspect-[4/3] rounded-xl overflow-hidden flex items-center justify-center ${caseStudy.meta.id === 'fs-auto' ? 'bg-white/10 p-8' : 'bg-white/5'}`}>
+                {caseStudy.meta.id === 'fs-auto' ? (
+                  <Image
+                    src={caseStudy.meta.cover}
+                    alt={caseStudy.meta.title}
+                    width={700}
+                    height={420}
+                    priority
+                    className="object-contain max-w-full max-h-full"
+                  />
+                ) : (
+                  <Image
+                    src={caseStudy.meta.cover}
+                    alt={caseStudy.meta.title}
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                )}
               </div>
             </div>
           </div>

@@ -23,11 +23,11 @@ export default function ProjectCard({
   id = ""
 }: ProjectCardProps) {
   return (
-    <div
-      className={`group relative overflow-hidden rounded-xl hover:-translate-y-1 transition-transform duration-300 border border-gray-700 ${className}`}
-      style={{ backgroundColor: '#343a40' }}
-    >
-      <Link href={href} className="block">
+    <Link href={href} className="block">
+      <div
+        className={`group relative overflow-hidden rounded-xl hover:-translate-y-1 transition-transform duration-300 border border-gray-700 cursor-pointer ${className}`}
+        style={{ backgroundColor: '#343a40' }}
+      >
         {/* Image */}
         <div className="relative aspect-[4/3] overflow-hidden bg-white/5">
           <Image
@@ -62,7 +62,7 @@ export default function ProjectCard({
             </div>
           )}
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 }

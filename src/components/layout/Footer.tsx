@@ -6,8 +6,7 @@ import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 export default function Footer() {
   const navigation = {
     contact: [
-      { name: 'Email', href: 'mailto:contact@nayzex.dev' },
-      { name: 'WhatsApp', href: 'https://wa.me/33123456789' },
+      { name: 'Email', href: 'mailto:nayzex.dev@gmail.com' },
       { name: 'Formulaire', href: '/contact' },
     ],
     services: [
@@ -34,7 +33,7 @@ export default function Footer() {
     { name: 'GitHub', href: 'https://github.com', icon: Github },
     { name: 'LinkedIn', href: 'https://linkedin.com', icon: Linkedin },
     { name: 'Twitter', href: 'https://twitter.com', icon: Twitter },
-    { name: 'Email', href: 'mailto:contact@nayzex.dev', icon: Mail },
+    { name: 'Email', href: 'mailto:nayzex.dev@gmail.com', icon: Mail },
   ];
 
   return (

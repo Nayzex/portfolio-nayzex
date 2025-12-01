@@ -10,15 +10,17 @@ interface ProjectCardProps {
   href: string;
   tags?: string[];
   className?: string;
+  id?: string;
 }
 
-export default function ProjectCard({ 
-  title, 
-  description, 
-  image, 
-  href, 
+export default function ProjectCard({
+  title,
+  description,
+  image,
+  href,
   tags = [],
-  className = "" 
+  className = "",
+  id = ""
 }: ProjectCardProps) {
   return (
     <div
@@ -27,12 +29,12 @@ export default function ProjectCard({
     >
       <Link href={href} className="block">
         {/* Image */}
-        <div className="relative aspect-[4/3] overflow-hidden">
+        <div className="relative aspect-[4/3] overflow-hidden bg-white/5">
           <Image
             src={image}
             alt={title}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            className={`${id === 'fs-auto' ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-300`}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>

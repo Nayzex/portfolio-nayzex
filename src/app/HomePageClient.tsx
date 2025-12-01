@@ -12,18 +12,20 @@ export default function HomePageClient() {
         // Mock data for featured projects
         const featuredProjects = [
           {
+            id: "fs-auto",
+            title: "FS-Auto - Plateforme de Présentation Automobiles",
+            description: "Plateforme web complète combinant présentation de l'entreprise et système de consultation du stock de véhicules.",
+            image: "/images/projects/fs-auto/logo.png",
+            href: "/case-studies/fs-auto",
+            tags: ["React", "Next.js", "TypeScript", "Node.js"]
+          },
+          {
+            id: "ctmhb-handball-management",
             title: "CTMHB - Gestion de Club de Handball",
             description: "Application web complète pour la gestion d'un club de handball : équipes, matchs, planning, emplacements et administration du club.",
             image: "/images/projects/ctmhb-handball-management/CTMHB logo.png",
             href: "/case-studies/ctmhb-handball-management",
             tags: ["Angular", "Symfony", "PostgreSQL"]
-          },
-          {
-            title: "Fitness Tracking App",
-            description: "Application mobile complète pour le suivi d'entraînements, nutrition et progression avec synchronisation des données de santé.",
-            image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&crop=center",
-            href: "/case-studies/fitness-app",
-            tags: ["React Native", "TypeScript", "HealthKit"]
           },
         ];
 
@@ -109,15 +111,15 @@ export default function HomePageClient() {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <section className="py-12 lg:py-16" style={{ backgroundColor: 'var(--color-surface)' }}>
         <div className="container mx-auto px-4">
-          <h2 className="text-center mb-12">Projets Récents</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <h2 className="text-center mb-8">Projets Récents</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {featuredProjects.map((project, index) => (
               <ProjectCard key={index} {...project} />
             ))}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center mt-8">
             <Button 
               size="lg" 
               asChild 

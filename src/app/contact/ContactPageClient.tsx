@@ -1,10 +1,120 @@
 'use client';
 
-import Link from 'next/link';
+import { useRef, useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Mail, Phone, MapPin, Clock, MessageCircle } from 'lucide-react';
+import { Mail, MapPin, Clock } from 'lucide-react';
+import { toast } from 'sonner';
+
+declare global {
+  interface Window {
+    turnstile: {
+      render: (element: string | HTMLElement, options: Record<string, unknown>) => string;
+      reset: (widget_id?: string) => void;
+      getResponse: (widget_id?: string) => string | undefined;
+    };
+  }
+}
 
 export default function ContactPageClient() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Load Turnstile script
+    const loadTurnstile = () => {
+      if (!window.turnstile) {
+        const script = document.createElement('script');
+        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+      } else {
+        // Render Turnstile if script is already loaded
+        renderTurnstile();
+      }
+    };
+
+    const renderTurnstile = () => {
+      const captchaContainer = document.getElementById('turnstile-container');
+      if (captchaContainer && window.turnstile) {
+        window.turnstile.render('#turnstile-container', {
+          sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
+          callback: (token: string) => {
+            setCaptchaToken(token);
+          },
+        });
+      }
+    };
+
+    // Wait for script to load
+    const checkAndRender = () => {
+      if (window.turnstile) {
+        renderTurnstile();
+      } else {
+        setTimeout(checkAndRender, 100);
+      }
+    };
+
+    loadTurnstile();
+    checkAndRender();
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!captchaToken) {
+      toast.error('Veuillez compléter le CAPTCHA');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(formRef.current!);
+      const body = {
+        firstName: formData.get('firstName'),
+        lastName: formData.get('lastName'),
+        email: formData.get('email'),
+        company: formData.get('company'),
+        projectType: formData.get('projectType'),
+        budget: formData.get('budget'),
+        timeline: formData.get('timeline'),
+        message: formData.get('message'),
+        privacy: formData.get('privacy') === 'on',
+        captchaToken: captchaToken,
+      };
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Erreur lors de l\'envoi');
+      }
+
+      const result = await response.json();
+      toast.success(result.message || 'Message envoyé avec succès !');
+      formRef.current?.reset();
+      setCaptchaToken(null);
+
+      // Reset Turnstile
+      if (window.turnstile) {
+        window.turnstile.reset();
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast.error(error instanceof Error ? error.message : 'Erreur lors de l\'envoi du message');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -27,31 +137,6 @@ export default function ContactPageClient() {
             <div className="p-8 rounded-xl" style={{ backgroundColor: 'var(--color-surface)' }}>
               <h2 className="mb-6">Contacts rapides</h2>
               <div className="space-y-6">
-                {/* WhatsApp */}
-                <div className="flex items-start space-x-4 p-6 rounded-lg" style={{ backgroundColor: 'var(--color-bg)' }}>
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
-                      <MessageCircle className="w-6 h-6 text-white" />
-          </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold mb-2">WhatsApp</h3>
-                    <p className="text-ink-subtle mb-4">
-                      Pour une discussion rapide et directe
-                    </p>
-                    <Button asChild className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300">
-                      <a 
-                        href="https://wa.me/33123456789" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-black hover:text-violet-600"
-                      >
-                        Ouvrir WhatsApp
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-
                 {/* Email */}
                 <div className="flex items-start space-x-4 p-6 rounded-lg" style={{ backgroundColor: 'var(--color-bg)' }}>
                   <div className="flex-shrink-0">
@@ -65,28 +150,8 @@ export default function ContactPageClient() {
                       Pour une demande détaillée
                     </p>
                     <Button asChild className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300">
-                      <a href="mailto:contact@nayzex.dev" className="text-black hover:text-violet-600">
-                        contact@nayzex.dev
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Phone */}
-                <div className="flex items-start space-x-4 p-6 rounded-lg" style={{ backgroundColor: 'var(--color-bg)' }}>
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-accent-b-base rounded-lg flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-white" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold mb-2">Téléphone</h3>
-                    <p className="text-ink-subtle mb-4">
-                      Disponible du lundi au vendredi, 9h-18h
-                    </p>
-                    <Button asChild className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300">
-                      <a href="tel:+33123456789" className="text-black hover:text-violet-600">
-                        +33 1 23 45 67 89
+                      <a href="mailto:nayzex.dev@gmail.com" className="text-black hover:text-violet-600">
+                        nayzex.dev@gmail.com
                       </a>
                     </Button>
                   </div>
@@ -100,7 +165,7 @@ export default function ContactPageClient() {
                   <div>
                     <h4 className="font-medium mb-2">Temps de réponse</h4>
                     <p className="text-sm text-ink-subtle">
-                      Je réponds généralement sous 24h. Pour les urgences, contactez-moi directement par WhatsApp.
+                      Je réponds généralement sous 24-48 heures. Remplissez le formulaire pour me contactez avec vos détails de projet.
                     </p>
                   </div>
                 </div>
@@ -123,7 +188,7 @@ export default function ContactPageClient() {
             <div className="p-8 rounded-xl" style={{ backgroundColor: 'var(--color-surface)' }}>
               <h2 className="mb-6">Formulaire de contact</h2>
               <div className="p-8 rounded-lg" style={{ backgroundColor: 'var(--color-bg)' }}>
-                <form className="space-y-6">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-medium mb-2">
@@ -263,12 +328,16 @@ export default function ContactPageClient() {
                     </label>
                   </div>
 
+                  {/* Turnstile CAPTCHA */}
+                  <div id="turnstile-container" style={{ marginBottom: '1rem' }} />
+
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
+                    disabled={isSubmitting}
+                    className="w-full bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300 disabled:opacity-50"
                   >
-                    Envoyer le message
+                    {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
                   </Button>
                 </form>
               </div>

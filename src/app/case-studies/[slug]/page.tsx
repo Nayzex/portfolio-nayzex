@@ -149,12 +149,12 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
             {/* Cover Image */}
             <div className="lg:col-span-1">
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-white/5">
                 <Image
                   src={caseStudy.meta.cover}
                   alt={caseStudy.meta.title}
                   fill
-                  className="object-cover"
+                  className={`${caseStudy.meta.id === 'fs-auto' ? 'object-contain' : 'object-cover'}`}
                   priority
                   sizes="(max-width: 1024px) 100vw, 33vw"
                 />
@@ -164,43 +164,6 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         </div>
       </section>
 
-      {/* KPIs Section */}
-      {caseStudy.meta.kpis && caseStudy.meta.kpis.length > 0 && (
-        <section className="py-12" style={{ backgroundColor: 'var(--color-surface)' }}>
-          <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-semibold mb-8 text-center">Métriques Clés</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              {caseStudy.meta.kpis.map((kpi, index) => (
-                <div key={index} className="text-center">
-                  <div 
-                    className="text-3xl font-bold mb-2"
-                    style={{ color: 'var(--color-accent-a-base)' }}
-                  >
-                    {kpi.value}
-                  </div>
-                  <div className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
-                    {kpi.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Content */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="prose prose-lg max-w-none">
-              <MDXRemote 
-                source={caseStudy.content} 
-                components={mdxComponents}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Gallery */}
       {caseStudy.meta.gallery && caseStudy.meta.gallery.length > 0 && (
@@ -209,17 +172,41 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             <h2 className="text-2xl font-semibold mb-8 text-center">Galerie</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
               {caseStudy.meta.gallery.map((image, index) => (
-                <div key={index} className="relative aspect-video rounded-xl overflow-hidden">
+                <div key={index} className="relative aspect-video rounded-xl overflow-hidden bg-white/5">
                   <Image
                     src={image}
                     alt={`${caseStudy.meta.title} - Galerie ${index + 1}`}
                     fill
-                    className="object-cover"
+                    className={`${caseStudy.meta.id === 'babyfoot-go' ? 'object-contain' : 'object-cover'}`}
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
               ))}
             </div>
+
+            {/* Website Link */}
+            {caseStudy.meta.website && (
+              <div style={{ textAlign: 'center', margin: '3rem 0 0 0' }}>
+                <a
+                  href={caseStudy.meta.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-block',
+                    backgroundColor: '#8B5CF6',
+                    color: 'white',
+                    padding: '12px 24px',
+                    borderRadius: '8px',
+                    textDecoration: 'none',
+                    fontWeight: '500',
+                    transition: 'all 0.3s ease',
+                  }}
+                  className="hover:bg-violet-700"
+                >
+                  🔗 Visiter le site
+                </a>
+              </div>
+            )}
           </div>
         </section>
       )}

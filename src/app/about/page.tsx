@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
-import { Download, MapPin, Calendar, Award, Code, Heart, Coffee, Mountain } from 'lucide-react';
+import { MapPin, Calendar, Award, Code, Heart, Coffee, Mountain } from 'lucide-react';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
@@ -19,36 +19,25 @@ const skills = [
 
 const experience = [
   {
-    role: 'Développeur Full-Stack Senior',
-    company: 'TechCorp Solutions',
-    period: '2022 - Présent',
-    description: 'Diriger le développement d\'applications web d\'entreprise et de solutions mobiles pour des clients Fortune 500.',
+    role: 'Alternant - Développeur Front/Back',
+    company: 'BPCE-SI',
+    period: '2025 - En cours',
+    description: 'Développement full-stack sur AGRILISMAT, une application permettant d\'accorder des prêts pour l\'achat de matériel agricole aux agriculteurs.',
     achievements: [
-      'Augmenté les performances de l\'application de 60% grâce à l\'optimisation',
-      'Dirigé une équipe de 5 développeurs sur plusieurs projets simultanés',
-      'Implémenté des pipelines CI/CD réduisant le temps de déploiement de 80%'
+      'Développement de fonctionnalités front et backend pour la gestion des prêts agricoles',
+      'Intégration avec les systèmes bancaires et de traitement de dossiers',
+      'Optimisation des performances pour une application enterprise-grade'
     ]
   },
   {
-    role: 'Développeur Frontend',
-    company: 'StartupX',
-    period: '2020 - 2022',
-    description: 'Développé des applications web centrées sur l\'utilisateur et contribué à la stratégie produit.',
+    role: 'Alternant - Développeur Front/Back',
+    company: 'Amorinfo',
+    period: '2024 - 2025',
+    description: 'Développement full-stack d\'un site web complet de gestion de club de handball permettant de gérer les équipes, matchs, lieux et gymnases.',
     achievements: [
-      'Construit des applications responsives servant 100k+ utilisateurs',
-      'Amélioré l\'engagement utilisateur de 45% grâce aux améliorations UX',
-      'Encadré des développeurs juniors et établi des standards de codage'
-    ]
-  },
-  {
-    role: 'Développeur Junior',
-    company: 'Agence Digitale',
-    period: '2018 - 2020',
-    description: 'Commencé ma carrière en construisant des sites web et en apprenant les pratiques de développement modernes.',
-    achievements: [
-      'Livré 50+ projets clients dans les temps et le budget',
-      'Acquis une expertise dans plusieurs frameworks et technologies',
-      'Reçu le prix "Développeur de l\'Année" en 2019'
+      'Développement d\'une application complète de gestion sportive',
+      'Gestion des équipes, calendrier de matchs et espaces de jeu',
+      'Interface responsive et intuitive pour les administrateurs de clubs'
     ]
   }
 ];
@@ -116,17 +105,11 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div>
                 <Button size="lg" asChild className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300">
                   <Link href="/contact" className="text-black hover:text-violet-600">
                     Travaillons Ensemble
                   </Link>
-                </Button>
-                <Button size="lg" asChild className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300">
-                  <a href="/resume.pdf" target="_blank" className="text-black hover:text-violet-600 flex items-center">
-                    <Download className="w-4 h-4 mr-2" />
-                    Télécharger CV
-                  </a>
                 </Button>
               </div>
             </div>

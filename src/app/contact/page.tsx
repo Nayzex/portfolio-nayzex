@@ -3,7 +3,7 @@ import ContactPageClient from './ContactPageClient';
 
 export const metadata: Metadata = {
   title: "Contact | Portfolio Nathan Siwek - Nayzex",
-  description: "Discutons de votre projet digital. Formulaire de contact, WhatsApp, email - plusieurs moyens de me joindre pour échanger.",
+  description: "Discutons de votre projet digital. Formulaire de contact sécurisé avec CAPTCHA - contactez-moi pour échanger sur vos ambitions digitales.",
 };
 
 export default function ContactPage() {

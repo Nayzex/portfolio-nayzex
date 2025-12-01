@@ -12,18 +12,6 @@ export default function ProjectsPageClient() {
   // Données des projets
   const projects = [
     {
-      id: 'fs-auto',
-      title: 'FS-Auto - Plateforme de Présentation Automobiles',
-      description: 'Application web de présentation et consultation du stock automobile.',
-      longDescription: 'Plateforme web complète pour FS-Auto combinant présentation de l\'entreprise et système de consultation du stock de véhicules. Permet aux clients de parcourir les véhicules disponibles, consulter les détails techniques, voir les photos haute résolution et entrer en contact avec l\'entreprise pour des demandes de visite ou d\'essai routier.',
-      image: '/images/projects/fs-auto/logo.png',
-      tags: ['React', 'Next.js', 'TypeScript', 'Node.js'],
-      category: 'Web Development',
-      status: 'En pause',
-      year: '2025',
-      featured: true,
-    },
-    {
       id: 'ctmhb-handball-management',
       title: 'CTMHB - Gestion de Club de Handball',
       description: 'Application web complète pour la gestion d\'un club de handball.',
@@ -31,7 +19,7 @@ export default function ProjectsPageClient() {
       image: '/images/projects/ctmhb-handball-management/CTMHB logo.png',
       tags: ['Angular', 'Symfony', 'PostgreSQL'],
       category: 'Web Development',
-      status: 'Terminé',
+      status: 'En cours',
       year: '2024',
     },
     {
@@ -42,7 +30,7 @@ export default function ProjectsPageClient() {
       image: '/images/projects/babyfoot-go/logo.png',
       tags: ['SwiftUI', 'SwiftData', 'iOS 17+'],
       category: 'Mobile Development',
-      status: 'En cours',
+      status: 'Terminé',
       year: '2024',
     },
   ];
@@ -100,19 +88,18 @@ export default function ProjectsPageClient() {
             {filteredProjects.map((project) => (
               <div key={project.id} className="group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-700 h-full flex flex-col" style={{ backgroundColor: '#343a40' }}>
                 {/* Image */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-white/5">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className={`${project.id === 'fs-auto' ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-300`}
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div className="absolute top-4 left-4">
                     <span className={`px-3 py-1 text-xs font-medium rounded-full ${
                       project.status === 'Terminé' ? 'bg-green-100 text-green-700' :
                       project.status === 'En cours' ? 'bg-blue-100 text-blue-700' :
-                      project.status === 'En pause' ? 'bg-yellow-100 text-yellow-700' :
                       'bg-orange-100 text-orange-700'
                     }`}>
                       {project.status}

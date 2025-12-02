@@ -96,7 +96,7 @@ export default function ProjectsPageClient() {
       {/* Projects Grid */}
       <section className="py-16 lg:py-24" style={{ backgroundColor: 'var(--color-bg)' }}>
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 items-stretch">
             {filteredProjects.map((project) => (
               <Link key={project.id} href={`/case-studies/${project.id}`} className="block">
               <div className="group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-700 h-full flex flex-col cursor-pointer" style={{ backgroundColor: '#343a40' }}>
@@ -107,10 +107,10 @@ export default function ProjectsPageClient() {
                     alt={project.title}
                     fill
                     className={`${project.id === 'fs-auto' ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-300`}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 33vw"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className={`px-3 py-1 text-xs font-medium rounded-full ${
+                  <div className="absolute top-2 md:top-4 left-2 md:left-4">
+                    <span className={`px-2 md:px-3 py-0.5 md:py-1 text-[10px] md:text-xs font-medium rounded-full ${
                       project.status === 'Terminé' ? 'bg-green-100 text-green-700' :
                       project.status === 'En cours' ? 'bg-blue-100 text-blue-700' :
                       project.status === 'En pause' ? 'bg-yellow-100 text-yellow-700' :
@@ -119,35 +119,35 @@ export default function ProjectsPageClient() {
                       {project.status}
                     </span>
                   </div>
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 text-xs font-medium rounded-full bg-black/70 text-white">
+                  <div className="absolute top-2 md:top-4 right-2 md:right-4">
+                    <span className="px-2 md:px-3 py-0.5 md:py-1 text-[10px] md:text-xs font-medium rounded-full bg-black/70 text-white">
                       {project.year}
                     </span>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6 flex flex-col flex-grow">
-                  <div className="mb-3">
-                    <span className="text-xs font-medium text-gray-300 uppercase tracking-wide">
+                <div className="p-3 md:p-6 flex flex-col flex-grow">
+                  <div className="mb-2 md:mb-3">
+                    <span className="text-[10px] md:text-xs font-medium text-gray-300 uppercase tracking-wide">
                       {project.category}
                     </span>
                   </div>
-                  
-                  <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-violet-500 transition-colors">
+
+                  <h3 className="text-sm md:text-xl font-semibold mb-2 md:mb-3 text-white group-hover:text-violet-500 transition-colors line-clamp-2">
                     {project.title}
                   </h3>
-                  
-                  <p className="text-gray-300 mb-4 line-clamp-2 flex-grow">
+
+                  <p className="text-gray-300 mb-3 md:mb-4 text-xs md:text-base line-clamp-2 flex-grow hidden md:block">
                     {project.longDescription}
                   </p>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-6">
                     {project.tags.map((tag, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 text-xs font-medium rounded-full bg-violet-100 text-violet-700"
+                        className="px-2 md:px-3 py-0.5 md:py-1 text-[10px] md:text-xs font-medium rounded-full bg-violet-100 text-violet-700"
                       >
                         {tag}
                       </span>
@@ -155,10 +155,11 @@ export default function ProjectsPageClient() {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex gap-3 mt-auto">
-                    <Button size="sm" className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300 w-full" onClick={(e) => e.stopPropagation()}>
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Voir le projet
+                  <div className="flex gap-2 md:gap-3 mt-auto">
+                    <Button size="sm" className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300 w-full text-[10px] md:text-sm h-8 md:h-9" onClick={(e) => e.stopPropagation()}>
+                      <ExternalLink className="w-3 h-3 md:w-4 md:h-4 md:mr-2" />
+                      <span className="hidden md:inline">Voir le projet</span>
+                      <span className="md:hidden">Voir</span>
                     </Button>
                   </div>
                 </div>

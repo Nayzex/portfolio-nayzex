@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
@@ -8,7 +8,34 @@ import { Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuClosing, setIsMenuClosing] = useState(false);
   const pathname = usePathname();
+
+  // Fermer le menu quand on change de page
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
+  // Empêcher le scroll quand le menu est ouvert
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
+  // Gérer la fermeture avec animation
+  const handleCloseMenu = () => {
+    setIsMenuClosing(true);
+    setTimeout(() => {
+      setIsMenuOpen(false);
+      setIsMenuClosing(false);
+    }, 300); // Durée de l'animation
+  };
 
   const navigation = [
     { name: 'Accueil', href: '/' },
@@ -54,18 +81,9 @@ export default function Header() {
             <Button
               size="sm"
               asChild
-              className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
+              className="bg-violet-600 hover:bg-violet-700 text-white border-0"
             >
-              <a href="https://wa.me/33123456789" target="_blank" rel="noopener noreferrer" className="text-black hover:text-violet-600">
-                WhatsApp
-              </a>
-            </Button>
-            <Button
-              size="sm"
-              asChild
-              className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
-            >
-              <Link href="/contact" className="text-black hover:text-violet-600">
+              <Link href="/contact" className="text-white">
                 Demander un devis
               </Link>
             </Button>
@@ -73,58 +91,67 @@ export default function Header() {
 
           {/* Menu Mobile Button */}
           <button
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors relative z-50"
+            onClick={() => isMenuOpen ? handleCloseMenu() : setIsMenuOpen(true)}
             aria-label="Toggle menu"
+            style={{ color: '#ffffff' }}
           >
             {isMenuOpen ? (
-              <X className="h-6 w-6 text-white" />
+              <X className="h-8 w-8" style={{ stroke: '#ffffff', strokeWidth: 2 }} />
             ) : (
-              <Menu className="h-6 w-6 text-white" />
+              <Menu className="h-8 w-8" style={{ stroke: '#ffffff', strokeWidth: 2 }} />
             )}
           </button>
         </div>
 
-        {/* Navigation Mobile */}
+        {/* Navigation Mobile - Menu Burger */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 border-t">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`block px-3 py-2 text-base font-medium transition-colors hover:text-violet-400 ${
-                    pathname === item.href
-                      ? 'text-violet-600 bg-violet-50 font-semibold'
-                      : 'text-white'
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="flex flex-col space-y-2 px-3 pt-4">
-                <Button
-                  size="sm"
-                  asChild
-                  className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
-                >
-                  <a href="https://wa.me/33123456789" target="_blank" rel="noopener noreferrer" className="text-black hover:text-violet-600">
-                    WhatsApp
-                  </a>
-                </Button>
-                <Button
-                  size="sm"
-                  asChild
-                  className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
-                >
-                  <Link href="/contact" className="text-black hover:text-violet-600">
-                    Demander un devis
+          <>
+            {/* Overlay pour fermer le menu en cliquant en dehors */}
+            <div
+              className={`md:hidden fixed inset-0 bg-black/50 z-40 top-16 ${isMenuClosing ? 'animate-fade-out' : 'animate-fade-in'}`}
+              onClick={handleCloseMenu}
+            />
+            {/* Menu */}
+            <div
+              className={`md:hidden fixed left-0 right-0 top-16 bottom-0 z-50 overflow-y-auto border-t border-gray-700 shadow-lg ${isMenuClosing ? 'animate-slide-up' : 'animate-slide-down'}`}
+              style={{ backgroundColor: '#000000' }}
+            >
+              <div className="px-4 py-6 space-y-2">
+                {navigation.map((item, index) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`block px-4 py-3 text-lg font-medium rounded-lg transition-colors ${
+                      pathname === item.href
+                        ? 'text-violet-600 bg-violet-600/10 font-semibold'
+                        : 'text-white hover:bg-gray-800 active:bg-gray-700'
+                    }`}
+                    style={{
+                      animation: isMenuClosing ? 'none' : `fadeInSlideUp 0.3s ease-out ${index * 0.05}s both`
+                    }}
+                    onClick={handleCloseMenu}
+                  >
+                    {item.name}
                   </Link>
-                </Button>
+                ))}
+                <div className="flex flex-col space-y-3 pt-6 border-t border-gray-700 mt-6">
+                  <Button
+                    size="lg"
+                    asChild
+                    className="bg-violet-600 hover:bg-violet-700 text-white border-0 w-full"
+                    style={{
+                      animation: isMenuClosing ? 'none' : 'fadeInSlideUp 0.3s ease-out 0.35s both'
+                    }}
+                  >
+                    <Link href="/contact" className="text-white" onClick={handleCloseMenu}>
+                      Demander un devis
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </header>

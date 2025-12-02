@@ -136,24 +136,24 @@ export default function AboutPage() {
       {/* Values Section */}
       <section className="py-16" style={{ backgroundColor: 'var(--color-bg)' }}>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="mb-6">Mes Valeurs</h2>
-            <p className="text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="mb-4 md:mb-6">Mes Valeurs</h2>
+            <p className="text-sm md:text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
               Les principes qui guident mon travail et me poussent à livrer des résultats exceptionnels.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {values.map((value, index) => (
               <div key={index} className="text-center">
-                <div 
-                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                <div
+                  className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-2 md:mb-4"
                   style={{ backgroundColor: 'var(--color-accent-a-base)' }}
                 >
-                  <value.icon className="w-8 h-8 text-white" />
+                  <value.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{value.title}</h3>
-                <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
+                <h3 className="text-sm md:text-lg font-semibold mb-1 md:mb-2">{value.title}</h3>
+                <p className="text-xs md:text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
                   {value.description}
                 </p>
               </div>

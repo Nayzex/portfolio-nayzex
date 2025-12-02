@@ -23,25 +23,25 @@ export default function ServiceCard({
   return (
     <Link href="/services-and-stack" className="block">
       <div
-        className={`p-6 rounded-xl group hover:-translate-y-1 transition-all duration-300 border border-gray-700 cursor-pointer h-full flex flex-col ${className}`}
+        className={`p-4 md:p-6 rounded-xl group hover:-translate-y-1 transition-all duration-300 border border-gray-700 cursor-pointer h-full flex flex-col ${className}`}
         style={{ backgroundColor: '#343a40' }}
       >
       {/* Icon */}
-      <div 
-        className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg"
+      <div
+        className="w-12 h-12 md:w-16 md:h-16 rounded-xl flex items-center justify-center mb-3 md:mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg"
         style={{ backgroundColor: color }}
       >
-        <div className="text-white scale-125">
+        <div className="text-white scale-100 md:scale-125">
           {icon}
         </div>
       </div>
 
       {/* Content */}
-      <h3 className="text-xl font-semibold mb-3 text-white">
+      <h3 className="text-base md:text-xl font-semibold mb-2 md:mb-3 text-white">
         {title}
       </h3>
-      
-      <p className="text-body mb-4 leading-relaxed text-gray-300 flex-grow">
+
+      <p className="text-sm md:text-body mb-2 md:mb-4 leading-relaxed text-gray-300 flex-grow">
         {description}
       </p>
 

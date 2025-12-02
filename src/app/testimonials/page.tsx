@@ -57,25 +57,25 @@ export default function TestimonialsPage() {
 
       {/* Stats Section */}
       {stats.length > 0 && (
-        <section className="py-12" style={{ backgroundColor: 'var(--color-surface)' }}>
+        <section className="py-8 md:py-12" style={{ backgroundColor: 'var(--color-surface)' }}>
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
                   <div
-                    className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                    className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-2 md:mb-4"
                     style={{ backgroundColor: 'var(--color-accent-a-base)' }}
                   >
-                    <stat.icon className="w-8 h-8 text-white" />
+                    <stat.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                   </div>
                   <div
-                    className="text-3xl font-bold mb-2"
+                    className="text-2xl md:text-3xl font-bold mb-1 md:mb-2"
                     style={{ color: 'var(--color-accent-a-base)' }}
                   >
                     {stat.value}
                   </div>
-                  <h3 className="text-lg font-semibold mb-1">{stat.label}</h3>
-                  <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
+                  <h3 className="text-sm md:text-lg font-semibold mb-1">{stat.label}</h3>
+                  <p className="text-xs md:text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
                     {stat.description}
                   </p>
                 </div>
@@ -120,67 +120,67 @@ export default function TestimonialsPage() {
       {/* Process Feedback Section */}
       <section className="py-16" style={{ backgroundColor: 'var(--color-surface)' }}>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="mb-6">Ce Que Les Clients Apprécient En Travaillant Avec Moi</h2>
-            <p className="text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="mb-4 md:mb-6 text-xl md:text-3xl">Ce Que Les Clients Apprécient En Travaillant Avec Moi</h2>
+            <p className="text-sm md:text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
               Au-delà du produit final, les clients apprécient le parcours que nous faisons ensemble.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div 
-              className="p-6 rounded-xl text-center"
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-5xl mx-auto">
+            <div
+              className="p-3 md:p-6 rounded-xl text-center"
               style={{ backgroundColor: 'var(--color-bg)' }}
             >
-              <div 
-                className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4"
+              <div
+                className="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center mx-auto mb-2 md:mb-4"
                 style={{ backgroundColor: 'var(--color-accent-a-subtle)' }}
               >
-                <Users className="w-6 h-6" style={{ color: 'var(--color-accent-a-base)' }} />
+                <Users className="w-5 h-5 md:w-6 md:h-6" style={{ color: 'var(--color-accent-a-base)' }} />
               </div>
-              <h3 className="text-lg font-semibold mb-3">Communication Claire</h3>
-              <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
+              <h3 className="text-sm md:text-lg font-semibold mb-2 md:mb-3">Communication Claire</h3>
+              <p className="text-xs md:text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
                 &quot;Nathan nous a tenus informés à chaque étape. Ses mises à jour hebdomadaires et démos nous ont donné confiance dans le progrès du projet.&quot;
               </p>
-              <div className="mt-4 text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
+              <div className="mt-2 md:mt-4 text-[10px] md:text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
                 - Retour client récurrent
               </div>
             </div>
 
-            <div 
-              className="p-6 rounded-xl text-center"
+            <div
+              className="p-3 md:p-6 rounded-xl text-center"
               style={{ backgroundColor: 'var(--color-bg)' }}
             >
-              <div 
-                className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4"
+              <div
+                className="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center mx-auto mb-2 md:mb-4"
                 style={{ backgroundColor: 'var(--color-accent-b-subtle)' }}
               >
-                <TrendingUp className="w-6 h-6" style={{ color: 'var(--color-accent-b-base)' }} />
+                <TrendingUp className="w-5 h-5 md:w-6 md:h-6" style={{ color: 'var(--color-accent-b-base)' }} />
               </div>
-              <h3 className="text-lg font-semibold mb-3">Orienté Résultats</h3>
-              <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
+              <h3 className="text-sm md:text-lg font-semibold mb-2 md:mb-3">Orienté Résultats</h3>
+              <p className="text-xs md:text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
                 &quot;Non seulement Nathan a livré exactement ce que nous avions demandé, mais il a aussi suggéré des améliorations qui ont considérablement boosté nos taux de conversion.&quot;
               </p>
-              <div className="mt-4 text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
+              <div className="mt-2 md:mt-4 text-[10px] md:text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
                 - Client e-commerce
               </div>
             </div>
 
-            <div 
-              className="p-6 rounded-xl text-center"
+            <div
+              className="p-3 md:p-6 rounded-xl text-center col-span-2 md:col-span-1"
               style={{ backgroundColor: 'var(--color-bg)' }}
             >
-              <div 
-                className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4"
+              <div
+                className="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center mx-auto mb-2 md:mb-4"
                 style={{ backgroundColor: 'var(--color-accent-a-subtle)' }}
               >
-                <Star className="w-6 h-6" style={{ color: 'var(--color-accent-a-base)' }} />
+                <Star className="w-5 h-5 md:w-6 md:h-6" style={{ color: 'var(--color-accent-a-base)' }} />
               </div>
-              <h3 className="text-lg font-semibold mb-3">Focus Qualité</h3>
-              <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
+              <h3 className="text-sm md:text-lg font-semibold mb-2 md:mb-3">Focus Qualité</h3>
+              <p className="text-xs md:text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
                 &quot;L&apos;attention aux détails est exceptionnelle. Chaque interaction semble polie, et la qualité du code a rendu la maintenance un jeu d&apos;enfant.&quot;
               </p>
-              <div className="mt-4 text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
+              <div className="mt-2 md:mt-4 text-[10px] md:text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
                 - Chef d&apos;équipe technique
               </div>
             </div>

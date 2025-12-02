@@ -110,8 +110,8 @@ export default function HomePageClient() {
       {/* Featured Projects Section */}
       <section className="py-12 lg:py-16" style={{ backgroundColor: 'var(--color-surface)' }}>
         <div className="container mx-auto px-4">
-          <h2 className="text-center mb-8">Projets Récents</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <h2 className="text-center mb-6 md:mb-8">Projets Récents</h2>
+          <div className="grid grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
             {featuredProjects.map((project, index) => (
               <ProjectCard key={index} {...project} />
             ))}
@@ -134,8 +134,8 @@ export default function HomePageClient() {
       {/* Services Section */}
       <section className="py-16 lg:py-24" style={{ backgroundColor: 'var(--color-bg)' }}>
         <div className="container mx-auto px-4">
-          <h2 className="text-center mb-12">Mes Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
+          <h2 className="text-center mb-8 md:mb-12">Mes Services</h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 items-stretch">
             {services.map((service, index) => (
               <ServiceCard key={index} {...service} />
             ))}
@@ -161,83 +161,83 @@ export default function HomePageClient() {
           <h2 className="text-center mb-12">Mon Processus de Travail</h2>
           <div className="max-w-4xl mx-auto">
             <div className="relative">
-              {/* Timeline centrale */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-violet-600 hidden md:block z-0"></div>
-              
-              <div className="space-y-16">
+              {/* Timeline centrale - desktop et mobile */}
+              <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-violet-600 z-0"></div>
+
+              <div className="space-y-8 md:space-y-16">
                 {/* Step 1 */}
-                <div className="flex flex-col md:flex-row items-center relative">
-                  <div className="md:w-1/2 md:pr-8 text-center md:text-right mb-6 md:mb-0">
-                    <div className="p-6 rounded-xl border border-gray-700" style={{ backgroundColor: '#343a40' }}>
-                      <h3 className="mb-2 text-white">1. Découverte & Stratégie</h3>
-                      <p className="text-gray-300">Comprendre vos besoins, vos objectifs et votre marché pour définir une stratégie claire.</p>
+                <div className="flex flex-col md:flex-row items-start md:items-center relative">
+                  {/* Cercle - visible sur mobile et desktop */}
+                  <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-violet-600 rounded-full flex items-center justify-center z-10 shadow-lg">
+                    <span className="text-white font-bold text-lg">1</span>
+                  </div>
+                  <div className="w-full md:w-1/2 md:pr-8 pl-20 md:pl-0 md:text-right mb-0 md:mb-0">
+                    <div className="p-5 md:p-6 rounded-xl border border-gray-700" style={{ backgroundColor: '#343a40' }}>
+                      <h3 className="mb-2 text-white text-base md:text-xl">1. Découverte & Stratégie</h3>
+                      <p className="text-gray-300 text-sm md:text-base">Comprendre vos besoins, vos objectifs et votre marché pour définir une stratégie claire.</p>
                     </div>
                   </div>
-                  {/* Cercle central */}
-                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-violet-600 rounded-full items-center justify-center z-10 shadow-lg">
-                    <span className="text-white font-bold">1</span>
-                  </div>
-                  <div className="md:w-1/2 md:pl-8"></div>
+                  <div className="hidden md:block md:w-1/2 md:pl-8"></div>
                 </div>
 
                 {/* Step 2 */}
-                <div className="flex flex-col md:flex-row items-center relative">
-                  <div className="md:w-1/2 md:pr-8 order-2 md:order-1"></div>
-                  {/* Cercle central */}
-                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-violet-600 rounded-full items-center justify-center z-10 shadow-lg">
-                    <span className="text-white font-bold">2</span>
+                <div className="flex flex-col md:flex-row items-start md:items-center relative">
+                  {/* Cercle - visible sur mobile et desktop */}
+                  <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-violet-600 rounded-full flex items-center justify-center z-10 shadow-lg">
+                    <span className="text-white font-bold text-lg">2</span>
                   </div>
-                  <div className="md:w-1/2 md:pl-8 text-center md:text-left mb-6 md:mb-0 order-1 md:order-2">
-                    <div className="p-6 rounded-xl border border-gray-700" style={{ backgroundColor: '#343a40' }}>
-                      <h3 className="mb-2 text-white">2. Conception UI/UX</h3>
-                      <p className="text-gray-300">Création de wireframes, maquettes et prototypes pour une expérience utilisateur optimale.</p>
+                  <div className="hidden md:block md:w-1/2 md:pr-8 order-2 md:order-1"></div>
+                  <div className="w-full md:w-1/2 md:pl-8 pl-20 md:pl-8 md:text-left mb-0 md:mb-0 order-1 md:order-2">
+                    <div className="p-5 md:p-6 rounded-xl border border-gray-700" style={{ backgroundColor: '#343a40' }}>
+                      <h3 className="mb-2 text-white text-base md:text-xl">2. Conception UI/UX</h3>
+                      <p className="text-gray-300 text-sm md:text-base">Création de wireframes, maquettes et prototypes pour une expérience utilisateur optimale.</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Step 3 */}
-                <div className="flex flex-col md:flex-row items-center relative">
-                  <div className="md:w-1/2 md:pr-8 text-center md:text-right mb-6 md:mb-0">
-                    <div className="p-6 rounded-xl border border-gray-700" style={{ backgroundColor: '#343a40' }}>
-                      <h3 className="mb-2 text-white">3. Développement Agile</h3>
-                      <p className="text-gray-300">Développement itératif avec des sprints courts et des retours réguliers pour une flexibilité maximale.</p>
+                <div className="flex flex-col md:flex-row items-start md:items-center relative">
+                  {/* Cercle - visible sur mobile et desktop */}
+                  <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-violet-600 rounded-full flex items-center justify-center z-10 shadow-lg">
+                    <span className="text-white font-bold text-lg">3</span>
+                  </div>
+                  <div className="w-full md:w-1/2 md:pr-8 pl-20 md:pl-0 md:text-right mb-0 md:mb-0">
+                    <div className="p-5 md:p-6 rounded-xl border border-gray-700" style={{ backgroundColor: '#343a40' }}>
+                      <h3 className="mb-2 text-white text-base md:text-xl">3. Développement Agile</h3>
+                      <p className="text-gray-300 text-sm md:text-base">Développement itératif avec des sprints courts et des retours réguliers pour une flexibilité maximale.</p>
                     </div>
                   </div>
-                  {/* Cercle central */}
-                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-violet-600 rounded-full items-center justify-center z-10 shadow-lg">
-                    <span className="text-white font-bold">3</span>
-                  </div>
-                  <div className="md:w-1/2 md:pl-8"></div>
+                  <div className="hidden md:block md:w-1/2 md:pl-8"></div>
                 </div>
 
                 {/* Step 4 */}
-                <div className="flex flex-col md:flex-row items-center relative">
-                  <div className="md:w-1/2 md:pr-8 order-2 md:order-1"></div>
-                  {/* Cercle central */}
-                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-violet-600 rounded-full items-center justify-center z-10 shadow-lg">
-                    <span className="text-white font-bold">4</span>
+                <div className="flex flex-col md:flex-row items-start md:items-center relative">
+                  {/* Cercle - visible sur mobile et desktop */}
+                  <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-violet-600 rounded-full flex items-center justify-center z-10 shadow-lg">
+                    <span className="text-white font-bold text-lg">4</span>
                   </div>
-                  <div className="md:w-1/2 md:pl-8 text-center md:text-left mb-6 md:mb-0 order-1 md:order-2">
-                    <div className="p-6 rounded-xl border border-gray-700" style={{ backgroundColor: '#343a40' }}>
-                      <h3 className="mb-2 text-white">4. Tests & Recettes</h3>
-                      <p className="text-gray-300">Tests rigoureux pour garantir la qualité, la performance et la compatibilité sur tous les appareils.</p>
+                  <div className="hidden md:block md:w-1/2 md:pr-8 order-2 md:order-1"></div>
+                  <div className="w-full md:w-1/2 md:pl-8 pl-20 md:pl-8 md:text-left mb-0 md:mb-0 order-1 md:order-2">
+                    <div className="p-5 md:p-6 rounded-xl border border-gray-700" style={{ backgroundColor: '#343a40' }}>
+                      <h3 className="mb-2 text-white text-base md:text-xl">4. Tests & Recettes</h3>
+                      <p className="text-gray-300 text-sm md:text-base">Tests rigoureux pour garantir la qualité, la performance et la compatibilité sur tous les appareils.</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Step 5 */}
-                <div className="flex flex-col md:flex-row items-center relative">
-                  <div className="md:w-1/2 md:pr-8 text-center md:text-right mb-6 md:mb-0">
-                    <div className="p-6 rounded-xl border border-gray-700" style={{ backgroundColor: '#343a40' }}>
-                      <h3 className="mb-2 text-white">5. Déploiement & Suivi</h3>
-                      <p className="text-gray-300">Mise en ligne sécurisée et accompagnement post-lancement pour assurer le succès à long terme.</p>
+                <div className="flex flex-col md:flex-row items-start md:items-center relative">
+                  {/* Cercle - visible sur mobile et desktop */}
+                  <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-violet-600 rounded-full flex items-center justify-center z-10 shadow-lg">
+                    <span className="text-white font-bold text-lg">5</span>
+                  </div>
+                  <div className="w-full md:w-1/2 md:pr-8 pl-20 md:pl-0 md:text-right mb-0 md:mb-0">
+                    <div className="p-5 md:p-6 rounded-xl border border-gray-700" style={{ backgroundColor: '#343a40' }}>
+                      <h3 className="mb-2 text-white text-base md:text-xl">5. Déploiement & Suivi</h3>
+                      <p className="text-gray-300 text-sm md:text-base">Mise en ligne sécurisée et accompagnement post-lancement pour assurer le succès à long terme.</p>
                     </div>
                   </div>
-                  {/* Cercle central */}
-                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-violet-600 rounded-full items-center justify-center z-10 shadow-lg">
-                    <span className="text-white font-bold">5</span>
-                  </div>
-                  <div className="md:w-1/2 md:pl-8"></div>
+                  <div className="hidden md:block md:w-1/2 md:pl-8"></div>
                 </div>
               </div>
             </div>

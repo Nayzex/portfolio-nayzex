@@ -84,69 +84,96 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       </div>
 
       {/* Hero Section */}
-      <section className="py-16 lg:py-24">
+      <section className="py-8 md:py-16 lg:py-24">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-12">
             {/* Content */}
-            <div className="lg:col-span-2">
-              {/* Meta Information */}
-              <div className="flex flex-wrap items-center gap-4 mb-6 text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  {new Date(caseStudy.meta.date).toLocaleDateString('fr-FR', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
+            <div className="lg:col-span-2 flex flex-row gap-4 md:block">
+              <div className="flex-1">
+                {/* Meta Information */}
+                <div className="flex flex-wrap items-center gap-2 md:gap-4 mb-4 md:mb-6 text-xs md:text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
+                  <div className="flex items-center gap-1 md:gap-2">
+                    <Calendar className="w-3 h-3 md:w-4 md:h-4" />
+                    <span className="hidden md:inline">
+                      {new Date(caseStudy.meta.date).toLocaleDateString('fr-FR', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </span>
+                    <span className="md:hidden">
+                      {new Date(caseStudy.meta.date).toLocaleDateString('fr-FR', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                      })}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1 md:gap-2">
+                    <Clock className="w-3 h-3 md:w-4 md:h-4" />
+                    {caseStudy.meta.timeline}
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
-                  {caseStudy.meta.timeline}
-                </div>
-              </div>
 
-              {/* Title & Abstract */}
-              <h1 className="mb-6">{caseStudy.meta.title}</h1>
-              <p className="text-lead mb-8 leading-relaxed" style={{ color: 'var(--color-ink-subtle)' }}>
-                {caseStudy.meta.abstract}
-              </p>
+                {/* Title & Abstract */}
+                <h1 className="text-2xl md:text-4xl lg:text-5xl mb-3 md:mb-6">{caseStudy.meta.title}</h1>
+                <p className="text-sm md:text-lead mb-4 md:mb-8 leading-relaxed" style={{ color: 'var(--color-ink-subtle)' }}>
+                  {caseStudy.meta.abstract}
+                </p>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-8">
-                {caseStudy.meta.tags.map((tag, index) => (
-                  <Badge key={index} variant="secondary">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-
-              {/* Roles & Timeline */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div>
-                  <h3 className="text-lg font-semibold mb-3">Rôles</h3>
-                  <ul className="space-y-2">
+                {/* Roles */}
+                <div className="mb-4 md:mb-8">
+                  <h3 className="text-sm md:text-lg font-semibold mb-2 md:mb-3">Rôles</h3>
+                  <ul className="space-y-1 md:space-y-2">
                     {caseStudy.meta.roles.map((role, index) => (
-                      <li key={index} className="text-body" style={{ color: 'var(--color-ink-subtle)' }}>
+                      <li key={index} className="text-xs md:text-body" style={{ color: 'var(--color-ink-subtle)' }}>
                         • {role}
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-3">Technologies</h3>
-                  <div className="flex flex-wrap gap-2">
+
+                {/* Technologies */}
+                <div className="mb-4 md:mb-8">
+                  <h3 className="text-sm md:text-lg font-semibold mb-2 md:mb-3">Technologies</h3>
+                  <div className="flex flex-wrap gap-1 md:gap-2">
                     {caseStudy.meta.stack.map((tech, index) => (
-                      <Badge key={index} variant="outline" className="text-white border-gray-400">
+                      <Badge key={index} variant="outline" className="text-white border-gray-400 text-[10px] md:text-xs">
                         {tech}
                       </Badge>
                     ))}
                   </div>
                 </div>
               </div>
+
+              {/* Cover Image - visible sur mobile à droite du texte */}
+              <div className="lg:hidden w-32 md:w-48 flex-shrink-0">
+                <div className={`relative aspect-square rounded-lg overflow-hidden flex items-center justify-center ${caseStudy.meta.id === 'fs-auto' ? 'bg-white/10 p-4' : 'bg-white/5'}`}>
+                  {caseStudy.meta.id === 'fs-auto' ? (
+                    <Image
+                      src={caseStudy.meta.cover}
+                      alt={caseStudy.meta.title}
+                      width={200}
+                      height={200}
+                      priority
+                      className="object-contain max-w-full max-h-full"
+                    />
+                  ) : (
+                    <Image
+                      src={caseStudy.meta.cover}
+                      alt={caseStudy.meta.title}
+                      fill
+                      className="object-cover"
+                      priority
+                      sizes="128px"
+                    />
+                  )}
+                </div>
+              </div>
             </div>
 
-            {/* Cover Image */}
-            <div className="lg:col-span-1">
+            {/* Cover Image - desktop uniquement */}
+            <div className="hidden lg:block lg:col-span-1">
               <div className={`relative aspect-[4/3] rounded-xl overflow-hidden flex items-center justify-center ${caseStudy.meta.id === 'fs-auto' ? 'bg-white/10 p-8' : 'bg-white/5'}`}>
                 {caseStudy.meta.id === 'fs-auto' ? (
                   <Image
@@ -164,7 +191,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                     fill
                     className="object-cover"
                     priority
-                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    sizes="33vw"
                   />
                 )}
               </div>

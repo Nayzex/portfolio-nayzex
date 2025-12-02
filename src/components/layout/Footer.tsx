@@ -30,9 +30,9 @@ export default function Footer() {
   };
 
   const social = [
-    { name: 'GitHub', href: 'https://github.com', icon: Github },
-    { name: 'LinkedIn', href: 'https://linkedin.com', icon: Linkedin },
-    { name: 'Twitter', href: 'https://twitter.com', icon: Twitter },
+    { name: 'GitHub', href: 'https://github.com/Nayzex', icon: Github },
+    { name: 'LinkedIn', href: 'https://fr.linkedin.com/in/nathan-siwek', icon: Linkedin },
+    { name: 'Twitter', href: 'https://twitter.com/Nayzex4Dev', icon: Twitter },
     { name: 'Email', href: 'mailto:nayzex.dev@gmail.com', icon: Mail },
   ];
 

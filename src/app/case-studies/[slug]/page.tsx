@@ -1,14 +1,12 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { MDXRemote } from 'next-mdx-remote/rsc';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
-import { mdxComponents } from '@/lib/mdx/mdx-components';
 import { getCaseStudyBySlug, getAdjacentCaseStudies, getAllCaseStudySlugs } from '@/lib/mdx/get-case-studies';
-import { Calendar, Clock, ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, ArrowRight } from 'lucide-react';
 
 interface CaseStudyPageProps {
   params: Promise<{ 
@@ -227,7 +225,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="mb-6 text-white">
-              Prêt à créer quelque chose d'extraordinaire ?
+              Prêt à créer quelque chose d&apos;extraordinaire ?
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 

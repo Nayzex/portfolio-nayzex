@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { plausible } from '@/lib/analytics/plausible';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -52,21 +51,19 @@ export default function Header() {
 
           {/* CTAs Desktop */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button 
+            <Button
               size="sm"
               asChild
               className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
-              onClick={() => plausible('CTA Click', { props: { location: 'Header WhatsApp' } })}
             >
               <a href="https://wa.me/33123456789" target="_blank" rel="noopener noreferrer" className="text-black hover:text-violet-600">
                 WhatsApp
               </a>
             </Button>
-            <Button 
+            <Button
               size="sm"
               asChild
               className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
-              onClick={() => plausible('CTA Click', { props: { location: 'Header Quote' } })}
             >
               <Link href="/contact" className="text-black hover:text-violet-600">
                 Demander un devis
@@ -107,21 +104,19 @@ export default function Header() {
                 </Link>
               ))}
               <div className="flex flex-col space-y-2 px-3 pt-4">
-                <Button 
+                <Button
                   size="sm"
                   asChild
                   className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
-                  onClick={() => plausible('CTA Click', { props: { location: 'Mobile Header WhatsApp' } })}
                 >
                   <a href="https://wa.me/33123456789" target="_blank" rel="noopener noreferrer" className="text-black hover:text-violet-600">
                     WhatsApp
                   </a>
                 </Button>
-                <Button 
+                <Button
                   size="sm"
                   asChild
                   className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300"
-                  onClick={() => plausible('CTA Click', { props: { location: 'Mobile Header Quote' } })}
                 >
                   <Link href="/contact" className="text-black hover:text-violet-600">
                     Demander un devis

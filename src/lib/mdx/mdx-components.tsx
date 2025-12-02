@@ -169,8 +169,11 @@ function generateId(children: ReactNode): string {
     if (typeof node === 'string') return node;
     if (typeof node === 'number') return node.toString();
     if (Array.isArray(node)) return node.map(extractText).join('');
-    if (node && typeof node === 'object' && 'props' in node && node.props?.children) {
-      return extractText(node.props.children);
+    if (node && typeof node === 'object' && 'props' in node) {
+      const nodeWithProps = node as { props?: { children?: ReactNode } };
+      if (nodeWithProps.props?.children) {
+        return extractText(nodeWithProps.props.children);
+      }
     }
     return '';
   };

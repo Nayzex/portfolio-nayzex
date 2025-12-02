@@ -62,7 +62,7 @@ export default function ProjectsPageClient() {
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="mb-4">Mes Projets</h1>
             <p className="text-lead mb-6 text-ink-subtle">
-              Découvrez mes réalisations récentes en développement web et mobile. Chaque projet reflète mon expertise technique et ma passion pour l'innovation.
+              Découvrez mes réalisations récentes en développement web et mobile. Chaque projet reflète mon expertise technique et ma passion pour l&apos;innovation.
             </p>
             
             {/* Filtres par catégories */}
@@ -181,7 +181,7 @@ export default function ProjectsPageClient() {
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <h2 className="mb-6 text-white">Intéressé par mon travail ?</h2>
           <p className="text-lg mb-8 opacity-90">
-            Discutons de votre prochain projet et voyons comment nous pouvons créer quelque chose d'exceptionnel ensemble.
+            Discutons de votre prochain projet et voyons comment nous pouvons créer quelque chose d&apos;exceptionnel ensemble.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button

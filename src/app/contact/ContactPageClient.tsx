@@ -324,7 +324,7 @@ export default function ContactPageClient() {
                       className="mt-1 w-4 h-4 text-violet-600 border-gray-300 rounded focus:ring-violet-500"
                     />
                     <label htmlFor="privacy" className="text-sm text-gray-600">
-                      J'accepte que mes données soient utilisées pour répondre à ma demande. *
+                      J&apos;accepte que mes données soient utilisées pour répondre à ma demande. *
                     </label>
                   </div>
 

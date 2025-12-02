@@ -25,7 +25,7 @@ const contactSchema = z.object({
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting
-    const identifier = request.ip ?? request.headers.get('x-forwarded-for') ?? 'anonymous';
+    const identifier = request.headers.get('x-forwarded-for') ?? request.headers.get('x-real-ip') ?? 'anonymous';
     const { success } = await rateLimit.limit(identifier);
 
     if (!success) {
@@ -92,7 +92,7 @@ Envoyé depuis le formulaire de contact du portfolio
         subject: emailSubject,
         text: emailContent,
         html: emailContent.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'),
-        reply_to: validatedData.email,
+        replyTo: validatedData.email,
       });
 
       if (error) {
@@ -147,9 +147,9 @@ Envoyé depuis le formulaire de contact du portfolio
 
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { 
+        {
           error: 'Données invalides',
-          details: error.errors.map(err => ({ field: err.path.join('.'), message: err.message }))
+          details: error.issues.map(err => ({ field: err.path.join('.'), message: err.message }))
         },
         { status: 400 }
       );

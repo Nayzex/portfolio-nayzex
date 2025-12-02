@@ -120,7 +120,7 @@ export default function ProcessPage() {
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="mb-6">Mon Processus en 5 Étapes</h1>
             <p className="text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
-              Une méthodologie éprouvée pour le succès, affinée grâce à des années d'expérience dans la livraison de solutions digitales de haute qualité.
+              Une méthodologie éprouvée pour le succès, affinée grâce à des années d&apos;expérience dans la livraison de solutions digitales de haute qualité.
             </p>
             <p className="text-sm mt-4" style={{ color: 'var(--color-ink-subtle)' }}>
               * Durées moyennes pour des projets petits à moyens
@@ -257,7 +257,7 @@ export default function ProcessPage() {
               </div>
               <h3 className="text-lg font-semibold mb-2">Collaborative Approach</h3>
               <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
-                Regular check-ins and feedback sessions ensure we're always aligned with your vision and goals.
+                Regular check-ins and feedback sessions ensure we&apos;re always aligned with your vision and goals.
               </p>
             </div>
 

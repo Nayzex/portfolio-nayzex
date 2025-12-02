@@ -22,7 +22,7 @@ const experience = [
     role: 'Alternant - Développeur Front/Back',
     company: 'BPCE-SI',
     period: '2025 - En cours',
-    description: 'Développement full-stack sur AGRILISMAT, une application permettant d\'accorder des prêts pour l\'achat de matériel agricole aux agriculteurs.',
+    description: 'Développement full-stack sur AGRILISMAT, une application permettant d&apos;accorder des prêts pour l&apos;achat de matériel agricole aux agriculteurs.',
     achievements: [
       'Développement de fonctionnalités front et backend pour la gestion des prêts agricoles',
       'Intégration avec les systèmes bancaires et de traitement de dossiers',
@@ -33,9 +33,9 @@ const experience = [
     role: 'Alternant - Développeur Front/Back',
     company: 'Amorinfo',
     period: '2024 - 2025',
-    description: 'Développement full-stack d\'un site web complet de gestion de club de handball permettant de gérer les équipes, matchs, lieux et gymnases.',
+    description: 'Développement full-stack d&apos;un site web complet de gestion de club de handball permettant de gérer les équipes, matchs, lieux et gymnases.',
     achievements: [
-      'Développement d\'une application complète de gestion sportive',
+      'Développement d&apos;une application complète de gestion sportive',
       'Gestion des équipes, calendrier de matchs et espaces de jeu',
       'Interface responsive et intuitive pour les administrateurs de clubs'
     ]
@@ -46,12 +46,12 @@ const values = [
   {
     icon: Code,
     title: 'Code Propre',
-    description: 'Je crois en l\'écriture de code maintenable et bien documenté qui résiste à l\'épreuve du temps.'
+    description: 'Je crois en l&apos;écriture de code maintenable et bien documenté qui résiste à l&apos;épreuve du temps.'
   },
   {
     icon: Heart,
     title: 'Centré Utilisateur',
-    description: 'Chaque décision est prise en gardant l\'utilisateur final à l\'esprit, garantissant des expériences exceptionnelles.'
+    description: 'Chaque décision est prise en gardant l&apos;utilisateur final à l&apos;esprit, garantissant des expériences exceptionnelles.'
   },
   {
     icon: Coffee,
@@ -76,12 +76,14 @@ export default function AboutPage() {
             <div>
               <h1 className="mb-6">À Propos de Moi</h1>
               <p className="text-lead mb-6" style={{ color: 'var(--color-ink-subtle)' }}>
-                Je suis Nathan, un développeur full-stack passionné avec plus de 4 ans d'expérience créant 
+                Je suis Nathan, un développeur full-stack passionné avec plus de 4 ans d&apos;expérience créant
                 des solutions digitales qui font la différence.
               </p>
               <p className="text-body mb-8" style={{ color: 'var(--color-ink-subtle)' }}>
-                Mon parcours dans le développement web a commencé par un BTS SIO, puis par un bachelor coordinateur de projets informatiques.                . 
-                Aujourd'hui, je me spécialise dans la construction d'applications web et mobiles évolutives qui aident 
+                Mon parcours dans le développement web a commencé par un BTS SIO, puis par un bachelor coordinateur de projets informatiques.
+              </p>
+              <p className="text-body mb-8" style={{ color: 'var(--color-ink-subtle)' }}>
+                Aujourd&apos;hui, je me spécialise dans la construction d&apos;applications web et mobiles évolutives qui aident
                 les entreprises à croître et les utilisateurs à atteindre leurs objectifs.
               </p>
 
@@ -93,7 +95,7 @@ export default function AboutPage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Calendar className="w-5 h-5" style={{ color: 'var(--color-accent-a-base)' }} />
-                  <span className="text-sm">4+ Ans d'Expérience</span>
+                  <span className="text-sm">4+ Ans d&apos;Expérience</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Award className="w-5 h-5" style={{ color: 'var(--color-accent-a-base)' }} />
@@ -166,7 +168,7 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="mb-6">Skills & Technologies</h2>
             <p className="text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
-              The tools and technologies I use to bring ideas to life.
+              Les outils et les technologies que j&apos;utilise.
             </p>
           </div>
 
@@ -193,7 +195,7 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="mb-6">Expérience Professionnelle</h2>
             <p className="text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
-              Mon parcours à travers différents rôles et l'impact que j'ai eu en cours de route.
+              Mon parcours à travers différents rôles et l&apos;impact que j&apos;ai eu en cours de route.
             </p>
           </div>
 
@@ -255,8 +257,8 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="mb-6">Au-delà du Code</h2>
             <p className="text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
-              Quand je ne code pas, vous me trouverez en train d'explorer de nouvelles technologies, de faire du sport, 
-              ou d'expérimenter le monde automobile. Je crois que des expériences diverses font de moi un meilleur développeur.
+              Quand je ne code pas, vous me trouverez en train d&apos;explorer de nouvelles technologies, de faire du sport,
+              ou d&apos;expérimenter le monde automobile. Je crois que des expériences diverses font de moi un meilleur développeur.
             </p>
           </div>
 
@@ -265,14 +267,14 @@ export default function AboutPage() {
               <Mountain className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--color-accent-a-base)' }} />
               <h3 className="font-semibold mb-2">Aventures en Plein Air</h3>
               <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
-                Le sport m'aident à clarifier mon esprit et à aborder les problèmes avec une perspective fraîche.
+                Le sport m&apos;aide à clarifier mon esprit et à aborder les problèmes avec une perspective fraîche.
               </p>
             </div>
             <div className="text-center">
               <Coffee className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--color-accent-a-base)' }} />
               <h3 className="font-semibold mb-2">Apprentissage Continu</h3>
               <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
-                Toujours en train d'apprendre de nouvelles technologies et de contribuer à des projets open-source dans mon temps libre.
+                Toujours en train d&apos;apprendre de nouvelles technologies et de contribuer à des projets open-source dans mon temps libre.
               </p>
             </div>
             <div className="text-center">
@@ -291,10 +293,10 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="mb-6 text-white">
-              Créons Quelque Chose d'Extraordinaire Ensemble
+              Créons Quelque Chose d&apos;Extraordinaire Ensemble
             </h2>
             <p className="text-lg mb-8 text-white/90">
-              Je suis toujours enthousiaste à l'idée de travailler sur de nouveaux projets et d'aider à donner vie à des idées innovantes.
+              Je suis toujours enthousiaste à l&apos;idée de travailler sur de nouveaux projets et d&apos;aider à donner vie à des idées innovantes.
             </p>
             <Button 
               size="lg"

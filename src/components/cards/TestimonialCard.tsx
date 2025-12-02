@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { Quote } from 'lucide-react';
 import Link from 'next/link';
 
@@ -9,19 +8,17 @@ interface TestimonialCardProps {
   author: string;
   role: string;
   company?: string;
-  avatar: string;
   rating?: number;
   className?: string;
 }
 
-export default function TestimonialCard({ 
-  quote, 
-  author, 
-  role, 
-  company = "", 
-  avatar,
+export default function TestimonialCard({
+  quote,
+  author,
+  role,
+  company = "",
   rating = 5,
-  className = "" 
+  className = ""
 }: TestimonialCardProps) {
   return (
     <Link href="/testimonials" className="block">
@@ -50,7 +47,7 @@ export default function TestimonialCard({
 
       {/* Quote */}
       <blockquote className="text-body mb-6 leading-relaxed italic text-white">
-        "{quote}"
+        &quot;{quote}&quot;
       </blockquote>
 
       {/* Author */}

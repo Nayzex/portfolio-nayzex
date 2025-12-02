@@ -150,7 +150,7 @@ export default function Footer() {
                 Politique de confidentialité
               </Link>
               <Link href="/legal/terms" className="text-ink-subtle hover:text-accent-a-base transition-colors">
-                Conditions d'utilisation
+                Conditions d&apos;utilisation
               </Link>
               <Link href="/legal/mentions" className="text-ink-subtle hover:text-accent-a-base transition-colors">
                 Mentions légales

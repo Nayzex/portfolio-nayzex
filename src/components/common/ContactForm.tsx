@@ -11,7 +11,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from 'sonner';
-import { plausible } from '@/lib/analytics/plausible';
 import { Loader2, Send, CheckCircle } from 'lucide-react';
 
 // Schema de validation
@@ -20,15 +19,9 @@ const contactSchema = z.object({
   email: z.string().email('Adresse email invalide'),
   company: z.string().optional(),
   phone: z.string().optional(),
-  projectType: z.enum(['web', 'mobile', 'both', 'other'], {
-    required_error: 'Veuillez sélectionner un type de projet'
-  }),
-  budget: z.enum(['<5k', '5k-15k', '15k-50k', '>50k', 'not-sure'], {
-    required_error: 'Veuillez sélectionner une fourchette de budget'
-  }),
-  timeline: z.enum(['asap', '1-3months', '3-6months', '6months+', 'not-sure'], {
-    required_error: 'Veuillez sélectionner un délai'
-  }),
+  projectType: z.enum(['web', 'mobile', 'both', 'other']),
+  budget: z.enum(['<5k', '5k-15k', '15k-50k', '>50k', 'not-sure']),
+  timeline: z.enum(['asap', '1-3months', '3-6months', '6months+', 'not-sure']),
   message: z.string().min(10, 'Le message doit contenir au moins 10 caractères'),
   newsletter: z.boolean().default(false),
   privacy: z.boolean().refine(val => val === true, 'Vous devez accepter la politique de confidentialité')
@@ -47,13 +40,10 @@ export default function ContactForm() {
     watch,
     formState: { errors },
     reset
-  } = useForm<ContactForm>({
+  } = useForm({
     resolver: zodResolver(contactSchema)
   });
 
-  const projectType = watch('projectType');
-  const budget = watch('budget');
-  const timeline = watch('timeline');
   const newsletter = watch('newsletter');
   const privacy = watch('privacy');
 
@@ -73,7 +63,6 @@ export default function ContactForm() {
         toast.success('Message envoyé avec succès !', {
           description: 'Je vous répondrai dans les plus brefs délais.'
         });
-        plausible('Form Submission', { props: { form: 'contact', type: data.projectType } });
         setIsSubmitted(true);
         reset();
       } else {
@@ -164,7 +153,7 @@ export default function ContactForm() {
         
         <div className="space-y-2">
           <Label htmlFor="projectType">Type de projet *</Label>
-          <Select onValueChange={(value) => setValue('projectType', value as any)}>
+          <Select onValueChange={(value) => setValue('projectType', value as ContactForm['projectType'])}>
             <SelectTrigger className={errors.projectType ? 'border-red-500' : ''}>
               <SelectValue placeholder="Sélectionnez le type de projet" />
             </SelectTrigger>
@@ -183,7 +172,7 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="budget">Budget approximatif *</Label>
-            <Select onValueChange={(value) => setValue('budget', value as any)}>
+            <Select onValueChange={(value) => setValue('budget', value as ContactForm['budget'])}>
               <SelectTrigger className={errors.budget ? 'border-red-500' : ''}>
                 <SelectValue placeholder="Fourchette de budget" />
               </SelectTrigger>
@@ -202,7 +191,7 @@ export default function ContactForm() {
 
           <div className="space-y-2">
             <Label htmlFor="timeline">Délai souhaité *</Label>
-            <Select onValueChange={(value) => setValue('timeline', value as any)}>
+            <Select onValueChange={(value) => setValue('timeline', value as ContactForm['timeline'])}>
               <SelectTrigger className={errors.timeline ? 'border-red-500' : ''}>
                 <SelectValue placeholder="Quand lancer le projet ?" />
               </SelectTrigger>
@@ -256,7 +245,7 @@ export default function ContactForm() {
             className={errors.privacy ? 'border-red-500' : ''}
           />
           <Label htmlFor="privacy" className="text-sm">
-            J'accepte la politique de confidentialité et le traitement de mes données *
+            J&apos;accepte la politique de confidentialité et le traitement de mes données *
           </Label>
         </div>
         {errors.privacy && (

@@ -15,7 +15,6 @@ const testimonials = [
     author: "Romaric",
     role: "Patron",
     company: "Amorinfo",
-    avatar: "R",
     rating: 5,
   },
 ];
@@ -50,7 +49,7 @@ export default function TestimonialsPage() {
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="mb-6">Témoignages Clients</h1>
             <p className="text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
-              Découvrez les retours de mes clients et l'impact de mes réalisations. Soyez le premier à partager votre expérience de travail avec moi.
+              Découvrez les retours de mes clients et l&apos;impact de mes réalisations. Soyez le premier à partager votre expérience de travail avec moi.
             </p>
           </div>
         </div>
@@ -98,7 +97,6 @@ export default function TestimonialsPage() {
                   author={testimonial.author}
                   role={testimonial.role}
                   company={testimonial.company}
-                  avatar={testimonial.avatar}
                   rating={testimonial.rating}
                 />
               ))}
@@ -107,7 +105,7 @@ export default function TestimonialsPage() {
             <div className="max-w-2xl mx-auto text-center py-16">
               <h2 className="text-3xl font-bold mb-6">Pas encore de témoignages</h2>
               <p className="text-lg mb-8" style={{ color: 'var(--color-ink-subtle)' }}>
-                Soyez le premier à témoigner de mon travail ! Si vous avez collaboré avec moi, j'aimerais connaître votre avis et votre expérience.
+                Soyez le premier à témoigner de mon travail ! Si vous avez collaboré avec moi, j&apos;aimerais connaître votre avis et votre expérience.
               </p>
               <Button size="lg" asChild className="bg-white hover:bg-white text-black hover:text-violet-600 border border-gray-300">
                 <Link href="/contact" className="text-black hover:text-violet-600">
@@ -142,7 +140,7 @@ export default function TestimonialsPage() {
               </div>
               <h3 className="text-lg font-semibold mb-3">Communication Claire</h3>
               <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
-                "Nathan nous a tenus informés à chaque étape. Ses mises à jour hebdomadaires et démos nous ont donné confiance dans le progrès du projet."
+                &quot;Nathan nous a tenus informés à chaque étape. Ses mises à jour hebdomadaires et démos nous ont donné confiance dans le progrès du projet.&quot;
               </p>
               <div className="mt-4 text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
                 - Retour client récurrent
@@ -161,7 +159,7 @@ export default function TestimonialsPage() {
               </div>
               <h3 className="text-lg font-semibold mb-3">Orienté Résultats</h3>
               <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
-                "Non seulement Nathan a livré exactement ce que nous avions demandé, mais il a aussi suggéré des améliorations qui ont considérablement boosté nos taux de conversion."
+                &quot;Non seulement Nathan a livré exactement ce que nous avions demandé, mais il a aussi suggéré des améliorations qui ont considérablement boosté nos taux de conversion.&quot;
               </p>
               <div className="mt-4 text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
                 - Client e-commerce
@@ -180,10 +178,10 @@ export default function TestimonialsPage() {
               </div>
               <h3 className="text-lg font-semibold mb-3">Focus Qualité</h3>
               <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
-                "L'attention aux détails est exceptionnelle. Chaque interaction semble polie, et la qualité du code a rendu la maintenance un jeu d'enfant."
+                &quot;L&apos;attention aux détails est exceptionnelle. Chaque interaction semble polie, et la qualité du code a rendu la maintenance un jeu d&apos;enfant.&quot;
               </p>
               <div className="mt-4 text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
-                - Chef d'équipe technique
+                - Chef d&apos;équipe technique
               </div>
             </div>
           </div>
@@ -194,9 +192,9 @@ export default function TestimonialsPage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="mb-6">Reconnaissance de l'Industrie</h2>
+            <h2 className="mb-6">Reconnaissance de l&apos;Industrie</h2>
             <p className="text-lead content-width mx-auto" style={{ color: 'var(--color-ink-subtle)' }}>
-              Prix et reconnaissance de pairs de l'industrie et d'organisations.
+              Prix et reconnaissance de pairs de l&apos;industrie et d&apos;organisations.
             </p>
           </div>
 
@@ -239,7 +237,7 @@ export default function TestimonialsPage() {
               <Users className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--color-accent-a-base)' }} />
               <h3 className="font-semibold mb-2">Excellence UX</h3>
               <p className="text-xs" style={{ color: 'var(--color-ink-subtle)' }}>
-                Pour un design d'expérience utilisateur exceptionnel
+                Pour un design d&apos;expérience utilisateur exceptionnel
               </p>
             </div>
           </div>

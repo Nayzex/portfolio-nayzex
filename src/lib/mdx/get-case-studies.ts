@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 
 export interface CaseStudyMeta {
+  id?: string;
   title: string;
   abstract: string;
   date: string;
@@ -13,6 +14,7 @@ export interface CaseStudyMeta {
   kpis: { label: string; value: string }[];
   cover: string;
   gallery?: string[];
+  website?: string;
   slug: string;
 }
 
@@ -29,7 +31,7 @@ export function getAllCaseStudySlugs(): string[] {
     return fileNames
       .filter(name => name.endsWith('.mdx'))
       .map(name => name.replace(/\.mdx$/, ''));
-  } catch (error) {
+  } catch {
     console.warn('Case studies directory not found, returning empty array');
     return [];
   }

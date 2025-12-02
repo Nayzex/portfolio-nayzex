@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import ProjectCard from '@/components/cards/ProjectCard';
 import ServiceCard from '@/components/cards/ServiceCard';
 import TestimonialCard from '@/components/cards/TestimonialCard';
-import { plausible } from '@/lib/analytics/plausible';
 import { Code, Smartphone, Palette, Search, ArrowRight } from 'lucide-react';
 export default function HomePageClient() {
 
@@ -22,7 +21,7 @@ export default function HomePageClient() {
           {
             id: "ctmhb-handball-management",
             title: "CTMHB - Gestion de Club de Handball",
-            description: "Application web complète pour la gestion d'un club de handball : équipes, matchs, planning, emplacements et administration du club.",
+            description: "Application web complète pour la gestion d&apos;un club de handball : équipes, matchs, planning, emplacements et administration du club.",
             image: "/images/projects/ctmhb-handball-management/CTMHB logo.png",
             href: "/case-studies/ctmhb-handball-management",
             tags: ["Angular", "Symfony", "PostgreSQL"]
@@ -283,7 +282,7 @@ export default function HomePageClient() {
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <h2 className="mb-6 text-white">Prêt à démarrer votre prochain projet ?</h2>
           <p className="text-lg mb-8 opacity-90">
-            Contactez-moi dès aujourd'hui pour discuter de vos idées et obtenir un devis personnalisé.
+            Contactez-moi dès aujourd&apos;hui pour discuter de vos idées et obtenir un devis personnalisé.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button

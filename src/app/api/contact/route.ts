@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
 import { z } from 'zod';
 import { rateLimit } from '@/lib/rate-limit';
-
-// Initialize Resend
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Contact form validation schema
 const contactSchema = z.object({
@@ -84,55 +80,12 @@ ${validatedData.message}
 Envoyé depuis le formulaire de contact du portfolio
     `;
 
-    // Send email via Resend
-    if (process.env.RESEND_API_KEY) {
-      const { data, error } = await resend.emails.send({
-        from: 'Portfolio Contact <noreply@nayzex.com>',
-        to: ['nayzex.dev@gmail.com'],
-        subject: emailSubject,
-        text: emailContent,
-        html: emailContent.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'),
-        replyTo: validatedData.email,
-      });
-
-      if (error) {
-        console.error('Resend error:', error);
-        return NextResponse.json(
-          { error: 'Erreur lors de l\'envoi de l\'email. Veuillez réessayer.' },
-          { status: 500 }
-        );
-      }
-
-      console.log('Email sent successfully:', data);
-    } else {
-      // Development mode - log to console
-      console.log('Contact form submission (dev mode):');
-      console.log('Subject:', emailSubject);
-      console.log('Content:', emailContent);
-    }
-
-    // Send confirmation email to user
-    if (process.env.RESEND_API_KEY) {
-      await resend.emails.send({
-        from: 'Nathan - Portfolio <noreply@nayzex.com>',
-        to: [validatedData.email],
-        subject: 'Merci pour votre message !',
-        html: `
-          <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #8B5CF6;">Merci pour votre message !</h2>
-            <p>Bonjour ${validatedData.firstName},</p>
-            <p>J'ai bien reçu votre message et je vous remercie pour votre intérêt. Je reviendrai vers vous sous 24-48 heures pour discuter de votre projet.</p>
-            <p>En attendant, n'hésitez pas à consulter mes <a href="${process.env.NEXT_PUBLIC_APP_URL}/fr/projects" style="color: #8B5CF6;">projets récents</a> pour mieux comprendre mon approche.</p>
-            <p>À très bientôt,<br>Nathan</p>
-            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; font-size: 0.875rem; color: #6b7280;">
-              <p>Nathan Siwek - Développeur Web & Mobile<br>
-              Email: hello@nayzex.com<br>
-              Portfolio: <a href="${process.env.NEXT_PUBLIC_APP_URL}" style="color: #8B5CF6;">${process.env.NEXT_PUBLIC_APP_URL}</a></p>
-            </div>
-          </div>
-        `,
-      });
-    }
+    // Log contact form submission to console
+    console.log('=== NEW CONTACT FORM SUBMISSION ===');
+    console.log('Subject:', emailSubject);
+    console.log('From:', validatedData.email);
+    console.log('Content:', emailContent);
+    console.log('===================================');
 
     return NextResponse.json(
       { 

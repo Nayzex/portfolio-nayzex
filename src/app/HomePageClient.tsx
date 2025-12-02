@@ -16,7 +16,9 @@ export default function HomePageClient() {
             description: "Plateforme web complète combinant présentation de l'entreprise et système de consultation du stock de véhicules.",
             image: "/images/projects/fs-auto/logo.png",
             href: "/case-studies/fs-auto",
-            tags: ["React", "Next.js", "TypeScript", "Node.js"]
+            tags: ["React", "Next.js", "TypeScript", "Node.js"],
+            status: "En pause",
+            year: "2025"
           },
           {
             id: "ctmhb-handball-management",
@@ -24,7 +26,9 @@ export default function HomePageClient() {
             description: "Application web complète pour la gestion d&apos;un club de handball : équipes, matchs, planning, emplacements et administration du club.",
             image: "/images/projects/ctmhb-handball-management/CTMHB logo.png",
             href: "/case-studies/ctmhb-handball-management",
-            tags: ["Angular", "Symfony", "PostgreSQL"]
+            tags: ["Angular", "Symfony", "PostgreSQL"],
+            status: "Terminé",
+            year: "2024"
           },
         ];
 

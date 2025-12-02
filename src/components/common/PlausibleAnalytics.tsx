@@ -15,7 +15,7 @@ export default function PlausibleAnalytics({ domain }: PlausibleAnalyticsProps) 
   }
 
   if (!plausibleDomain) {
-    console.warn('Plausible domain not configured');
+    // Plausible domain not configured - analytics disabled
     return null;
   }
 

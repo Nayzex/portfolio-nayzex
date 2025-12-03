@@ -3,7 +3,11 @@
 import { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 
-export default function ThemeToggle() {
+interface ThemeToggleProps {
+  onToggle?: () => void;
+}
+
+export default function ThemeToggle({ onToggle }: ThemeToggleProps) {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
@@ -22,18 +26,17 @@ export default function ThemeToggle() {
     localStorage.setItem('theme', newTheme);
     document.documentElement.classList.toggle('dark', newTheme === 'dark');
     document.documentElement.classList.toggle('light', newTheme === 'light');
+
+    // Appeler la fonction onToggle si elle existe (pour fermer le menu mobile)
+    if (onToggle) {
+      onToggle();
+    }
   };
 
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg transition-colors"
-      style={{
-        backgroundColor: 'transparent',
-        border: 'none'
-      }}
-      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1f2937'}
-      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+      className="theme-toggle-btn p-2 rounded-lg hover:bg-gray-800 transition-colors"
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
     >
       {theme === 'dark' ? (

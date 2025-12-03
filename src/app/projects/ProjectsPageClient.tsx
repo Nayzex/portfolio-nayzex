@@ -18,7 +18,7 @@ export default function ProjectsPageClient() {
       longDescription: 'Plateforme web complète pour FS-Auto combinant présentation de l\'entreprise et système de consultation du stock de véhicules. Permet aux clients de parcourir les véhicules disponibles, consulter les détails techniques, voir les photos haute résolution et entrer en contact avec l\'entreprise pour des demandes de visite ou d\'essai routier.',
       image: '/images/projects/fs-auto/logo.png',
       tags: ['React', 'Next.js', 'TypeScript', 'Node.js'],
-      category: 'Web Development',
+      category: 'Développement Web',
       status: 'En pause',
       year: '2025',
       featured: true,
@@ -30,7 +30,7 @@ export default function ProjectsPageClient() {
       longDescription: 'Application web complète pour la gestion d\'un club de handball : gestion des équipes, planning des matchs, réservation des emplacements, suivi des joueurs et administration du club. Interface intuitive pour les administrateurs et les membres.',
       image: '/images/projects/ctmhb-handball-management/CTMHB logo.png',
       tags: ['Angular', 'Symfony', 'PostgreSQL'],
-      category: 'Web Development',
+      category: 'Développement Web',
       status: 'Terminé',
       year: '2024',
     },
@@ -41,13 +41,13 @@ export default function ProjectsPageClient() {
       longDescription: 'Application mobile iOS pour la gestion complète de matchs de babyfoot : enregistrement des joueurs, création de matchs 1v1 et 2v2, saisie des résultats, photos des gagnants, statistiques détaillées avec podium des meilleurs joueurs, et association des joueurs à leurs formations scolaires. Architecture offline-first avec SwiftData.',
       image: '/images/projects/babyfoot-go/logo.png',
       tags: ['SwiftUI', 'SwiftData', 'iOS 17+'],
-      category: 'Mobile Development',
+      category: 'Développement Mobile',
       status: 'En cours',
       year: '2024',
     },
   ];
 
-  const categories = ['Tous', 'Web Development', 'Mobile Development', 'AI & Machine Learning'];
+  const categories = ['Tous', 'Développement Web', 'Développement Mobile', 'IA & Machine Learning'];
 
   // Filtrer les projets selon la catégorie sélectionnée
   const filteredProjects = selectedCategory === 'Tous' 

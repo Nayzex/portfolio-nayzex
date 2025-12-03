@@ -157,8 +157,8 @@ export default function Header() {
                       animation: isMenuClosing ? 'none' : 'fadeInSlideUp 0.3s ease-out 0.35s both'
                     }}
                   >
-                    <span className="text-white text-lg font-medium">Mode d'affichage</span>
-                    <ThemeToggle />
+                    <span className="text-white text-lg font-medium">Mode d&apos;affichage</span>
+                    <ThemeToggle onToggle={handleCloseMenu} />
                   </div>
                   <Button
                     size="lg"

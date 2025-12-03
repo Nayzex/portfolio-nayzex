@@ -249,41 +249,41 @@ export default function ProcessPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div 
+              <div
                 className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
                 style={{ backgroundColor: 'var(--color-accent-a-base)' }}
               >
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Collaborative Approach</h3>
+              <h3 className="text-lg font-semibold mb-2">Approche Collaborative</h3>
               <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
-                Regular check-ins and feedback sessions ensure we&apos;re always aligned with your vision and goals.
+                Des points réguliers et des sessions de feedback assurent que nous sommes toujours alignés avec votre vision et vos objectifs.
               </p>
             </div>
 
             <div className="text-center">
-              <div 
+              <div
                 className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
                 style={{ backgroundColor: 'var(--color-accent-a-base)' }}
               >
                 <Clock className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Predictable Timeline</h3>
+              <h3 className="text-lg font-semibold mb-2">Planning Prévisible</h3>
               <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
-                Clear milestones and deliverables keep your project on track and within budget.
+                Des jalons et livrables clairs maintiennent votre projet sur la bonne voie et dans le budget.
               </p>
             </div>
 
             <div className="text-center">
-              <div 
+              <div
                 className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
                 style={{ backgroundColor: 'var(--color-accent-a-base)' }}
               >
                 <Check className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Quality Assurance</h3>
+              <h3 className="text-lg font-semibold mb-2">Assurance Qualité</h3>
               <p className="text-sm" style={{ color: 'var(--color-ink-subtle)' }}>
-                Rigorous testing and optimization ensure your final product exceeds expectations.
+                Des tests rigoureux et une optimisation garantissent que votre produit final dépasse les attentes.
               </p>
             </div>
           </div>

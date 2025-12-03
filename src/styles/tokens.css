@@ -233,20 +233,20 @@ button.bg-white:hover, .btn.bg-white:hover {
 
 /* === CORRECTION SPÉCIFIQUE POUR LES BOUTONS PROBLÉMATIQUES === */
 /* Ciblage ultra-spécifique des boutons avec texte blanc invisible */
-.bg-surface button,
+.bg-surface button:not(.theme-toggle-btn),
 .bg-surface .btn,
-.rounded-lg button,
-div[class*="bg-surface"] button,
-div[class*="rounded"] button {
+.rounded-lg button:not(.theme-toggle-btn),
+div[class*="bg-surface"] button:not(.theme-toggle-btn),
+div[class*="rounded"] button:not(.theme-toggle-btn) {
   color: #000000 !important;
   background-color: #ffffff !important;
 }
 
-.bg-surface button:hover,
+.bg-surface button:not(.theme-toggle-btn):hover,
 .bg-surface .btn:hover,
-.rounded-lg button:hover,
-div[class*="bg-surface"] button:hover,
-div[class*="rounded"] button:hover {
+.rounded-lg button:not(.theme-toggle-btn):hover,
+div[class*="bg-surface"] button:not(.theme-toggle-btn):hover,
+div[class*="rounded"] button:not(.theme-toggle-btn):hover {
   background-color: #8B5CF6 !important;
   color: #ffffff !important;
 }
@@ -263,26 +263,26 @@ button a * {
   color: inherit !important;
 }
 
-/* Styles par défaut pour TOUS les boutons */
-button, 
-.btn, 
+/* Styles par défaut pour TOUS les boutons SAUF theme-toggle-btn */
+button:not(.theme-toggle-btn),
+.btn,
 [role="button"],
-button span,
-button a,
+button:not(.theme-toggle-btn) span,
+button:not(.theme-toggle-btn) a,
 .btn span,
 .btn a {
   color: #000000 !important;
 }
 
 /* Au hover - couleur violette pour le texte */
-button:hover, 
-button:hover *,
+button:not(.theme-toggle-btn):hover,
+button:not(.theme-toggle-btn):hover *,
 .btn:hover,
 .btn:hover *,
 [role="button"]:hover,
 [role="button"]:hover *,
-button:hover span,
-button:hover a {
+button:not(.theme-toggle-btn):hover span,
+button:not(.theme-toggle-btn):hover a {
   color: #8B5CF6 !important;
 }
 

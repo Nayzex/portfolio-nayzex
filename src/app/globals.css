@@ -211,41 +211,41 @@
   }
   
   /* === CORRECTION GLOBALE BOUTONS === */
-  /* FORCE le texte noir sur TOUS les boutons */
-  button, 
+  /* FORCE le texte noir sur TOUS les boutons SAUF theme-toggle-btn */
+  button:not(.theme-toggle-btn),
   .button,
   [role="button"],
-  a button,
-  div button,
-  button span,
-  .bg-white button,
+  a button:not(.theme-toggle-btn),
+  div button:not(.theme-toggle-btn),
+  button:not(.theme-toggle-btn) span,
+  .bg-white button:not(.theme-toggle-btn),
   button.bg-white {
     color: #000000 !important;
     fill: #000000 !important;
   }
-  
+
   /* FORCE également pour les liens dans les boutons */
-  button a, 
-  button a span,
+  button:not(.theme-toggle-btn) a,
+  button:not(.theme-toggle-btn) a span,
   .bg-white a,
   .bg-white a span {
     color: #000000 !important;
   }
-  
+
   /* Au hover - fond violet + texte blanc */
-  button:hover, 
+  button:not(.theme-toggle-btn):hover,
   .button:hover,
   [role="button"]:hover,
-  .bg-white button:hover,
+  .bg-white button:not(.theme-toggle-btn):hover,
   button.bg-white:hover {
     background-color: #8B5CF6 !important;
     color: #ffffff !important;
     fill: #ffffff !important;
   }
-  
+
   /* Liens dans boutons au hover */
-  button:hover a,
-  button:hover a span,
+  button:not(.theme-toggle-btn):hover a,
+  button:not(.theme-toggle-btn):hover a span,
   .bg-white:hover a,
   .bg-white:hover a span {
     color: #ffffff !important;

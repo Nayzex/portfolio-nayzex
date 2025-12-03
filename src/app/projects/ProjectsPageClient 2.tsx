@@ -18,7 +18,7 @@ export default function ProjectsPageClient() {
       longDescription: 'Application web complète pour la gestion d\'un club de handball : gestion des équipes, planning des matchs, réservation des emplacements, suivi des joueurs et administration du club. Interface intuitive pour les administrateurs et les membres.',
       image: '/images/projects/ctmhb-handball-management/CTMHB logo.png',
       tags: ['Angular', 'Symfony', 'PostgreSQL'],
-      category: 'Web Development',
+      category: 'Développement Web',
       status: 'En cours',
       year: '2024',
     },

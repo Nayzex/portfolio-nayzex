@@ -19,8 +19,20 @@ export default function ContactPageClient() {
   const formRef = useRef<HTMLFormElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [isTurnstileEnabled, setIsTurnstileEnabled] = useState(false);
 
   useEffect(() => {
+    const sitekey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+    // Skip Turnstile if no sitekey is configured
+    if (!sitekey) {
+      console.log('Turnstile CAPTCHA is not configured (missing NEXT_PUBLIC_TURNSTILE_SITE_KEY)');
+      return;
+    }
+
+    // Enable Turnstile since we have a sitekey
+    setIsTurnstileEnabled(true);
+
     // Load Turnstile script
     const loadTurnstile = () => {
       if (!window.turnstile) {
@@ -39,7 +51,7 @@ export default function ContactPageClient() {
       const captchaContainer = document.getElementById('turnstile-container');
       if (captchaContainer && window.turnstile) {
         window.turnstile.render('#turnstile-container', {
-          sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
+          sitekey: sitekey,
           callback: (token: string) => {
             setCaptchaToken(token);
           },
@@ -63,7 +75,10 @@ export default function ContactPageClient() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!captchaToken) {
+    const sitekey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+    // Only check captcha if Turnstile is configured
+    if (sitekey && !captchaToken) {
       toast.error('Veuillez compléter le CAPTCHA');
       return;
     }
@@ -328,8 +343,10 @@ export default function ContactPageClient() {
                     </label>
                   </div>
 
-                  {/* Turnstile CAPTCHA */}
-                  <div id="turnstile-container" style={{ marginBottom: '1rem' }} />
+                  {/* Turnstile CAPTCHA - only render if Turnstile is configured */}
+                  {isTurnstileEnabled && (
+                    <div id="turnstile-container" style={{ marginBottom: '1rem' }} />
+                  )}
 
                   <Button
                     type="submit"

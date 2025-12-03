@@ -23,7 +23,7 @@ export default function HomePageClient() {
           {
             id: "ctmhb-handball-management",
             title: "CTMHB - Gestion de Club de Handball",
-            description: "Application web complète pour la gestion d&apos;un club de handball : équipes, matchs, planning, emplacements et administration du club.",
+            description: "Application web complète pour la gestion d'un club de handball : équipes, matchs, planning, emplacements et administration du club.",
             image: "/images/projects/ctmhb-handball-management/CTMHB logo.png",
             href: "/case-studies/ctmhb-handball-management",
             tags: ["Angular", "Symfony", "PostgreSQL"],

@@ -22,7 +22,7 @@ const experience = [
     role: 'Alternant - Développeur Front/Back',
     company: 'BPCE-SI',
     period: '2025 - En cours',
-    description: 'Développement full-stack sur AGRILISMAT, une application permettant d&apos;accorder des prêts pour l&apos;achat de matériel agricole aux agriculteurs.',
+    description: "Développement full-stack sur AGRILISMAT, une application permettant d'accorder des prêts pour l'achat de matériel agricole aux agriculteurs.",
     achievements: [
       'Développement de fonctionnalités front et backend pour la gestion des prêts agricoles',
       'Intégration avec les systèmes bancaires et de traitement de dossiers',
@@ -33,9 +33,9 @@ const experience = [
     role: 'Alternant - Développeur Front/Back',
     company: 'Amorinfo',
     period: '2024 - 2025',
-    description: 'Développement full-stack d&apos;un site web complet de gestion de club de handball permettant de gérer les équipes, matchs, lieux et gymnases.',
+    description: "Développement full-stack d'un site web complet de gestion de club de handball permettant de gérer les équipes, matchs, lieux et gymnases.",
     achievements: [
-      'Développement d&apos;une application complète de gestion sportive',
+      "Développement d'une application complète de gestion sportive",
       'Gestion des équipes, calendrier de matchs et espaces de jeu',
       'Interface responsive et intuitive pour les administrateurs de clubs'
     ]
@@ -46,12 +46,12 @@ const values = [
   {
     icon: Code,
     title: 'Code Propre',
-    description: 'Je crois en l&apos;écriture de code maintenable et bien documenté qui résiste à l&apos;épreuve du temps.'
+    description: "Je crois en l'écriture de code maintenable et bien documenté qui résiste à l'épreuve du temps."
   },
   {
     icon: Heart,
     title: 'Centré Utilisateur',
-    description: 'Chaque décision est prise en gardant l&apos;utilisateur final à l&apos;esprit, garantissant des expériences exceptionnelles.'
+    description: "Chaque décision est prise en gardant l'utilisateur final à l'esprit, garantissant des expériences exceptionnelles."
   },
   {
     icon: Coffee,

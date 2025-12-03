@@ -32,7 +32,7 @@ const processSteps = [
   {
     number: 2,
     title: "Design & Prototypage",
-    duration: "1 à 2 semaines",
+    duration: "1 semaine",
     icon: Users,
     description: "Créer des wireframes et prototypes pour visualiser la solution.",
     details: [
@@ -52,7 +52,7 @@ const processSteps = [
   {
     number: 3,
     title: "Développement & Tests",
-    duration: "4 à 5 semaines",
+    duration: "2 à 3 semaines",
     icon: Code,
     description: "Construire et tester rigoureusement l'application.",
     details: [
@@ -72,7 +72,7 @@ const processSteps = [
   {
     number: 4,
     title: "Déploiement & Lancement",
-    duration: "1 à 2 semaines",
+    duration: "1 semaine",
     icon: Rocket,
     description: "Assurer un lancement en douceur avec des réseaux sécurisés.",
     details: [
@@ -115,7 +115,7 @@ export default function ProcessPage() {
   return (
     <div>
       {/* Header */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <section className="py-16 lg:py-24" style={{ backgroundColor: '#1a1d23' }}>
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="mb-6">Mon Processus en 5 Étapes</h1>

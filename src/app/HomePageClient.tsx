@@ -75,7 +75,7 @@ export default function HomePageClient() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative h-[calc(100vh-4rem)] flex items-center justify-center text-center bg-gradient-to-br from-background to-surface">
+      <section className="relative h-[calc(100vh-4rem)] flex items-center justify-center text-center" style={{ background: 'linear-gradient(to bottom right, #FFFFFF, #808080, #000000)' }}>
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-clamp-hero-title mb-4 animate-fade-in-up">
             Développeur Web & Mobile <br className="hidden sm:inline" />

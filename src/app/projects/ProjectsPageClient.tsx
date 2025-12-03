@@ -75,18 +75,21 @@ export default function ProjectsPageClient() {
                   onClick={() => setSelectedCategory(category)}
                   className={`border transition-colors ${
                     selectedCategory === category
-                      ? 'bg-violet-600 hover:bg-violet-600 text-white border-violet-600 font-semibold'
-                      : 'bg-white text-black hover:text-violet-600 border-gray-300'
+                      ? 'text-white border-violet-600 font-semibold'
+                      : 'text-black hover:text-violet-600 border-gray-300'
                   }`}
+                  style={{
+                    backgroundColor: selectedCategory === category ? '#8B5CF6' : '#FFFFFF'
+                  }}
                 >
                   {category}
                 </Button>
               ))}
             </div>
-            
+
             {/* Compteur de projets */}
-            <div className="mt-4 text-sm text-gray-600">
-              {filteredProjects.length} projet{filteredProjects.length > 1 ? 's' : ''} 
+            <div className="mt-4 text-sm text-gray-600 dark:text-gray-300">
+              {filteredProjects.length} projet{filteredProjects.length > 1 ? 's' : ''}
               {selectedCategory !== 'Tous' && ` en ${selectedCategory}`}
             </div>
           </div>

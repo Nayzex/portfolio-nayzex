@@ -43,12 +43,12 @@
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.6;
 
-  /* === Colors - Light Mode === */
-  --color-bg: #FFFFFF;
-  --color-surface: #F7F7F8;
-  --color-ink: #0A0A0B;
-  --color-ink-subtle: #3A3A40;
-  --color-stroke: #E8E8EA;
+  /* === Colors - Dark Mode (default) === */
+  --color-bg: #0B0C0F;
+  --color-surface: #0F1115;
+  --color-ink: #F5F6F7;
+  --color-ink-subtle: #B6BAC2;
+  --color-stroke: #1E2128;
 
   /* Accent A - Violet */
   --color-accent-a-base: #8B5CF6;
@@ -301,15 +301,13 @@ button[class*="bg-violet"]:hover,
   color: #ffffff !important;
 }
 
-/* === Dark Mode (optional for V1) === */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #0B0C0F;
-    --color-surface: #0F1115;
-    --color-ink: #F5F6F7;
-    --color-ink-subtle: #B6BAC2;
-    --color-stroke: #1E2128;
-  }
+/* === Light Mode === */
+.light {
+  --color-bg: #FFFFFF;
+  --color-surface: #F7F7F8;
+  --color-ink: #0A0A0B;
+  --color-ink-subtle: #3A3A40;
+  --color-stroke: #E8E8EA;
 }
 
 /* === Reduced Motion === */

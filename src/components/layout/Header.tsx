@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import ThemeToggle from '@/components/common/ThemeToggle';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,13 +52,18 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-screen border-b border-gray-700" style={{ backgroundColor: '#000000' }}>
       <div className="w-full max-w-screen-2xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-accent-a-base rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">N</span>
+          {/* Logo + Theme Toggle */}
+          <div className="flex items-center gap-4">
+            <Link href="/" className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-accent-a-base rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">N</span>
+              </div>
+              <span className="font-bold text-lg text-white">Nayzex</span>
+            </Link>
+            <div className="hidden md:block">
+              <ThemeToggle />
             </div>
-            <span className="font-bold text-lg text-white">Nayzex</span>
-          </Link>
+          </div>
 
           {/* Navigation Desktop */}
           <nav className="hidden md:flex items-center space-x-6">

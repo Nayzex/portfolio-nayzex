@@ -115,7 +115,7 @@ export default function ProcessPage() {
   return (
     <div>
       {/* Header */}
-      <section className="py-16 lg:py-24">
+      <section className="py-16 lg:py-24" style={{ backgroundColor: 'var(--color-surface)' }}>
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="mb-6">Mon Processus en 5 Étapes</h1>
@@ -130,7 +130,7 @@ export default function ProcessPage() {
       </section>
 
       {/* Process Steps */}
-      <section className="pb-16">
+      <section className="pt-16 pb-16" style={{ backgroundColor: 'var(--color-bg)' }}>
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             {processSteps.map((step, index) => (

@@ -29,13 +29,13 @@ export default function ProjectsPageClient() {
       longDescription: 'Application mobile iOS pour la gestion complète de matchs de babyfoot : enregistrement des joueurs, création de matchs 1v1 et 2v2, saisie des résultats, photos des gagnants, statistiques détaillées avec podium des meilleurs joueurs, et association des joueurs à leurs formations scolaires. Architecture offline-first avec SwiftData.',
       image: '/images/projects/babyfoot-go/logo.png',
       tags: ['SwiftUI', 'SwiftData', 'iOS 17+'],
-      category: 'Mobile Development',
+      category: 'Développement Mobile',
       status: 'Terminé',
       year: '2024',
     },
   ];
 
-  const categories = ['Tous', 'Web Development', 'Mobile Development', 'AI & Machine Learning'];
+  const categories = ['Tous', 'Développement Web', 'Développement Mobile', 'IA & Machine Learning'];
 
   // Filtrer les projets selon la catégorie sélectionnée
   const filteredProjects = selectedCategory === 'Tous' 

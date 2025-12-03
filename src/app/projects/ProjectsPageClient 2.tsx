@@ -45,7 +45,7 @@ export default function ProjectsPageClient() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="py-12 lg:py-16" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <section className="py-12 lg:py-16" style={{ backgroundColor: '#1a1d23' }}>
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="mb-4">Mes Projets</h1>

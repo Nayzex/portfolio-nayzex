@@ -69,7 +69,7 @@ export default function AboutPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <section className="py-16 lg:py-24" style={{ backgroundColor: '#1a1d23' }}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
@@ -163,7 +163,7 @@ export default function AboutPage() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-16" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <section className="py-16" style={{ backgroundColor: '#1a1d23' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="mb-6">Skills & Technologies</h2>
@@ -252,7 +252,7 @@ export default function AboutPage() {
       </section>
 
       {/* Personal Section */}
-      <section className="py-16" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <section className="py-16" style={{ backgroundColor: '#1a1d23' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="mb-6">Au-delà du Code</h2>

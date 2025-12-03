@@ -118,7 +118,7 @@ export default function ContactPageClient() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="py-12 lg:py-16" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <section className="py-12 lg:py-16" style={{ backgroundColor: '#1a1d23' }}>
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="mb-4">Parlons de votre projet</h1>
@@ -134,7 +134,7 @@ export default function ContactPageClient() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Quick Contact Options */}
-            <div className="p-8 rounded-xl" style={{ backgroundColor: 'var(--color-surface)' }}>
+            <div className="p-8 rounded-xl" style={{ backgroundColor: '#1a1d23' }}>
               <h2 className="mb-6">Contacts rapides</h2>
               <div className="space-y-6">
                 {/* Email */}
@@ -185,7 +185,7 @@ export default function ContactPageClient() {
             </div>
 
             {/* Contact Form */}
-            <div className="p-8 rounded-xl" style={{ backgroundColor: 'var(--color-surface)' }}>
+            <div className="p-8 rounded-xl" style={{ backgroundColor: '#1a1d23' }}>
               <h2 className="mb-6">Formulaire de contact</h2>
               <div className="p-8 rounded-lg" style={{ backgroundColor: 'var(--color-bg)' }}>
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">

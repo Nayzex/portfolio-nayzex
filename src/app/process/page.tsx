@@ -199,7 +199,7 @@ export default function ProcessPage() {
                         <h4 className="text-lg font-semibold mb-4">Livrables Clés</h4>
                         <div 
                           className="p-4 rounded-lg"
-                          style={{ backgroundColor: 'var(--color-surface)' }}
+                          style={{ backgroundColor: '#1a1d23' }}
                         >
                           <ul className="space-y-2">
                             {step.deliverables.map((deliverable, deliverableIndex) => (
@@ -238,7 +238,7 @@ export default function ProcessPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <section className="py-16" style={{ backgroundColor: '#1a1d23' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="mb-6">Pourquoi Ce Processus Fonctionne</h2>

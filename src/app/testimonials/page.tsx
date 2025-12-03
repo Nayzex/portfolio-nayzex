@@ -57,7 +57,7 @@ export default function TestimonialsPage() {
 
       {/* Stats Section */}
       {stats.length > 0 && (
-        <section className="py-8 md:py-12" style={{ backgroundColor: 'var(--color-surface)' }}>
+        <section className="py-8 md:py-12" style={{ backgroundColor: '#1a1d23' }}>
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto">
               {stats.map((stat, index) => (
@@ -118,7 +118,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Process Feedback Section */}
-      <section className="py-16" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <section className="py-16" style={{ backgroundColor: '#1a1d23' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="mb-4 md:mb-6 text-xl md:text-3xl">Ce Que Les Clients Apprécient En Travaillant Avec Moi</h2>
@@ -202,7 +202,7 @@ export default function TestimonialsPage() {
             <div 
               className="p-6 rounded-xl text-center border"
               style={{ 
-                backgroundColor: 'var(--color-surface)',
+                backgroundColor: '#1a1d23',
                 borderColor: 'var(--color-stroke)'
               }}
             >
@@ -216,7 +216,7 @@ export default function TestimonialsPage() {
             <div 
               className="p-6 rounded-xl text-center border"
               style={{ 
-                backgroundColor: 'var(--color-surface)',
+                backgroundColor: '#1a1d23',
                 borderColor: 'var(--color-stroke)'
               }}
             >
@@ -230,7 +230,7 @@ export default function TestimonialsPage() {
             <div 
               className="p-6 rounded-xl text-center border"
               style={{ 
-                backgroundColor: 'var(--color-surface)',
+                backgroundColor: '#1a1d23',
                 borderColor: 'var(--color-stroke)'
               }}
             >

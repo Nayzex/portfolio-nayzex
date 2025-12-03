@@ -27,7 +27,13 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+      className="p-2 rounded-lg transition-colors"
+      style={{
+        backgroundColor: 'transparent',
+        border: 'none'
+      }}
+      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1f2937'}
+      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
     >
       {theme === 'dark' ? (

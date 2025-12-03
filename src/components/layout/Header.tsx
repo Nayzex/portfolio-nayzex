@@ -67,19 +67,23 @@ export default function Header() {
 
           {/* Navigation Desktop */}
           <nav className="hidden md:flex items-center space-x-6">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-violet-400 border-b-2 ${
-                  pathname === item.href
-                    ? 'text-violet-600 font-semibold border-violet-600'
-                    : 'text-white border-transparent'
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigation.map((item) => {
+              const isActive = pathname === item.href ||
+                (item.href === '/projects' && pathname.startsWith('/case-studies'));
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`text-sm font-medium transition-colors hover:text-violet-400 border-b-2 ${
+                    isActive
+                      ? 'text-violet-600 font-semibold border-violet-600'
+                      : 'text-white border-transparent'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* CTAs Desktop */}
@@ -124,24 +128,38 @@ export default function Header() {
               style={{ backgroundColor: '#000000' }}
             >
               <div className="px-4 py-6 space-y-2">
-                {navigation.map((item, index) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`block px-4 py-3 text-lg font-medium rounded-lg transition-colors ${
-                      pathname === item.href
-                        ? 'text-violet-600 bg-violet-600/10 font-semibold'
-                        : 'text-white hover:bg-gray-800 active:bg-gray-700'
-                    }`}
-                    style={{
-                      animation: isMenuClosing ? 'none' : `fadeInSlideUp 0.3s ease-out ${index * 0.05}s both`
-                    }}
-                    onClick={handleCloseMenu}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+                {navigation.map((item, index) => {
+                  const isActive = pathname === item.href ||
+                    (item.href === '/projects' && pathname.startsWith('/case-studies'));
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={`block px-4 py-3 text-lg font-medium rounded-lg transition-colors ${
+                        isActive
+                          ? 'text-violet-600 bg-violet-600/10 font-semibold'
+                          : 'text-white hover:bg-gray-800 active:bg-gray-700'
+                      }`}
+                      style={{
+                        animation: isMenuClosing ? 'none' : `fadeInSlideUp 0.3s ease-out ${index * 0.05}s both`
+                      }}
+                      onClick={handleCloseMenu}
+                    >
+                      {item.name}
+                    </Link>
+                  );
+                })}
                 <div className="flex flex-col space-y-3 pt-6 border-t border-gray-700 mt-6">
+                  {/* Theme Toggle Mobile */}
+                  <div
+                    className="flex items-center justify-between px-4 py-3 rounded-lg"
+                    style={{
+                      animation: isMenuClosing ? 'none' : 'fadeInSlideUp 0.3s ease-out 0.35s both'
+                    }}
+                  >
+                    <span className="text-white text-lg font-medium">Mode d'affichage</span>
+                    <ThemeToggle />
+                  </div>
                   <Button
                     size="lg"
                     asChild

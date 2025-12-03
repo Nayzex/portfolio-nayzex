@@ -203,7 +203,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
       {/* Gallery */}
       {caseStudy.meta.gallery && caseStudy.meta.gallery.length > 0 && (
-        <section className="py-16" style={{ backgroundColor: 'var(--color-surface)' }}>
+        <section className="py-16" style={{ backgroundColor: '#1a1d23' }}>
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-semibold mb-8 text-center">Galerie</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">

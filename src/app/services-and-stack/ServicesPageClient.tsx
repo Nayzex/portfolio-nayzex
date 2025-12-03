@@ -130,7 +130,7 @@ export default function ServicesPageClient() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="py-12 lg:py-16" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <section className="py-12 lg:py-16" style={{ backgroundColor: '#1a1d23' }}>
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="mb-4">Services & Technologies</h1>
@@ -181,7 +181,7 @@ export default function ServicesPageClient() {
       </section>
 
       {/* Technologies Section */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <section className="py-16 lg:py-24" style={{ backgroundColor: '#1a1d23' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="mb-3 md:mb-4">Technologies Maîtrisées</h2>

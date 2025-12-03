@@ -108,7 +108,7 @@ export default function HomePageClient() {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-12 lg:py-16" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <section className="py-12 lg:py-16" style={{ backgroundColor: '#1a1d23' }}>
         <div className="container mx-auto px-4">
           <h2 className="text-center mb-6 md:mb-8">Projets Récents</h2>
           <div className="grid grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
@@ -156,7 +156,7 @@ export default function HomePageClient() {
       </section>
 
       {/* Process Section */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <section className="py-16 lg:py-24" style={{ backgroundColor: '#1a1d23' }}>
         <div className="container mx-auto px-4">
           <h2 className="text-center mb-12">Mon Processus de Travail</h2>
           <div className="max-w-4xl mx-auto">

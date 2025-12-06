@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
-import TestimonialCard from '@/components/cards/TestimonialCard';
+import { TestimonialCard } from '@/features/testimonials';
 import Link from 'next/link';
 import { Star, Users, TrendingUp } from 'lucide-react';
 

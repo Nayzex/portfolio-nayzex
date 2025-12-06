@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
-import { getCaseStudyBySlug, getAdjacentCaseStudies, getAllCaseStudySlugs } from '@/lib/mdx/get-case-studies';
+import { getCaseStudyBySlug, getAdjacentCaseStudies, getAllCaseStudySlugs } from '@/features/case-studies/lib/get-case-studies';
 import { Calendar, Clock, ArrowLeft, ArrowRight } from 'lucide-react';
 
 interface CaseStudyPageProps {

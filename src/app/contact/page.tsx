@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ContactPageClient from './ContactPageClient';
+import { ContactPageClient } from '@/features/contact';
 
 export const metadata: Metadata = {
   title: "Contact | Portfolio Nathan Siwek - Nayzex",

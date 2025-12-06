@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ServicesPageClient from './ServicesPageClient';
+import { ServicesPageClient } from '@/features/services';
 
 export const metadata: Metadata = {
   title: "Services & Stack | Portfolio Nathan Siwek - Nayzex",

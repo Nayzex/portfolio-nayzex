@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import HomePageClient from './HomePageClient';
+import { HomePageClient } from '@/features/home';
 
 export const metadata: Metadata = {
   title: "Développeur Web & Mobile | Portfolio Nathan Siwek - Nayzex",
